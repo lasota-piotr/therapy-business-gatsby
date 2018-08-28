@@ -4,6 +4,7 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import Hero from '../components/Hero'
+import Lead from '../components/Lead'
 
 const IndexPage = ({ data, location }) => {
   const siteTitle = get(data, 'site.siteMetadata.title')
@@ -18,6 +19,7 @@ const IndexPage = ({ data, location }) => {
         title={siteTitle}
       />
       <Hero imageFluid={data.heroImage.childImageSharp.fluid} />
+      <Lead />
 
       <section>
         Ostatnie artykuły
