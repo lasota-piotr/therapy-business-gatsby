@@ -28,12 +28,12 @@ import media from '../styleUtils/media'
 const Container = styled.div`
   width: 100%;
   padding-right: ${({ theme }) => theme.space[3]}px;
-  padding-left: 15px;
+  padding-left: ${({ theme }) => theme.space[3]}px;
   margin-right: auto;
   margin-left: auto;
   max-width: 1140px;
   ${media.tablet`max-width: 720px`};
-  ${media.desktop`max-width: 960px`};
+  ${media.giant`max-width: 960px`};
 `
 
 export default Container

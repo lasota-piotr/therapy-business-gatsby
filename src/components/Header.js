@@ -37,7 +37,7 @@ const Header = ({ location }) => {
     <nav>
       <NavContainer>
         <Heading isRoot={isRoot}>
-          <HeadingLink to="/">Gatsby Starter Blog</HeadingLink>
+          <HeadingLink to="/">Ilona Lasota</HeadingLink>
         </Heading>
         <Menu />
       </NavContainer>

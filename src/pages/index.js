@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import Hero from '../components/Hero'
 import Lead from '../components/Lead'
+import Features from '../components/Features'
 
 const IndexPage = ({ data, location }) => {
   const siteTitle = get(data, 'site.siteMetadata.title')
@@ -20,6 +21,8 @@ const IndexPage = ({ data, location }) => {
       />
       <Hero imageFluid={data.heroImage.childImageSharp.fluid} />
       <Lead />
+
+      <Features />
 
       <section>
         Ostatnie artykuły

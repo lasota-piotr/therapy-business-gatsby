@@ -9,7 +9,7 @@ const Lead = () => {
     <LeadWrapper>
       <Container>
         <Flex justifyContent="center">
-          <Box width={[1, 2 / 3, 1 / 2]}>
+          <Box width={[1, 2 / 3]}>
             <LeadHead>All the tools you'll need</LeadHead>
             <LeadText>
               Whether you’re building a welcome mat for your SaaS or a clean,
