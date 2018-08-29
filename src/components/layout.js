@@ -5,6 +5,12 @@ import '../styles/main.scss'
 import Header from './Header'
 
 const theme = {
+  fonts: {
+    sans: `'Open Sans', 'Helvetica', -apple-system, BlinkMacSystemFont,
+  'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+  'Droid Sans', 'Helvetica Neue', sans-serif`,
+    mono: 'Menlo, monospace',
+  },
   fontWeights: {
     normal: 400,
     bold: 600,

@@ -4,8 +4,11 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import Hero from '../components/Hero'
-import Lead from '../components/Lead'
+import Cta from '../components/Cta'
 import Features from '../components/Features'
+import Testimonials from '../components/Testimonials'
+import Button from '../components/Button'
+import LatestBlogPosts from '../components/LatestBlogPosts'
 
 const IndexPage = ({ data, location }) => {
   const siteTitle = get(data, 'site.siteMetadata.title')
@@ -20,25 +23,26 @@ const IndexPage = ({ data, location }) => {
         title={siteTitle}
       />
       <Hero imageFluid={data.heroImage.childImageSharp.fluid} />
-      <Lead />
+      <Cta>
+        <Cta.Head>All the tools you'll need</Cta.Head>
+        <Cta.Text>
+          Whether you’re building a welcome mat for your SaaS or a clean,
+          corporate portfolio, Stack has your design needs covered.
+        </Cta.Text>
+      </Cta>
 
       <Features />
+      <Testimonials />
 
-      <section>
-        Ostatnie artykuły
-        {posts.map(({ node }) => {
-          const title = get(node, 'frontmatter.title') || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3>
-                <Link to={node.fields.slug}>{title}</Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })}
-      </section>
+      <LatestBlogPosts posts={posts} />
+      <Cta>
+        <Cta.Head>All the tools you'll need</Cta.Head>
+        <Cta.Text>
+          Whether you’re building a welcome mat for your SaaS or a clean,
+          corporate portfolio, Stack has your design needs covered.
+        </Cta.Text>
+        <Button>Skontaktuj się</Button>
+      </Cta>
     </Layout>
   )
 }
@@ -53,7 +57,10 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 3
+    ) {
       edges {
         node {
           excerpt
@@ -63,6 +70,13 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
             title
+            image {
+              childImageSharp {
+                fluid(maxWidth: 510, maxHeight: 340) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
           }
         }
       }
