@@ -55,6 +55,7 @@ const BlogCardBody = styled.div`
 const BlogCardWrapper = styled.article`
   display: flex;
   flex-direction: column;
+  max-width: 510px;
 `
 
 export default BlogCard
