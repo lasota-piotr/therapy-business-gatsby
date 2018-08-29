@@ -9,7 +9,7 @@ const BlogCard = ({ data }) => {
   const fluid = get(data, 'frontmatter.image.childImageSharp.fluid')
 
   return (
-    <article>
+    <BlogCardWrapper>
       {fluid && (
         <Link to={data.fields.slug}>
           <BlogCardImg fluid={fluid} />
@@ -21,7 +21,7 @@ const BlogCard = ({ data }) => {
         <p dangerouslySetInnerHTML={{ __html: data.excerpt }} />
         <Link to={data.fields.slug}>Czytaj dalej</Link>
       </BlogCardBody>
-    </article>
+    </BlogCardWrapper>
   )
 }
 
@@ -49,6 +49,12 @@ const BlogCardBody = styled.div`
   padding: 2rem;
   border-radius: 0 0 6px 6px;
   border: 1px solid #ececec;
+  height: 100%;
+`
+
+const BlogCardWrapper = styled.article`
+  display: flex;
+  flex-direction: column;
 `
 
 export default BlogCard

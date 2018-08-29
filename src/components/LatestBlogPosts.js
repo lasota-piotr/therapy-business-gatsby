@@ -7,7 +7,7 @@ import Container from './Container'
 
 const LatestBlogPosts = ({ posts }) => {
   return (
-    <section>
+    <LatestBlogPostsWrapper>
       <Container>
         <LatestBlogPostsContainer>
           {posts.map(({ node }) => (
@@ -15,7 +15,7 @@ const LatestBlogPosts = ({ posts }) => {
           ))}
         </LatestBlogPostsContainer>
       </Container>
-    </section>
+    </LatestBlogPostsWrapper>
   )
 }
 
@@ -24,6 +24,10 @@ const LatestBlogPostsContainer = styled.div`
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   justify-items: center;
+`
+
+const LatestBlogPostsWrapper = styled.section`
+  margin: 6.5rem 0;
 `
 
 export default LatestBlogPosts
