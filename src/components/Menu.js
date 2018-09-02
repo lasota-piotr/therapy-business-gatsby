@@ -26,9 +26,10 @@ const Menu = () => {
               <MenuLink activeStyle={activeStyle} to="/o-mnie">
                 O mnie
               </MenuLink>
-              <MenuLink activeStyle={activeStyle} to="/blog">
-                Blog
-              </MenuLink>
+              {/* TODO: ENABLE BLOG */}
+              {/*<MenuLink activeStyle={activeStyle} to="/blog">*/}
+                {/*Blog*/}
+              {/*</MenuLink>*/}
               <MenuLink activeStyle={activeStyle} to="/cennik">
                 Cennik
               </MenuLink>

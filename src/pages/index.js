@@ -59,14 +59,15 @@ const IndexPage = ({ data, location }) => {
         <FeatureLarge.Img fluid={data.aboutImage.childImageSharp.fluid} />
       </FeatureLarge>
       <Testimonials />
-      <LatestBlogPosts posts={posts} />
+      {/* TODO: ENABLE BLOG */}
+      {/*<LatestBlogPosts posts={posts} />*/}
       <Cta>
         <Cta.Head>All the tools you'll need</Cta.Head>
         <Cta.Text>
           Whether you’re building a welcome mat for your SaaS or a clean,
           corporate portfolio, Stack has your design needs covered.
         </Cta.Text>
-        <Button>Skontaktuj się</Button>
+        <Link to="/kontakt"><Button px={4} py={3}>Skontaktuj się</Button></Link>
       </Cta>
     </Layout>
   )
