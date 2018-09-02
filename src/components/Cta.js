@@ -36,8 +36,7 @@ const CtaWrapper = styled.div`
           margin: 2rem 0;
         `
       : css`
-          padding: 0 1rem;
-          margin: 5.5rem 0;
+          padding: 5.5rem 1rem;
         `};
 `
 
