@@ -79,7 +79,7 @@ const PricingPage = ({ data, location }) => {
                 27-400, świętokrzyskie
               </p>
               <p>
-                <LinkFeature to="//sot.ostrowiec.pl">
+                <LinkFeature to="http//sot.ostrowiec.pl">
                   Więcej informacji
                 </LinkFeature>
               </p>
