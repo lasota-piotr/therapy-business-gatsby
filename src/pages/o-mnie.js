@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { between } from 'polished'
+import PropTypes from 'prop-types'
 import Layout from '../components/layout'
 import Button from '../components/Button'
 import FeatureLarge from '../components/FeatureLarge'
@@ -13,94 +14,108 @@ import ether from '../assets/ether.svg'
 import highFive from '../assets/high-five.svg'
 import Hero from '../components/Hero'
 
-const AboutPage = ({ data, location }) => {
-  const siteTitle = get(data, 'site.siteMetadata.title')
-  const siteDescription = get(data, 'site.siteMetadata.description')
+class AboutPage extends Component {
+  // TODO: move it to render props
+  scrollElementRef = React.createRef()
+  handleScrollToElement = () => {
+    window.scrollTo({
+      top: this.scrollElementRef.current.offsetTop,
+      behavior: 'smooth',
+    })
+  }
+  render() {
+    let { data, location } = this.props
+    const siteTitle = get(data, 'site.siteMetadata.title')
+    const siteDescription = get(data, 'site.siteMetadata.description')
+    return (
+      <Layout location={location}>
+        <Helmet
+          htmlAttributes={{ lang: 'pl' }}
+          meta={[{ name: 'description', content: siteDescription }]}
+          title={siteTitle}
+        />
+        <AboutHero
+          imageFluid={data.heroImage.childImageSharp.fluid}
+          position="left"
+          size="large"
+          headerText="Ilona Lasota"
+          subHeaderText="Psycholog i psychoterapeuta poznawczo&#8209;behawioralny w trakcie procesu certyfikacji"
+          contentChildren={
+            <Button px={4} py={3} onClick={this.handleScrollToElement}>
+              Dowiedz się więcej
+            </Button>
+          }
+        />
+        <FeatureLarge innerRef={this.scrollElementRef}>
+          <FeatureLarge.Content>
+            <AboutFeatureLargeHeader>Edukacja</AboutFeatureLargeHeader>
+            <AboutFeatureLargeBody>
+              Jestem psychologiem i psychoterapeutą poznawczo-behawioralnym w
+              trakcie procesu certyfikacji. Ukończyłam pięcioletnie studia
+              magisterskie na kierunku psychologia na Uniwersytecie Warszawskim
+              ze specjalizacją terapia rodzin i małżeństw. Obecnie jestem na
+              ostatnim roku 4-letniego szkolenia w zakresie terapii
+              poznawczo-behawioralnej w Szkole Psychoterapii Centrum CBT,
+              rekomendowanej przez Polskie Towarzystwo Terapii Poznawczej i
+              Behawioralnej(PTTPB).
+            </AboutFeatureLargeBody>
+          </FeatureLarge.Content>
+          <AboutFeatureLargeImage src={graduation} alt="edukacja" />
+        </FeatureLarge>
 
-  return (
-    <Layout location={location}>
-      <Helmet
-        htmlAttributes={{ lang: 'pl' }}
-        meta={[{ name: 'description', content: siteDescription }]}
-        title={siteTitle}
-      />
-      {/*<Masthead>*/}
-      {/*<Masthead.Head>Ilona Lasota</Masthead.Head>*/}
-      {/*<Masthead.Text>*/}
-      {/*Psycholog i psychoterapeuta poznawczo-behawioralny w trakcie procesu*/}
-      {/*certyfikacji.*/}
-      {/*</Masthead.Text>*/}
-      {/*</Masthead>*/}
-      <AboutHero
-        imageFluid={data.heroImage.childImageSharp.fluid}
-        position="left"
-        size="large"
-        headerText="Ilona Lasota"
-        subHeaderText="Psycholog i psychoterapeuta poznawczo&#8209;behawioralny w trakcie procesu certyfikacji"
-        contentChildren={
-          <Button px={4} py={3}>
-            Dowiedz się więcej
-          </Button>
-        }
-      />
-      <FeatureLarge>
-        <FeatureLarge.Content>
-          <AboutFeatureLargeHeader>Edukacja</AboutFeatureLargeHeader>
-          <AboutFeatureLargeBody>
-            Jestem psychologiem i psychoterapeutą poznawczo-behawioralnym w
-            trakcie procesu certyfikacji. Ukończyłam pięcioletnie studia
-            magisterskie na kierunku psychologia na Uniwersytecie Warszawskim ze
-            specjalizacją terapia rodzin i małżeństw. Obecnie jestem na ostatnim
-            roku 4-letniego szkolenia w zakresie terapii poznawczo-behawioralnej
-            w Szkole Psychoterapii Centrum CBT, rekomendowanej przez Polskie
-            Towarzystwo Terapii Poznawczej i Behawioralnej(PTTPB).
-          </AboutFeatureLargeBody>
-        </FeatureLarge.Content>
-        <AboutFeatureLargeImage src={graduation} alt="edukacja" />
-      </FeatureLarge>
+        <FeatureLarge>
+          <AboutFeatureLargeImage src={ether} alt="edukacja" />
+          <FeatureLarge.Content>
+            <AboutFeatureLargeHeader>Doświadczenie</AboutFeatureLargeHeader>
+            <AboutFeatureLargeBody>
+              Od 4 lat współpracuję z Świętokrzyskim Ośrodkiem Terapii, gdzie
+              zajmuję się prowadzeniem terapii oraz poradnictwem w Poradni
+              Psychologicznej, Poradni Zdrowia Psychicznego oraz Zespole
+              Leczenia Środowiskowego. W swojej pracy terapeutycznej posługuję
+              się głównie podejściem poznawczo-behawioralnym oraz terapią
+              schematu.
+            </AboutFeatureLargeBody>
+          </FeatureLarge.Content>
+        </FeatureLarge>
 
-      <FeatureLarge>
-        <AboutFeatureLargeImage src={ether} alt="edukacja" />
-        <FeatureLarge.Content>
-          <AboutFeatureLargeHeader>Doświadczenie</AboutFeatureLargeHeader>
-          <AboutFeatureLargeBody>
-            Od 4 lat współpracuję z Świętokrzyskim Ośrodkiem Terapii, gdzie
-            zajmuję się prowadzeniem terapii oraz poradnictwem w Poradni
-            Psychologicznej, Poradni Zdrowia Psychicznego oraz Zespole Leczenia
-            Środowiskowego. W swojej pracy terapeutycznej posługuję się głównie
-            podejściem poznawczo-behawioralnym oraz terapią schematu.
-          </AboutFeatureLargeBody>
-        </FeatureLarge.Content>
-      </FeatureLarge>
+        <FeatureLarge>
+          <FeatureLarge.Content>
+            <AboutFeatureLargeHeader>Komu pomagam?</AboutFeatureLargeHeader>
+            <AboutFeatureLargeBody>
+              Pracuję z młodzieżą i osobami dorosłymi, głównie w zakresie:
+              zaburzeń lękowych, nieśmiałości, depresji, nerwic, problemów w
+              relacjach, zaburzeń adaptacyjnych, problemów związanych z niskim
+              poczuciem wartości. Prowadzę również terapię par i małżeństw,
+              które przeżywają kryzys w związku oraz dla tych, którzy pragną
+              takich kryzysów uniknąć. W terapii towarzyszę również tym
+              wszystkim, którzy potrzebują zmiany, chcą rozwijać swoją
+              osobowość, żyć pełniej, bardziej świadomie, pragną zwiększyć swoją
+              zdolność do satysfakcjonującego życia.
+            </AboutFeatureLargeBody>
+          </FeatureLarge.Content>
+          <AboutFeatureLargeImage src={highFive} alt="pomoc" />
+        </FeatureLarge>
 
-      <FeatureLarge>
-        <FeatureLarge.Content>
-          <AboutFeatureLargeHeader>Komu pomagam?</AboutFeatureLargeHeader>
-          <AboutFeatureLargeBody>
-            Pracuję z młodzieżą i osobami dorosłymi, głównie w zakresie:
-            zaburzeń lękowych, nieśmiałości, depresji, nerwic, problemów w
-            relacjach, zaburzeń adaptacyjnych, problemów związanych z niskim
-            poczuciem wartości. Prowadzę również terapię par i małżeństw, które
-            przeżywają kryzys w związku oraz dla tych, którzy pragną takich
-            kryzysów uniknąć. W terapii towarzyszę również tym wszystkim, którzy
-            potrzebują zmiany, chcą rozwijać swoją osobowość, żyć pełniej,
-            bardziej świadomie, pragną zwiększyć swoją zdolność do
-            satysfakcjonującego życia.
-          </AboutFeatureLargeBody>
-        </FeatureLarge.Content>
-        <AboutFeatureLargeImage src={highFive} alt="pomoc" />
-      </FeatureLarge>
+        <Cta>
+          <Cta.Head>All the tools you'll need</Cta.Head>
+          <Cta.Text>
+            Whether you’re building a welcome mat for your SaaS or a clean,
+            corporate portfolio, Stack has your design needs covered.
+          </Cta.Text>
+          <Link to="/kontakt">
+            <Button px={4} py={3}>
+              Skontaktuj się
+            </Button>
+          </Link>
+        </Cta>
+      </Layout>
+    )
+  }
+}
 
-      <Cta>
-        <Cta.Head>All the tools you'll need</Cta.Head>
-        <Cta.Text>
-          Whether you’re building a welcome mat for your SaaS or a clean,
-          corporate portfolio, Stack has your design needs covered.
-        </Cta.Text>
-        <Link to="/kontakt"><Button px={4} py={3}>Skontaktuj się</Button></Link>
-      </Cta>
-    </Layout>
-  )
+AboutPage.propTypes = {
+  data: PropTypes.any,
+  location: PropTypes.any,
 }
 
 const AboutHero = styled(Hero)`
