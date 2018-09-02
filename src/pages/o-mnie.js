@@ -24,7 +24,7 @@ class AboutPage extends Component {
     })
   }
   render() {
-    let { data, location } = this.props
+    const { data, location } = this.props
     const siteTitle = get(data, 'site.siteMetadata.title')
     const siteDescription = get(data, 'site.siteMetadata.description')
     return (
@@ -57,7 +57,9 @@ class AboutPage extends Component {
               ostatnim roku 4-letniego szkolenia w zakresie terapii
               poznawczo-behawioralnej w Szkole Psychoterapii Centrum CBT,
               rekomendowanej przez Polskie Towarzystwo Terapii Poznawczej i
-              Behawioralnej(PTTPB).
+              Behawioralnej (PTTPB). Stale poszerzam zakres swojej wiedzy
+              uczestnicząc w szkoleniach i warsztatach. Swoją pracę poddaje
+              regularnej superwizji.
             </AboutFeatureLargeBody>
           </FeatureLarge.Content>
           <AboutFeatureLargeImage src={graduation} alt="edukacja" />
@@ -71,9 +73,9 @@ class AboutPage extends Component {
               Od 4 lat współpracuję z Świętokrzyskim Ośrodkiem Terapii, gdzie
               zajmuję się prowadzeniem terapii oraz poradnictwem w Poradni
               Psychologicznej, Poradni Zdrowia Psychicznego oraz Zespole
-              Leczenia Środowiskowego. W swojej pracy terapeutycznej posługuję
-              się głównie podejściem poznawczo-behawioralnym oraz terapią
-              schematu.
+              Leczenia Środowiskowego. Doświadczenie zawodowe zdobywałam również
+              współpracując z Poradnią Zdrowia Psychicznego z oddziałami w
+              Warszawie i Legionowie.
             </AboutFeatureLargeBody>
           </FeatureLarge.Content>
         </FeatureLarge>
@@ -98,9 +100,7 @@ class AboutPage extends Component {
 
         <Cta>
           <Cta.Head>Zapisz się na wizytę</Cta.Head>
-          <Cta.Text>
-            Zacznij od siebie
-          </Cta.Text>
+          <Cta.Text>Zacznij od siebie</Cta.Text>
           <Link to="/kontakt">
             <Button px={4} py={3}>
               Skontaktuj się
@@ -131,6 +131,7 @@ const AboutFeatureLargeBody = styled(FeatureLarge.Body)`
 
 const AboutFeatureLargeHeader = styled(FeatureLarge.Header)`
   font-size: ${between('20px', '28px')};
+  margin-bottom: 1rem;
 `
 
 export default AboutPage

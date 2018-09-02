@@ -35,7 +35,7 @@ class IndexPage extends Component {
         />
         <Hero
           imageFluid={data.heroImage.childImageSharp.fluid}
-          headerText="Nigdy nie jest za późno na zmianę"
+          headerText="Otwórz się na zmianę"
           subHeaderText="Psychoterapia: osób dorosłych, młodzieży i par"
           contentChildren={
             <Button px={4} py={3} onClick={this.handleScrollToElement}>

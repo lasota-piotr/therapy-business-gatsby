@@ -29,6 +29,7 @@
     "node-sass": "^4.9.3",
     "polished": "^2.0.3",
     "react": "^16.4.2",
+    "react-accessible-accordion": "^2.4.4",
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.0.5",
