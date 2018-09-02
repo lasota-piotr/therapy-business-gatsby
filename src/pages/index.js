@@ -9,6 +9,8 @@ import Features from '../components/Features'
 import Testimonials from '../components/Testimonials'
 import Button from '../components/Button'
 import LatestBlogPosts from '../components/LatestBlogPosts'
+import FeatureLarge from '../components/FeatureLarge'
+import LinkFeature from '../components/LinkFeature'
 
 const IndexPage = ({ data, location }) => {
   const siteTitle = get(data, 'site.siteMetadata.title')
@@ -22,7 +24,16 @@ const IndexPage = ({ data, location }) => {
         meta={[{ name: 'description', content: siteDescription }]}
         title={siteTitle}
       />
-      <Hero imageFluid={data.heroImage.childImageSharp.fluid} />
+      <Hero
+        imageFluid={data.heroImage.childImageSharp.fluid}
+        headerText="Build Something Brilliant."
+        subHeaderText="Build lean, beautiful websites with a clean and contemporary look to suit a range of purposes."
+        contentChildren={
+          <Button px={4} py={3}>
+            Dowiedz się więcej
+          </Button>
+        }
+      />
       <Cta>
         <Cta.Head>All the tools you'll need</Cta.Head>
         <Cta.Text>
@@ -32,8 +43,22 @@ const IndexPage = ({ data, location }) => {
       </Cta>
 
       <Features />
+      <FeatureLarge>
+        <FeatureLarge.Content>
+          <FeatureLarge.Header>O mnie</FeatureLarge.Header>
+          <FeatureLarge.Body>
+            <p>
+              Jestem psychologiem i psychoterapeutą poznawczo-behawioralnym w
+              trakcie procesu certyfikacji. W swojej pracy terapeutycznej
+              posługuję się głównie podejściem poznawczo-behawioralnym oraz
+              terapią schematu.
+            </p>
+            <LinkFeature to="/o-mnie">Dowiedz się więcej »</LinkFeature>
+          </FeatureLarge.Body>
+        </FeatureLarge.Content>
+        <FeatureLarge.Img fluid={data.aboutImage.childImageSharp.fluid} />
+      </FeatureLarge>
       <Testimonials />
-
       <LatestBlogPosts posts={posts} />
       <Cta>
         <Cta.Head>All the tools you'll need</Cta.Head>
@@ -85,7 +110,16 @@ export const pageQuery = graphql`
       childImageSharp {
         # Specify the image processing specifications right in the query.
         # Makes it trivial to update as your page's design changes.
-        fluid(maxHeight: 450) {
+        fluid(maxHeight: 1400) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    aboutImage: file(relativePath: { eq: "ilona-lasota.jpg" }) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fluid(maxHeight: 360, maxWidth: 540) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }

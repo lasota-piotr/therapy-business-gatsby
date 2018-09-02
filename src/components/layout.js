@@ -12,8 +12,8 @@ const theme = {
     mono: 'Menlo, monospace',
   },
   fontWeights: {
-    normal: 400,
-    bold: 600,
+    normal: 300,
+    bold: 500,
   },
   colors: {
     blue: '#4a90e2',

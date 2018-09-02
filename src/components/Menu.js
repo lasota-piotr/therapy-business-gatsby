@@ -82,7 +82,7 @@ const MenuButton = Button.extend`
 const MenuLink = styled(LinkPlain)`
   margin: 0 0.5rem;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.5px;
   transition: 0.3s ease;
   color: #252525;

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { between } from 'polished'
-import Link from './Link'
+import LinkFeature from './LinkFeature'
 import Container from './Container'
 
 const Features = () => {
@@ -15,7 +15,7 @@ const Features = () => {
               Stack comes with integration for Mail Chimp and Campaign Monitor
               forms - ideal for modern marketing campaigns
             </FeatureBody>
-            <FeatureLink>Dowiedz się więcej</FeatureLink>
+            <LinkFeature>Dowiedz się więcej</LinkFeature>
           </Feature>
           <Feature>
             <FeatureHeader>Mailer Integrations</FeatureHeader>
@@ -23,7 +23,7 @@ const Features = () => {
               Stack comes with integration for Mail Chimp and Campaign Monitor
               forms - ideal for modern marketing campaigns
             </FeatureBody>
-            <FeatureLink>Dowiedz się więcej</FeatureLink>
+            <LinkFeature>Dowiedz się więcej</LinkFeature>
           </Feature>
           <Feature>
             <FeatureHeader>Mailer Integrations</FeatureHeader>
@@ -31,7 +31,7 @@ const Features = () => {
               Stack comes with integration for Mail Chimp and Campaign Monitor
               forms - ideal for modern marketing campaigns
             </FeatureBody>
-            <FeatureLink>Dowiedz się więcej</FeatureLink>
+            <LinkFeature>Dowiedz się więcej</LinkFeature>
           </Feature>
         </FeaturesContainer>
       </Container>
@@ -68,11 +68,6 @@ const FeatureBody = styled.p`
   text-align: center;
   line-height: 1.85;
   margin-bottom: 2.25rem;
-`
-
-const FeatureLink = styled(Link)`
-  font-weight: 700;
-  font-size: ${between('11px', '12px')};
 `
 
 const FeaturesWrapper = styled.section`

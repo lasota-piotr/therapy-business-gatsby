@@ -1,16 +1,16 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { between } from 'polished'
 import media from '../styleUtils/media'
 import Container from './Container'
 
-const Cta = ({children, restProps}) => {
+const Cta = ({ children, ...restProps }) => {
   return (
-    <Container {...restProps}>
-      <CtaWrapper>
-        {children}
-      </CtaWrapper>
-    </Container>
+    <CtaWrapper {...restProps}>
+      <Container>
+        <CtaContainer>{children}</CtaContainer>
+      </Container>
+    </CtaWrapper>
   )
 }
 
@@ -27,9 +27,22 @@ const CtaText = styled.p`
   color: #808080;
   margin-bottom: ${between('16px', '24px')};
 `
+const CtaWrapper = styled.div`
+  ${({ withBackground }) =>
+    withBackground
+      ? css`
+          background-color: #fafafa;
+          padding: 6.5rem 1rem;
+          margin: 2rem 0;
+        `
+      : css`
+          padding: 0 1rem;
+          margin: 5.5rem 0;
+        `};
+`
 
-const CtaWrapper = styled.section`
-  margin: 5.5rem auto;
+const CtaContainer = styled.section`
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
