@@ -97,9 +97,9 @@ class AboutPage extends Component {
         </FeatureLarge>
 
         <Cta>
-          <Cta.Head>Zacznij od siebie</Cta.Head>
+          <Cta.Head>Zapisz się na wizytę</Cta.Head>
           <Cta.Text>
-            Zapisz się na wizytę
+            Zacznij od siebie
           </Cta.Text>
           <Link to="/kontakt">
             <Button px={4} py={3}>
