@@ -77,6 +77,7 @@ const MenuButton = Button.extend`
   margin-left: 1rem;
   ${media.tablet`
     margin-left: 0;
+    font-size: ${({ theme }) => theme.fontSizes[2]}px;
   `};
 `
 
@@ -88,12 +89,13 @@ const MenuLink = styled(LinkPlain)`
   transition: 0.3s ease;
   color: #252525;
   opacity: 0.5;
-  font-size: ${({ theme }) => theme.fontSizes[0]}px;
   &:hover {
     opacity: 1;
   }
+  font-size: ${({ theme }) => theme.fontSizes[1]}px;
   ${media.tablet`
     padding-bottom: 1rem;
+    font-size: ${({ theme }) => theme.fontSizes[2]}px;
   `};
 `
 
