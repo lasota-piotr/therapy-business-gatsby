@@ -64,7 +64,8 @@ const PricingButtonContent = styled(Button)`
 
 const PricingImageContent = styled.img`
   display: block;
-  width: 40%;
+  max-height: 7rem;
+  max-width: 9rem;
 `
 
 const PricingImageWrapper = styled.div`
