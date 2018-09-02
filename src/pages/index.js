@@ -35,8 +35,8 @@ class IndexPage extends Component {
         />
         <Hero
           imageFluid={data.heroImage.childImageSharp.fluid}
-          headerText="Build Something Brilliant."
-          subHeaderText="Build lean, beautiful websites with a clean and contemporary look to suit a range of purposes."
+          headerText="Nigdy nie jest za późno na zmianę"
+          subHeaderText="Psychoterapia: osób dorosłych, młodzieży i par"
           contentChildren={
             <Button px={4} py={3} onClick={this.handleScrollToElement}>
               Dowiedz się więcej
@@ -44,10 +44,9 @@ class IndexPage extends Component {
           }
         />
         <Cta innerRef={this.scrollElementRef}>
-          <Cta.Head>All the tools you'll need</Cta.Head>
+          <Cta.Head>Nawet najdłuższa droga zaczyna się od pierwszego kroku</Cta.Head>
           <Cta.Text>
-            Whether you’re building a welcome mat for your SaaS or a clean,
-            corporate portfolio, Stack has your design needs covered.
+            Pomoc psychologiczna i psychoterapeutyczna
           </Cta.Text>
         </Cta>
 

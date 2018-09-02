@@ -97,10 +97,9 @@ class AboutPage extends Component {
         </FeatureLarge>
 
         <Cta>
-          <Cta.Head>All the tools you'll need</Cta.Head>
+          <Cta.Head>Zacznij od siebie</Cta.Head>
           <Cta.Text>
-            Whether you’re building a welcome mat for your SaaS or a clean,
-            corporate portfolio, Stack has your design needs covered.
+            Zapisz się na wizytę
           </Cta.Text>
           <Link to="/kontakt">
             <Button px={4} py={3}>

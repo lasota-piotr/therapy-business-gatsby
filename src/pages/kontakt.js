@@ -25,8 +25,7 @@ const PricingPage = ({ data, location }) => {
       <Masthead>
         <Masthead.Head>Kontakt</Masthead.Head>
         <Masthead.Text>
-          Each purchase of Stack comes with six months free support — and a
-          lifetime of free content and bug-fix updates.
+          Psycholog i psychoterapeuta - Warszawa, Włochy
         </Masthead.Text>
       </Masthead>
       <ContactFeatureLarge>
@@ -45,7 +44,7 @@ const PricingPage = ({ data, location }) => {
             <p>
               ul. Potrzebna 35/11
               <br />
-              Warszawa
+              Warszawa, Włochy
               <br />
               02-448
             </p>
@@ -107,7 +106,7 @@ const ContactMap = styled.iframe`
 `
 
 const ContactCta = styled(Cta)`
-  margin-bottom: 0;
+  padding-bottom: 0;
 `
 
 const ContactFeatureLarge = styled(FeatureLarge)`
