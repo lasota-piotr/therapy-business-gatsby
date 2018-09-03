@@ -14,7 +14,7 @@ class KnowledgePage extends Component {
     let { data, location } = this.props
     const siteTitle = get(data, 'site.siteMetadata.title')
     const siteDescription = get(data, 'site.siteMetadata.description')
-    const pathName = location.search.replace('?', '')
+    const pathName = location && location.search && location.search.replace('?', '')
     return (
       <Layout location={location}>
         <Helmet
