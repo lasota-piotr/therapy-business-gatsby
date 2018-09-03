@@ -9,7 +9,7 @@ import {
 import './Accordion.css'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import media from '../styleUtils/media'
 import Container from './Container'
 
