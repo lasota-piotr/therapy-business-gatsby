@@ -30,8 +30,8 @@ const Menu = () => {
               {/*<MenuLink activeStyle={activeStyle} to="/blog">*/}
                 {/*Blog*/}
               {/*</MenuLink>*/}
-              <MenuLink activeStyle={activeStyle} to="/psychoterapia">
-                Psychoterapia
+              <MenuLink activeStyle={activeStyle} to="/wiedza">
+                Wiedza
               </MenuLink>
               <MenuLink activeStyle={activeStyle} to="/cennik">
                 Cennik

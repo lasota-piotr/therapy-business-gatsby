@@ -2,25 +2,19 @@ import React, { Component } from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
-import { between } from 'polished'
 import PropTypes from 'prop-types'
 import Layout from '../components/layout'
 import Button from '../components/Button'
-import FeatureLarge from '../components/FeatureLarge'
 import Cta from '../components/Cta'
-import graduation from '../assets/graduation.svg'
-import ether from '../assets/ether.svg'
-import highFive from '../assets/high-five.svg'
-import Hero from '../components/Hero'
 import Masthead from '../components/Masthead'
 import Accordion from '../components/Accordion'
 
-class PsychotherapyPage extends Component {
+class KnowledgePage extends Component {
   render() {
     let { data, location } = this.props
     const siteTitle = get(data, 'site.siteMetadata.title')
     const siteDescription = get(data, 'site.siteMetadata.description')
+    const pathName = location.search.replace('?', '')
     return (
       <Layout location={location}>
         <Helmet
@@ -32,7 +26,10 @@ class PsychotherapyPage extends Component {
           <Masthead.Head>Informacje o pschoterapii</Masthead.Head>
           <Masthead.Text>Dowiedz się więcej o psychoterapii</Masthead.Text>
         </Masthead>
-        <Accordion imageFluid={data.image.childImageSharp.fluid}/>
+        <Accordion
+          imageFluid={data.image.childImageSharp.fluid}
+          elementToDisplay={pathName}
+        />
         <Cta>
           <Cta.Head>Zapisz się na wizytę</Cta.Head>
           <Cta.Text>Zacznij od siebie</Cta.Text>
@@ -47,12 +44,12 @@ class PsychotherapyPage extends Component {
   }
 }
 
-PsychotherapyPage.propTypes = {
+KnowledgePage.propTypes = {
   data: PropTypes.any,
   location: PropTypes.any,
 }
 
-export default PsychotherapyPage
+export default KnowledgePage
 
 export const pageQuery = graphql`
   query psychoterapyQuery {

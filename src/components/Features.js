@@ -15,7 +15,7 @@ const Features = () => {
               Stack comes with integration for Mail Chimp and Campaign Monitor
               forms - ideal for modern marketing campaigns
             </FeatureBody>
-            <LinkFeature>Dowiedz się więcej</LinkFeature>
+            <LinkFeature to="/wiedza?psychoterapia">Dowiedz się więcej</LinkFeature>
           </Feature>
           <Feature>
             <FeatureHeader>Terapia par</FeatureHeader>
@@ -23,7 +23,7 @@ const Features = () => {
               Celem terapii par jest obopólna poprawa zadowolenia z jakości
               związku.
             </FeatureBody>
-            <LinkFeature>Dowiedz się więcej</LinkFeature>
+            <LinkFeature to="/wiedza?terapia-par">Dowiedz się więcej</LinkFeature>
           </Feature>
           <Feature>
             <FeatureHeader>Mailer Integrations</FeatureHeader>
