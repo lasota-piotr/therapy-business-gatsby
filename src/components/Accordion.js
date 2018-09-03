@@ -22,7 +22,6 @@ class Accordion extends Component {
 
   render() {
     let { elementToDisplay, imageFluid } = this.props
-    console.log({ elementToDisplay })
     return (
       <section>
         <Container>
