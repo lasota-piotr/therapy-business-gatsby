@@ -14,12 +14,6 @@ import media from '../styleUtils/media'
 import Container from './Container'
 
 class Accordion extends Component {
-  accordionNavigate = element => {
-    if (this.props.elementToDisplay !== element) {
-      navigate(`/wiedza/`, { replace: true })
-    }
-  }
-
   render() {
     let { elementToDisplay, imageFluid } = this.props
     return (
@@ -28,7 +22,7 @@ class Accordion extends Component {
           <AccordionContainer>
             <Img fluid={imageFluid} />
             <AccordionContent>
-              <AccordionComponent onChange={this.accordionNavigate}>
+              <AccordionComponent>
                 <AccordionItem
                   expanded={
                     !elementToDisplay || elementToDisplay === 'psychoterapia'
