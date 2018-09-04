@@ -30,7 +30,7 @@ const Features = () => {
             </LinkFeature>
           </Feature>
           <Feature>
-            <FeatureHeader>Terapia poznawczo-behawioralna</FeatureHeader>
+            <FeatureHeader>Terapia poznawczo&#8209;behawioralna</FeatureHeader>
             <FeatureBody>
               Terapia poznawczo-behawioralna opiera się na założeniu, że emocje
               i zachowanie powstają pod wpływem sposobu w jaki interpretujemy
