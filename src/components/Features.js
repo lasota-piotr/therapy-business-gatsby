@@ -12,10 +12,12 @@ const Features = () => {
           <Feature>
             <FeatureHeader>Psychoterapia</FeatureHeader>
             <FeatureBody>
-              Stack comes with integration for Mail Chimp and Campaign Monitor
-              forms - ideal for modern marketing campaigns
+              Psychoterapia jest jedną z najbardziej powszechnych i
+              najskuteczniejszych metod pomocy psychologicznej.
             </FeatureBody>
-            <LinkFeature to="/wiedza?psychoterapia">Dowiedz się więcej</LinkFeature>
+            <LinkFeature to="/wiedza#psychoterapia">
+              Dowiedz się więcej
+            </LinkFeature>
           </Feature>
           <Feature>
             <FeatureHeader>Terapia par</FeatureHeader>
@@ -23,15 +25,20 @@ const Features = () => {
               Celem terapii par jest obopólna poprawa zadowolenia z jakości
               związku.
             </FeatureBody>
-            <LinkFeature to="/wiedza?terapia-par">Dowiedz się więcej</LinkFeature>
+            <LinkFeature to="/wiedza#terapia-par">
+              Dowiedz się więcej
+            </LinkFeature>
           </Feature>
           <Feature>
-            <FeatureHeader>Mailer Integrations</FeatureHeader>
+            <FeatureHeader>Terapia poznawczo-behawioralna</FeatureHeader>
             <FeatureBody>
-              Stack comes with integration for Mail Chimp and Campaign Monitor
-              forms - ideal for modern marketing campaigns
+              Terapia poznawczo-behawioralna opiera się na założeniu, że emocje
+              i zachowanie powstają pod wpływem sposobu w jaki interpretujemy
+              zdarzenia.
             </FeatureBody>
-            <LinkFeature>Dowiedz się więcej</LinkFeature>
+            <LinkFeature to="/wiedza#terapia-poznawczo-behawioralna">
+              Dowiedz się więcej
+            </LinkFeature>
           </Feature>
         </FeaturesContainer>
       </Container>

@@ -39,7 +39,7 @@ class AboutPage extends Component {
           position="left"
           size="large"
           headerText="Ilona Lasota"
-          subHeaderText="Psycholog i psychoterapeuta poznawczo&#8209;behawioralny w trakcie procesu certyfikacji"
+          subHeaderText="Psycholog i psychoterapeuta poznawczo&#8209;behawioralny"
           contentChildren={
             <Button px={4} py={3} onClick={this.handleScrollToElement}>
               Dowiedz się więcej

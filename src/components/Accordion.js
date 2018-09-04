@@ -88,6 +88,45 @@ class Accordion extends Component {
                     </p>
                   </AccordionItemBody>
                 </AccordionItem>
+                <AccordionItem
+                  expanded={elementToDisplay === 'terapia-poznawczo-behawioralna'}
+                  uuid="terapia-poznawczo-behawioralna"
+                >
+                  <AccordionItemTitle>
+                    <AccordionHeader>
+                      Terapia poznawczo-behawioralna
+                      <div className="accordion__arrow" role="presentation" />
+                    </AccordionHeader>
+                  </AccordionItemTitle>
+                  <AccordionItemBody>
+                    <p>
+                      Terapia poznawczo-behawioralna opiera się na założeniu, że
+                      emocje i zachowanie powstają pod wpływem sposobu w jaki
+                      interpretujemy zdarzenia. Nasze uczucia zależą zatem nie
+                      tyle od sytuacji co od sposobu jej postrzegania i
+                      interpretacji. Samo zdarzenie nie wpływa bezpośrednio na
+                      to jak się czujemy. Uczucia zależą od tego jak
+                      zinterpretujemy daną sytuację, co pomyślimy o niej i o
+                      sobie samych. Interpretacja zdarzeń odbywa się za
+                      pośrednictwem przekonań.
+                    </p>
+                    <p>
+                      Na podstawie interakcji ze światem i ludźmi wyciągamy
+                      wnioski i skojarzenia, nazywane w terapii CBT
+                      przekonaniami. Wiele naszych przekonań jest nietrafnych i
+                      mało funkcjonalnych. W procesie terapii oduczamy się
+                      przekonań, które nam nie służą i formujemy nowe, bardziej
+                      przystosowawcze i w większym stopniu oparte na
+                      rzeczywistości.
+                    </p>
+                    <p>
+                      Podsumowując podczas terapii poznawczo-behawioralnej, za
+                      pomocą różnych metod, wywołuje się zmiany w systemie myśli
+                      i przekonań aby finalnie doprowadzić do trwałych zmian w
+                      emocjach i zachowaniach.
+                    </p>
+                  </AccordionItemBody>
+                </AccordionItem>
               </AccordionComponent>
             </AccordionContent>
           </AccordionContainer>
