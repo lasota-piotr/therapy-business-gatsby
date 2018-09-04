@@ -22,8 +22,7 @@ const PricingPage = ({ data, location }) => {
           Cennik
         </Masthead.Head>
         <Masthead.Text>
-          Each purchase of Stack comes with six months free support — and a
-          lifetime of free content and bug-fix updates.
+          Umów się na wizytę
         </Masthead.Text>
       </Masthead>
 
