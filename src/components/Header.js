@@ -1,12 +1,13 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { ROOT_PATH } from '../constants/constants'
+import logo from '../assets/twoj-terapeuta.svg'
 import Menu from './Menu'
 import Container from './Container'
 import LinkPlain from './LinkPlain'
 
 const headingStyles = css`
-  font-size: ${({ theme }) => theme.fontSizes[4]}px;
+  font-size: 22px;
   margin-bottom: 0;
 `
 
@@ -19,7 +20,11 @@ const HeadingTextH3 = styled.h3`
 `
 
 const HeadingLink = LinkPlain.extend`
-  color: #333;
+  display: flex;
+  align-items: center;
+  &:hover {
+    text-decoration: none;
+  }
 `
 
 const Heading = ({ isRoot, children }) => {
@@ -36,9 +41,13 @@ const Header = ({ location }) => {
   return (
     <nav>
       <NavContainer>
-        <Heading isRoot={isRoot}>
-          <HeadingLink to="/">Ilona Lasota</HeadingLink>
-        </Heading>
+        <HeadingLink to="/">
+          <Logo height="48" width="48" src={logo} alt="Ilona Lasota logo" />
+          <Heading isRoot={isRoot}>
+            <HeadingAccentText>Twój terapeuta</HeadingAccentText> <br />
+            <HeadingMainText>Ilona Lasota</HeadingMainText>
+          </Heading>
+        </HeadingLink>
         <Menu />
       </NavContainer>
     </nav>
@@ -51,5 +60,19 @@ const NavContainer = Container.extend`
   padding-top: ${({ theme }) => theme.space[2]}px;
   padding-bottom: ${({ theme }) => theme.space[2]}px;
 `
+
+const HeadingAccentText = styled.span`
+  font-size: 0.9rem;
+  color: #666;
+`
+
+const HeadingMainText = styled.span`
+  color: #333;
+`
+
+const Logo = styled.img`
+  margin-right: 0.75rem;
+`
+
 
 export default Header

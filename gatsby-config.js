@@ -1,11 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
-    author: 'Kyle Mathews',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    title: 'Psycholog Warszawa Włochy - Ilona Lasota - dobry psychoterapeuta',
+    author: 'Ilona Lasota',
+    description:
+      'Ilona Lasota - bardzo dobry psycholog z miasta Warszawa Włochy. Psychoterapeuta z dobrymi opiniami.',
+    siteUrl: 'https://twoj-terapeuta.pl/',
   },
-  pathPrefix: '/gatsby-starter-blog',
+  pathPrefix: '/twoj-terapeuta',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -58,18 +59,14 @@ module.exports = {
         short_name: `Twój terapeuta`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#4a90e2`,
         display: `minimal-ui`,
-        icon: `src/assets/gatsby-icon.png`,
+        icon: `src/assets/twoj-terapeuta.png`,
       },
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
-    {
-      resolve: `gatsby-plugin-create-client-paths`,
-      options: { prefixes: [`/wiedza/*`] },
-    },
   ],
 }
