@@ -9,7 +9,7 @@ import Cta from '../components/Cta'
 import Features from '../components/Features'
 import Testimonials from '../components/Testimonials'
 import Button from '../components/Button'
-// import LatestBlogPosts from '../components/LatestBlogPosts'
+import LatestBlogPosts from '../components/LatestBlogPosts'
 import FeatureLarge from '../components/FeatureLarge'
 import LinkFeature from '../components/LinkFeature'
 
@@ -25,7 +25,7 @@ class IndexPage extends Component {
     let { data, location } = this.props
     const siteTitle = get(data, 'site.siteMetadata.title')
     const siteDescription = get(data, 'site.siteMetadata.description')
-    // const posts = get(data, 'allMarkdownRemark.edges')
+    const posts = get(data, 'allMarkdownRemark.edges')
     return (
       <Layout location={location}>
         <Helmet
@@ -67,8 +67,7 @@ class IndexPage extends Component {
           <FeatureLarge.Img fluid={data.aboutImage.childImageSharp.fluid} />
         </FeatureLarge>
         <Testimonials />
-        {/* TODO: ENABLE BLOG */}
-        {/*<LatestBlogPosts posts={posts} />*/}
+        <LatestBlogPosts posts={posts} />
         <Cta>
           <Cta.Head>Skontaktuj się ze mną</Cta.Head>
           <Cta.Text>Zdecyduj o własnej przyszłości</Cta.Text>

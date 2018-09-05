@@ -1,3 +1,13 @@
+let activeEnv = process.env.ACTIVE_ENV
+
+if (!activeEnv) {
+  activeEnv = "development"
+}
+
+require("dotenv").config({
+  path: `.env.${activeEnv}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'Psycholog Warszawa Włochy - Ilona Lasota - dobry psychoterapeuta',
@@ -8,6 +18,13 @@ module.exports = {
   },
   pathPrefix: '/twoj-terapeuta',
   plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `${process.env.CONTENTFUL_SPACE_ID}`,
+        accessToken: `${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
