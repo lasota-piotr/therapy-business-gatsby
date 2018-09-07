@@ -9,6 +9,12 @@ module.exports = {
   pathPrefix: '/twoj-terapeuta',
   plugins: [
     {
+      resolve: `gatsby-plugin-polyfill-io`,
+      options: {
+        features: [`IntersectionObserver` ]
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/assets`,

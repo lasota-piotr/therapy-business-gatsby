@@ -10,10 +10,18 @@ const FeatureLarge = ({ children, ...restProps }) => {
   return (
     <FeatureLargeWrapper {...restProps}>
       <Container>
-        <FeatureLargeContainer>{children}</FeatureLargeContainer>
+        <FeatureLargeContainer {...restProps}>{children}</FeatureLargeContainer>
       </Container>
     </FeatureLargeWrapper>
   )
+}
+
+FeatureLarge.propTypes = {
+  stretchChildren: PropTypes.bool,
+}
+
+FeatureLarge.defaultProps = {
+  stretchChildren: false,
 }
 
 const FeatureLargeWrapper = styled.section`
@@ -29,7 +37,14 @@ const FeatureLargeContainer = styled.article`
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
+  ${({ stretchChildren }) =>
+    stretchChildren
+      ? css`
+          justify-items: stretch;
+        `
+      : css`
+          justify-items: center;
+        `};
   ${media.tablet`
     grid-template-columns: 1fr;
     max-width: 510px;
