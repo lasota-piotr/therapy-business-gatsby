@@ -11,7 +11,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-polyfill-io`,
       options: {
-        features: [`IntersectionObserver` ]
+        features: [`IntersectionObserver`, 'fetch']
       },
     },
     {
