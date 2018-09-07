@@ -16,7 +16,7 @@ const ContactForm = () => {
       </ContactFormLabel>
       <ContactFormLabel>
         Adres email:
-        <Input placeholder="Wpisz swój adres email" />
+        <Input type="email" placeholder="Wpisz swój adres email" />
       </ContactFormLabel>
       <ContactFormLabelTextArea>
         Wiadomość:

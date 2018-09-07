@@ -11,7 +11,7 @@ const LatestBlogPosts = ({ posts }) => {
       <Container>
         <LatestBlogPostsContainer>
           {posts.map(({ node }) => (
-            <BlogCard key={node.fields.slug} data={node} />
+            <BlogCard key={node.slug} data={node} />
           ))}
         </LatestBlogPostsContainer>
       </Container>

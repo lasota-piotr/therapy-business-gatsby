@@ -3,10 +3,11 @@ import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
+import Img from 'gatsby-image'
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
+    const post = get(this.props, 'data.contentfulBlogPost')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const siteDescription = post.excerpt
     const { previous, next } = this.props.pageContext
@@ -16,11 +17,24 @@ class BlogPostTemplate extends React.Component {
         <Helmet
           htmlAttributes={{ lang: 'pl' }}
           meta={[{ name: 'description', content: siteDescription }]}
-          title={`${post.frontmatter.title} | ${siteTitle}`}
+          title={`${post.title} | ${siteTitle}`}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <h1>{post.title}</h1>
+        <p>{post.publishDate}</p>
+        {post.tags.map((el, i) => (
+          <div key={i}>{el}</div>
+        ))}
+        <div
+          dangerouslySetInnerHTML={{
+            __html: post.description.childMarkdownRemark.html,
+          }}
+        />
+        <Img alt="" sizes={post.mainImage.sizes} />
+        <div
+          dangerouslySetInnerHTML={{
+            __html: post.body.childMarkdownRemark.html,
+          }}
+        />
         <hr />
         <ul>
           {previous && (
@@ -48,19 +62,25 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
+    contentfulBlogPost(slug: { eq: $slug }) {
+      title
+      slug
+      publishDate(formatString: "MMMM DD, YYYY")
+      tags
+      mainImage {
+        sizes(maxWidth: 510, maxHeight: 340, resizingBehavior: FILL) {
+          ...GatsbyContentfulSizes_withWebp
+        }
       }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
+      body {
+        childMarkdownRemark {
+          html
+        }
+      }
+      description {
+        childMarkdownRemark {
+          html
+        }
       }
     }
   }

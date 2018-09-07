@@ -5,21 +5,21 @@ import get from 'lodash/get'
 import Link from './Link'
 
 const BlogCard = ({ data }) => {
-  const title = get(data, 'frontmatter.title') || data.fields.slug
-  const fluid = get(data, 'frontmatter.image.childImageSharp.fluid')
+  const title = get(data, 'title') || data.slug
+  const sizes = get(data, 'mainImage.sizes')
 
   return (
     <BlogCardWrapper>
-      {fluid && (
-        <Link to={data.fields.slug}>
-          <BlogCardImg fluid={fluid} />
+      {sizes && (
+        <Link to={`/${data.slug}`}>
+          <BlogCardImg sizes={sizes} />
         </Link>
       )}
       <BlogCardBody>
-        <small>{data.frontmatter.date}</small>
+        <small>{data.publishDate}</small>
         <h3>{title}</h3>
-        <p dangerouslySetInnerHTML={{ __html: data.excerpt }} />
-        <Link to={data.fields.slug}>Czytaj dalej</Link>
+        <p dangerouslySetInnerHTML={{ __html: data.description.childMarkdownRemark.html }} />
+        <Link to={`/${data.slug}`}>Czytaj dalej</Link>
       </BlogCardBody>
     </BlogCardWrapper>
   )

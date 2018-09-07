@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
+import Img from 'gatsby-image'
 import Layout from '../components/layout'
 
 class BlogPage extends React.Component {
@@ -11,8 +12,8 @@ class BlogPage extends React.Component {
       this,
       'props.data.site.siteMetadata.description'
     )
-    const posts = get(this, 'props.data.allMarkdownRemark.edges')
-
+    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    console.log(posts)
     return (
       <Layout location={this.props.location}>
         <Helmet
@@ -20,20 +21,27 @@ class BlogPage extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        {posts.map(({ node }) => {
-          const title = get(node, 'frontmatter.title') || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3>
-                <Link to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })}
+        {!!posts &&
+          posts.map(({ node }) => {
+            const title = get(node, 'title') || node.slug
+            return (
+              <div key={node.slug}>
+                <h3>
+                  <Link to={node.slug}>{title}</Link>
+                </h3>
+                <small>{node.publishDate}</small>
+                {node.mainImage && <Img alt="" sizes={node.mainImage.sizes} />}
+                {node.tags.map((el, i) => (
+                  <div key={i}>{el}</div>
+                ))}
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: node.description.childMarkdownRemark.html,
+                  }}
+                />
+              </div>
+            )
+          })}
       </Layout>
     )
   }
@@ -41,6 +49,30 @@ class BlogPage extends React.Component {
 
 export default BlogPage
 
+// export const pageQuery = graphql`
+//   query blogQuery {
+//     site {
+//       siteMetadata {
+//         title
+//         description
+//       }
+//     }
+//     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+//       edges {
+//         node {
+//           excerpt
+//           fields {
+//             slug
+//           }
+//           frontmatter {
+//             date(formatString: "DD MMMM, YYYY")
+//             title
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
 export const pageQuery = graphql`
   query blogQuery {
     site {
@@ -49,16 +81,23 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
-          excerpt
-          fields {
-            slug
+          title
+          slug
+          publishDate(formatString: "MMMM DD, YYYY")
+          tags
+          mainImage {
+            sizes(maxWidth: 510, maxHeight: 340, resizingBehavior: FILL) {
+              ...GatsbyContentfulSizes_withWebp
+            }
           }
-          frontmatter {
-            date(formatString: "DD MMMM, YYYY")
-            title
+          description {
+            childMarkdownRemark {
+              html
+            }
           }
         }
       }
