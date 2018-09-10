@@ -6,7 +6,7 @@ import Layout from '../components/layout'
 import Masthead from '../components/Masthead'
 import Cta from '../components/Cta'
 import Button from '../components/Button'
-import LatestBlogPosts from '../components/LatestBlogPosts'
+import BlogPosts from '../components/LatestBlogPosts'
 
 class BlogPage extends React.Component {
   render() {
@@ -28,7 +28,7 @@ class BlogPage extends React.Component {
           <Masthead.Text>Artykuły o psychologii i psychoterapii</Masthead.Text>
         </Masthead>
 
-        <LatestBlogPosts posts={posts} />
+        <BlogPosts posts={posts} />
 
         <Cta>
           <Cta.Head>Zapisz się na wizytę</Cta.Head>

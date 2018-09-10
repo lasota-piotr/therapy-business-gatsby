@@ -9,7 +9,7 @@ import Cta from '../components/Cta'
 import Features from '../components/Features'
 import Testimonials from '../components/Testimonials'
 import Button from '../components/Button'
-import LatestBlogPosts from '../components/LatestBlogPosts'
+import BlogPosts from '../components/LatestBlogPosts'
 import FeatureLarge from '../components/FeatureLarge'
 import LinkFeature from '../components/LinkFeature'
 
@@ -67,7 +67,7 @@ class IndexPage extends Component {
           <FeatureLarge.Img fluid={data.aboutImage.childImageSharp.fluid} />
         </FeatureLarge>
         <Testimonials />
-        <LatestBlogPosts posts={posts} />
+        <BlogPosts posts={posts} />
         <Cta>
           <Cta.Head>Skontaktuj się ze mną</Cta.Head>
           <Cta.Text>Zdecyduj o własnej przyszłości</Cta.Text>
