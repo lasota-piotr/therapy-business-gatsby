@@ -1,9 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
-import Layout from '../components/layout'
 import Img from 'gatsby-image'
+import Layout from '../components/layout'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -40,7 +40,7 @@ class BlogPostTemplate extends React.Component {
           {previous && (
             <li>
               <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+                ← {previous.title}
               </Link>
             </li>
           )}
@@ -48,7 +48,7 @@ class BlogPostTemplate extends React.Component {
           {next && (
             <li>
               <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+                {next.title} →
               </Link>
             </li>
           )}

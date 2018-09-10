@@ -13,7 +13,6 @@ class BlogPage extends React.Component {
       'props.data.site.siteMetadata.description'
     )
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    console.log(posts)
     return (
       <Layout location={this.props.location}>
         <Helmet
@@ -49,30 +48,6 @@ class BlogPage extends React.Component {
 
 export default BlogPage
 
-// export const pageQuery = graphql`
-//   query blogQuery {
-//     site {
-//       siteMetadata {
-//         title
-//         description
-//       }
-//     }
-//     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-//       edges {
-//         node {
-//           excerpt
-//           fields {
-//             slug
-//           }
-//           frontmatter {
-//             date(formatString: "DD MMMM, YYYY")
-//             title
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
 export const pageQuery = graphql`
   query blogQuery {
     site {
