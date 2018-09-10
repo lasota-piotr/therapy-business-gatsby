@@ -2,8 +2,11 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import Img from 'gatsby-image'
 import Layout from '../components/layout'
+import Masthead from '../components/Masthead'
+import Cta from '../components/Cta'
+import Button from '../components/Button'
+import LatestBlogPosts from '../components/LatestBlogPosts'
 
 class BlogPage extends React.Component {
   render() {
@@ -14,33 +17,28 @@ class BlogPage extends React.Component {
     )
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     return (
-      <Layout location={this.props.location}>
+      <Layout location={location}>
         <Helmet
           htmlAttributes={{ lang: 'pl' }}
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        {!!posts &&
-          posts.map(({ node }) => {
-            const title = get(node, 'title') || node.slug
-            return (
-              <div key={node.slug}>
-                <h3>
-                  <Link to={node.slug}>{title}</Link>
-                </h3>
-                <small>{node.publishDate}</small>
-                {node.mainImage && <Img alt="" sizes={node.mainImage.sizes} />}
-                {node.tags.map((el, i) => (
-                  <div key={i}>{el}</div>
-                ))}
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.description.childMarkdownRemark.html,
-                  }}
-                />
-              </div>
-            )
-          })}
+        <Masthead>
+          <Masthead.Head>Blog</Masthead.Head>
+          <Masthead.Text>Artykuły o psychologii i psychoterapii</Masthead.Text>
+        </Masthead>
+
+        <LatestBlogPosts posts={posts} />
+
+        <Cta>
+          <Cta.Head>Zapisz się na wizytę</Cta.Head>
+          <Cta.Text>Zacznij od siebie</Cta.Text>
+          <Link to="/kontakt">
+            <Button px={4} py={3}>
+              Skontaktuj się
+            </Button>
+          </Link>
+        </Cta>
       </Layout>
     )
   }
