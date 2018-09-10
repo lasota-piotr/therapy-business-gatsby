@@ -10,6 +10,7 @@ import ContactForm from '../components/ContactFrom'
 import Link from '../components/Link'
 import LinkFeature from '../components/LinkFeature'
 import Cta from '../components/Cta'
+import LazyLoad from '../components/LazyLoad'
 
 const PricingPage = ({ data, location }) => {
   const siteTitle = get(data, 'site.siteMetadata.title')
@@ -52,19 +53,21 @@ const PricingPage = ({ data, location }) => {
         </FeatureLarge.Content>
         <ContactForm />
       </ContactFeatureLarge>
-      <ContactMap
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.8295476809835!2d20.91715421582271!3d52.21014497975681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471934caccc7e34d%3A0x8dac5ce052091a6d!2sPotrzebna+35%2C+00-001+Warszawa!5e0!3m2!1sen!2spl!4v1535898544290"
-        width="100%"
-        height="450"
-        frameBorder="0"
-        allowFullScreen
-      />
+      <LazyLoad>
+        <ContactMapFullWithMargin
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.8295476809885!2d20.917154215795918!3d52.21014497975672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471935a5f74da771%3A0x97e6d82a5a62080!2sPsychoterapeuta+Ilona+Lasota+-+Prywatny+Gabinet+Psychoterapii!5e0!3m2!1sen!2spl!4v1536359049467"
+          width="100%"
+          height="450"
+          frameBorder="0"
+          allowFullScreen
+        />
+      </LazyLoad>
       <section>
         <ContactCta>
           <Cta.Head>Przyjmuję również w innych miejscach</Cta.Head>
           <Cta.Text>Zobacz pozostałe miejsca przyjmowania</Cta.Text>
         </ContactCta>
-        <FeatureLarge>
+        <FeatureLarge stretchChildren>
           <FeatureLarge.Content order="normal">
             <FeatureLarge.Header>
               Świętokrzyski Ośrodek Terapii
@@ -85,24 +88,29 @@ const PricingPage = ({ data, location }) => {
             </FeatureLarge.Body>
           </FeatureLarge.Content>
 
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2513.7907906421033!2d21.40112931577683!3d50.94608197954676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471809a9e5ba590f%3A0xbb8a02c84d61d40a!2zxZp3acSZdG9rcnp5c2tpIE_Fm3JvZGVrIFRlcmFwaWk!5e0!3m2!1sen!2spl!4v1535901185359"
-            width="100%"
-            height="450"
-            frameBorder="0"
-            style={{ border: 0 }}
-            allowFullScreen
-          />
+          <LazyLoad>
+            <ContactMapFull
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2513.7907906421033!2d21.40112931577683!3d50.94608197954676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471809a9e5ba590f%3A0xbb8a02c84d61d40a!2zxZp3acSZdG9rcnp5c2tpIE_Fm3JvZGVrIFRlcmFwaWk!5e0!3m2!1sen!2spl!4v1535901185359"
+              width="100%"
+              height="450"
+              frameBorder="0"
+              style={{ border: 0 }}
+              allowFullScreen
+            />
+          </LazyLoad>
         </FeatureLarge>
       </section>
     </Layout>
   )
 }
 
-const ContactMap = styled.iframe`
-  margin-bottom: 6.5rem;
+const ContactMapFull = styled.iframe`
   width: 100%;
   border: 0;
+`
+
+const ContactMapFullWithMargin = styled(ContactMapFull)`
+  margin-bottom: 6.5rem;
 `
 
 const ContactCta = styled(Cta)`

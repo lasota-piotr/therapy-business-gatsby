@@ -85,5 +85,11 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-polyfill-io`,
+      options: {
+        features: [`IntersectionObserver`, 'fetch']
+      },
+    },
   ],
 }
