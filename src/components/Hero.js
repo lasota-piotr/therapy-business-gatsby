@@ -14,6 +14,7 @@ const Hero = ({
   color,
   position,
   size,
+  alt,
   ...restProps
 }) => {
   const settingsProps = {
@@ -28,7 +29,7 @@ const Hero = ({
         <HeroSubHeader {...settingsProps}>{subHeaderText}</HeroSubHeader>
         {contentChildren}
       </HeroContent>
-      <HeroImg {...settingsProps} fluid={imageFluid}>
+      <HeroImg {...settingsProps} alt={alt} fluid={imageFluid}>
         text
       </HeroImg>
     </HeroContainer>

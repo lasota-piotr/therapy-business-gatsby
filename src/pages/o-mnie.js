@@ -45,6 +45,7 @@ class AboutPage extends Component {
               Dowiedz się więcej
             </Button>
           }
+          alt="Ilona Lasota - Psycholog"
         />
         <FeatureLarge innerRef={this.scrollElementRef}>
           <FeatureLarge.Content>

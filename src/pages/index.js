@@ -42,6 +42,7 @@ class IndexPage extends Component {
               Dowiedz się więcej
             </Button>
           }
+          alt="Łąka"
         />
         <Cta innerRef={this.scrollElementRef}>
           <Cta.Head>Nawet najdłuższa droga zaczyna się od pierwszego kroku</Cta.Head>
@@ -64,7 +65,7 @@ class IndexPage extends Component {
               <LinkFeature to="/o-mnie">Dowiedz się więcej »</LinkFeature>
             </FeatureLarge.Body>
           </FeatureLarge.Content>
-          <FeatureLarge.Img fluid={data.aboutImage.childImageSharp.fluid} />
+          <FeatureLarge.Img alt="Ilona Lasota - Psycholog" fluid={data.aboutImage.childImageSharp.fluid} />
         </FeatureLarge>
         <Testimonials />
         {/* TODO: ENABLE BLOG */}
