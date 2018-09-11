@@ -45,6 +45,7 @@ class AboutPage extends Component {
               Dowiedz się więcej
             </Button>
           }
+          alt="Ilona Lasota - Psycholog"
         />
         <FeatureLarge innerRef={this.scrollElementRef}>
           <FeatureLarge.Content>
@@ -62,11 +63,11 @@ class AboutPage extends Component {
               regularnej superwizji.
             </AboutFeatureLargeBody>
           </FeatureLarge.Content>
-          <AboutFeatureLargeImage src={graduation} alt="edukacja" />
+          <AboutFeatureLargeImage src={graduation} alt="Edukacja - ikona" />
         </FeatureLarge>
 
         <FeatureLarge>
-          <AboutFeatureLargeImage src={ether} alt="edukacja" />
+          <AboutFeatureLargeImage src={ether} alt="Doświadczenie - ikona" />
           <FeatureLarge.Content>
             <AboutFeatureLargeHeader>Doświadczenie</AboutFeatureLargeHeader>
             <AboutFeatureLargeBody>
@@ -95,7 +96,7 @@ class AboutPage extends Component {
               zdolność do satysfakcjonującego życia.
             </AboutFeatureLargeBody>
           </FeatureLarge.Content>
-          <AboutFeatureLargeImage src={highFive} alt="pomoc" />
+          <AboutFeatureLargeImage src={highFive} alt="Pomoc - ikona" />
         </FeatureLarge>
 
         <Cta>

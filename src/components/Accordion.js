@@ -20,7 +20,7 @@ class Accordion extends Component {
       <section>
         <Container>
           <AccordionContainer>
-            <Img fluid={imageFluid} />
+            <Img fluid={imageFluid} alt="Kobieta z plecakiem"/>
             <AccordionContent>
               <AccordionComponent>
                 <AccordionItem
