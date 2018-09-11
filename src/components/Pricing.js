@@ -15,7 +15,7 @@ const Pricing = () => {
         <PricingContainer>
           <PricingElement>
             <PricingContent>
-              <PricingImage src={brainstorming} alt="edukacja" />
+              <PricingImage src={brainstorming} alt="Psychoterapia indywidualna - ikona" />
               <PricingElementHeader>
                 Psychoterapia indywidualna / konsultacja
               </PricingElementHeader>
@@ -26,7 +26,7 @@ const Pricing = () => {
           </PricingElement>
           <PricingElement>
             <PricingContent>
-              <PricingImage src={together} alt="edukacja" />
+              <PricingImage src={together} alt="Psychoterapia par - ikona" />
               <PricingElementHeader>
                 Pschoterapia pary / konsultacja
               </PricingElementHeader>
@@ -37,7 +37,7 @@ const Pricing = () => {
           </PricingElement>
           <PricingElement>
             <PricingContent>
-              <PricingImage src={house} alt="edukacja" />
+              <PricingImage src={house} alt="Psychoterapia w domu - ikona" />
               <PricingElementHeader>Wizyta domowa</PricingElementHeader>
               <PricingElementSubHeader>150 zł</PricingElementSubHeader>
               <PricingElementSmall>sesja 50 min</PricingElementSmall>
