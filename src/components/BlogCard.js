@@ -18,7 +18,7 @@ const BlogCard = ({ data }) => {
       <BlogCardBody>
         <small>{data.publishDate}</small>
         <h3>{title}</h3>
-        <p dangerouslySetInnerHTML={{ __html: data.description.childMarkdownRemark.html }} />
+        <p>{data.description.childMarkdownRemark.excerpt}</p>
         <Link to={`/${data.slug}`}>Czytaj dalej</Link>
       </BlogCardBody>
     </BlogCardWrapper>

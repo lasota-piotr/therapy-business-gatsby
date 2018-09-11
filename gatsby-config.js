@@ -19,6 +19,14 @@ module.exports = {
   pathPrefix: '/twoj-terapeuta',
   plugins: [
     {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Open Sans:300,400,600:latin-ext', 'Lora:400,700:latin-ext']
+        },
+      }
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `${process.env.CONTENTFUL_SPACE_ID}`,

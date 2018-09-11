@@ -10,6 +10,7 @@ const theme = {
   'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
   'Droid Sans', 'Helvetica Neue', sans-serif`,
     mono: 'Menlo, monospace',
+    serif: `Lora, 'Merriweather', serif`,
   },
   fontWeights: {
     normal: 300,

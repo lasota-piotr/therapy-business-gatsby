@@ -6,7 +6,7 @@ import Layout from '../components/layout'
 import Masthead from '../components/Masthead'
 import Cta from '../components/Cta'
 import Button from '../components/Button'
-import BlogPosts from '../components/LatestBlogPosts'
+import BlogPosts from '../components/BlogPosts'
 
 class BlogPage extends React.Component {
   render() {
@@ -69,7 +69,7 @@ export const pageQuery = graphql`
           }
           description {
             childMarkdownRemark {
-              html
+              excerpt
             }
           }
         }

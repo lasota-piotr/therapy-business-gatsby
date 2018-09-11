@@ -9,7 +9,7 @@ import Cta from '../components/Cta'
 import Features from '../components/Features'
 import Testimonials from '../components/Testimonials'
 import Button from '../components/Button'
-import BlogPosts from '../components/LatestBlogPosts'
+import BlogPosts from '../components/BlogPosts'
 import FeatureLarge from '../components/FeatureLarge'
 import LinkFeature from '../components/LinkFeature'
 
@@ -26,6 +26,7 @@ class IndexPage extends Component {
     const siteTitle = get(data, 'site.siteMetadata.title')
     const siteDescription = get(data, 'site.siteMetadata.description')
     const posts = get(data, 'allContentfulBlogPost.edges')
+    const imageFluid = get(data, 'heroImage.childImageSharp.fluid')
     return (
       <Layout location={location}>
         <Helmet
@@ -34,7 +35,7 @@ class IndexPage extends Component {
           title={siteTitle}
         />
         <Hero
-          imageFluid={data.heroImage.childImageSharp.fluid}
+          imageFluid={imageFluid}
           headerText="Otwórz się na zmianę"
           subHeaderText="Psychoterapia: osób dorosłych, młodzieży i par"
           contentChildren={
@@ -111,7 +112,7 @@ export const pageQuery = graphql`
           }
           description {
             childMarkdownRemark {
-              html
+              excerpt
             }
           }
         }
