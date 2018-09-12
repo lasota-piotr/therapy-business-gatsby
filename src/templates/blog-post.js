@@ -6,12 +6,15 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import Masthead from '../components/Masthead'
 import Container from '../components/Container'
+import BlogPostBody from '../components/BlogPostBody'
 import BlogPostContent from '../components/BlogPostContent'
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const { data } = this.props
+    const post = get(data, 'contentfulBlogPost')
+    const description = get(post, 'description.description')
+    const siteTitle = get(data, 'site.siteMetadata.title')
     const { previous, next } = this.props.pageContext
 
     return (
@@ -21,65 +24,19 @@ class BlogPostTemplate extends React.Component {
           meta={[
             {
               name: 'description',
-              content: post.description.description || undefined,
+              content: description || undefined,
             },
           ]}
           title={`${post.title} | ${siteTitle}`}
         />
-        <Masthead>
-          <Masthead.Head>{post.title}</Masthead.Head>
-          <Masthead.Text>Umów się na wizytę</Masthead.Text>
-        </Masthead>
-        <Container width="small">
-          <p>{post.publishDate}</p>
-          {post.tags.map((el, i) => (
-            <div key={i}>{el}</div>
-          ))}
-          <div
-            dangerouslySetInnerHTML={{
-              __html: post.description.childMarkdownRemark.html,
-            }}
-          />
-          <Img alt="" sizes={post.mainImage.sizes} />
-          <BlogPostContent
-            dangerouslySetInnerHTML={{
-              __html: post.body.childMarkdownRemark.html,
-            }}
-          />
-        </Container>
-        <Container>
-          <hr />
-          <ul>
-            {previous && (
-              <li>
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.title}
-                </Link>
-              </li>
-            )}
-
-            {next && (
-              <li>
-                <Link to={next.fields.slug} rel="next">
-                  {next.title} →
-                </Link>
-              </li>
-            )}
-          </ul>
-        </Container>
+        <BlogPostContent
+          post={post}
+          next={next}
+          previous={previous}
+          avatar={data.aboutImage.childImageSharp.fixed}
+        />
       </Layout>
     )
-    // return (
-    //   <Layout location={this.props.location}>
-    //     <Helmet
-    //       htmlAttributes={{ lang: 'pl' }}
-    //       meta={[{ name: 'description', content: siteDescription }]}
-    //       title={`${post.title} | ${siteTitle}`}
-    //     />
-    //     <h1>{post.title}</h1>
-
-    //   </Layout>
-    // )
   }
 }
 
@@ -90,10 +47,10 @@ export const pageQuery = graphql`
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       slug
-      publishDate(formatString: "MMMM DD, YYYY")
+      publishDate(formatString: "DD.MM.YYYY")
       tags
       mainImage {
-        sizes(maxWidth: 510, maxHeight: 340, resizingBehavior: FILL) {
+        sizes(maxWidth: 2000, resizingBehavior: FILL) {
           ...GatsbyContentfulSizes_withWebp
         }
       }
@@ -106,6 +63,15 @@ export const pageQuery = graphql`
         description
         childMarkdownRemark {
           html
+        }
+      }
+    }
+    aboutImage: file(relativePath: { eq: "ilona-lasota.jpg" }) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fixed(height: 60, width: 60, cropFocus: CENTER) {
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }

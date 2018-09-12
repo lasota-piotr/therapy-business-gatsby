@@ -41,12 +41,15 @@ Hero.propTypes = {
   position: PropTypes.oneOf(['left', 'center']),
   color: PropTypes.oneOf(['dark']),
   size: PropTypes.oneOf(['large', 'normal']),
+  // TODO: USE IT IN ABOUT PAGE
+  type: PropTypes.oneOf(['normal', 'main-inverted']),
 }
 
 Hero.defaultProps = {
   position: 'center',
   color: 'dark',
   size: 'normal',
+  type: 'normal',
 }
 
 const HeroContainer = styled.section`

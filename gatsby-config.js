@@ -22,7 +22,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Open Sans:300,400,600:latin-ext', 'Lora:400,700:latin-ext']
+          families: ['Open Sans:300,400,600:latin-ext', 'Lora:300,400,700:latin-ext']
         },
       }
     },

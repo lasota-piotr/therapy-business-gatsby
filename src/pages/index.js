@@ -66,7 +66,7 @@ class IndexPage extends Component {
               <LinkFeature to="/o-mnie">Dowiedz się więcej »</LinkFeature>
             </FeatureLarge.Body>
           </FeatureLarge.Content>
-          <FeatureLarge.Img alt="Ilona Lasota - Psycholog" fluid={data.aboutImage.childImageSharp.fluid} />
+          <FeatureLarge.Img alt="Ilona Lasota - Psycholog Warszawa Włochy, Ursus" fluid={data.aboutImage.childImageSharp.fluid} />
         </FeatureLarge>
         <Testimonials />
         <BlogPosts posts={posts} />
@@ -104,7 +104,7 @@ export const pageQuery = graphql`
         node {
           title
           slug
-          publishDate(formatString: "MMMM DD, YYYY")
+          publishDate(formatString: "DD.MM.YYYY")
           tags
           mainImage {
             sizes(maxWidth: 510, maxHeight: 340, resizingBehavior: FILL) {

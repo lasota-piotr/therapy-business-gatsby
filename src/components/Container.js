@@ -12,7 +12,7 @@ const Container = styled.div`
   ${({ width }) =>
     width === 'small'
       ? css`
-          max-width: 732px;
+          max-width: 764px;
         `
       : css`
           max-width: 1140px;

@@ -25,7 +25,7 @@ class BlogPage extends React.Component {
         />
         <Masthead>
           <Masthead.Head>Blog</Masthead.Head>
-          <Masthead.Text>Artykuły o psychologii i psychoterapii</Masthead.Text>
+          <Masthead.Text>Artykuły z zakresu psychologii i psychoterapii</Masthead.Text>
         </Masthead>
 
         <BlogPosts posts={posts} />
@@ -60,7 +60,7 @@ export const pageQuery = graphql`
         node {
           title
           slug
-          publishDate(formatString: "MMMM DD, YYYY")
+          publishDate(formatString: "DD.MM.YYYY")
           tags
           mainImage {
             sizes(maxWidth: 510, maxHeight: 340, resizingBehavior: FILL) {
