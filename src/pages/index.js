@@ -69,7 +69,7 @@ class IndexPage extends Component {
           <FeatureLarge.Img alt="Ilona Lasota - Psycholog Warszawa Włochy, Ursus" fluid={data.aboutImage.childImageSharp.fluid} />
         </FeatureLarge>
         <Testimonials />
-        <BlogPosts posts={posts} />
+        {!!posts && <BlogPosts posts={posts} />}
         <Cta>
           <Cta.Head>Skontaktuj się ze mną</Cta.Head>
           <Cta.Text>Zdecyduj o własnej przyszłości</Cta.Text>

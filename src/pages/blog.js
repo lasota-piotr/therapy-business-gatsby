@@ -28,7 +28,7 @@ class BlogPage extends React.Component {
           <Masthead.Text>Artykuły z zakresu psychologii i psychoterapii</Masthead.Text>
         </Masthead>
 
-        <BlogPosts posts={posts} />
+        {!!posts && <BlogPosts posts={posts} />}
 
         <Cta>
           <Cta.Head>Zapisz się na wizytę</Cta.Head>
