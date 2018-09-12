@@ -1,9 +1,19 @@
+let activeEnv = process.env.ACTIVE_ENV
+
+if (!activeEnv) {
+  activeEnv = "development"
+}
+
+require("dotenv").config({
+  path: `.env.${activeEnv}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'Psycholog Warszawa Włochy - Ilona Lasota - dobry psychoterapeuta',
     author: 'Ilona Lasota',
     description:
-      'Ilona Lasota - bardzo dobry psycholog z miasta Warszawa Włochy. Psychoterapeuta z dobrymi opiniami. Umów się na wizytę ☎ 737-449-022',
+      'Ilona Lasota - bardzo dobry psycholog z miasta Warszawa Włochy. Psychoterapeuta z dobrymi opiniami. Umów się ☎ 737-449-022',
     siteUrl: 'https://twoj-terapeuta.pl/',
   },
   pathPrefix: '/twoj-terapeuta',
@@ -12,6 +22,21 @@ module.exports = {
       resolve: `gatsby-plugin-polyfill-io`,
       options: {
         features: [`IntersectionObserver`, 'fetch'],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Open Sans:300,400,600:latin-ext', 'Lora:300,400,700:latin-ext']
+        },
+      }
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `${process.env.CONTENTFUL_SPACE_ID}`,
+        accessToken: `${process.env.CONTENTFUL_ACCESS_TOKEN}`,
       },
     },
     {
@@ -57,7 +82,6 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

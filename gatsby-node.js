@@ -1,7 +1,6 @@
+const path = require('path')
 const _ = require('lodash')
 const Promise = require('bluebird')
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -12,15 +11,11 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
+            allContentfulBlogPost {
               edges {
                 node {
-                  fields {
-                    slug
-                  }
-                  frontmatter {
-                    title
-                  }
+                  title
+                  slug
                 }
               }
             }
@@ -33,17 +28,18 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         // Create blog posts pages.
-        const posts = result.data.allMarkdownRemark.edges;
+        const posts = result.data.allContentfulBlogPost.edges
 
         _.each(posts, (post, index) => {
-          const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-          const next = index === 0 ? null : posts[index - 1].node;
+          const previous =
+            index === posts.length - 1 ? null : posts[index + 1].node
+          const next = index === 0 ? null : posts[index - 1].node
 
           createPage({
-            path: post.node.fields.slug,
+            path: post.node.slug,
             component: blogPost,
             context: {
-              slug: post.node.fields.slug,
+              slug: post.node.slug,
               previous,
               next,
             },
@@ -54,15 +50,3 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
-}

@@ -9,7 +9,7 @@ import Cta from '../components/Cta'
 import Features from '../components/Features'
 import Testimonials from '../components/Testimonials'
 import Button from '../components/Button'
-// import LatestBlogPosts from '../components/LatestBlogPosts'
+import BlogPosts from '../components/BlogPosts'
 import FeatureLarge from '../components/FeatureLarge'
 import LinkFeature from '../components/LinkFeature'
 
@@ -25,7 +25,8 @@ class IndexPage extends Component {
     let { data, location } = this.props
     const siteTitle = get(data, 'site.siteMetadata.title')
     const siteDescription = get(data, 'site.siteMetadata.description')
-    // const posts = get(data, 'allMarkdownRemark.edges')
+    const posts = get(data, 'allContentfulBlogPost.edges')
+    const imageFluid = get(data, 'heroImage.childImageSharp.fluid')
     return (
       <Layout location={location}>
         <Helmet
@@ -34,7 +35,7 @@ class IndexPage extends Component {
           title={siteTitle}
         />
         <Hero
-          imageFluid={data.heroImage.childImageSharp.fluid}
+          imageFluid={imageFluid}
           headerText="Otwórz się na zmianę"
           subHeaderText="Psychoterapia: osób dorosłych, młodzieży i par"
           contentChildren={
@@ -45,10 +46,10 @@ class IndexPage extends Component {
           alt="Łąka"
         />
         <Cta innerRef={this.scrollElementRef}>
-          <Cta.Head>Nawet najdłuższa droga zaczyna się od pierwszego kroku</Cta.Head>
-          <Cta.Text>
-            Pomoc psychologiczna i psychoterapeutyczna
-          </Cta.Text>
+          <Cta.Head>
+            Nawet najdłuższa droga zaczyna się od pierwszego kroku
+          </Cta.Head>
+          <Cta.Text>Pomoc psychologiczna i psychoterapeutyczna</Cta.Text>
         </Cta>
 
         <Features />
@@ -57,19 +58,18 @@ class IndexPage extends Component {
             <FeatureLarge.Header>O mnie</FeatureLarge.Header>
             <FeatureLarge.Body>
               <p>
-                Jestem psychologiem i psychoterapeutą poznawczo&#8209;behawioralnym w
-                trakcie procesu certyfikacji. W swojej pracy terapeutycznej
-                posługuję się głównie podejściem poznawczo-behawioralnym oraz
-                terapią schematu.
+                Jestem psychologiem i psychoterapeutą
+                poznawczo&#8209;behawioralnym w trakcie procesu certyfikacji. W
+                swojej pracy terapeutycznej posługuję się głównie podejściem
+                poznawczo-behawioralnym oraz terapią schematu.
               </p>
               <LinkFeature to="/o-mnie">Dowiedz się więcej »</LinkFeature>
             </FeatureLarge.Body>
           </FeatureLarge.Content>
-          <FeatureLarge.Img alt="Ilona Lasota - Psycholog" fluid={data.aboutImage.childImageSharp.fluid} />
+          <FeatureLarge.Img alt="Ilona Lasota - Psycholog Warszawa Włochy, Ursus" fluid={data.aboutImage.childImageSharp.fluid} />
         </FeatureLarge>
         <Testimonials />
-        {/* TODO: ENABLE BLOG */}
-        {/*<LatestBlogPosts posts={posts} />*/}
+        {!!posts && <BlogPosts posts={posts} />}
         <Cta>
           <Cta.Head>Skontaktuj się ze mną</Cta.Head>
           <Cta.Text>Zdecyduj o własnej przyszłości</Cta.Text>
@@ -99,30 +99,27 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 3
-    ) {
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
-          excerpt
-          fields {
-            slug
+          title
+          slug
+          publishDate(formatString: "DD.MM.YYYY")
+          tags
+          mainImage {
+            sizes(maxWidth: 510, maxHeight: 340, resizingBehavior: FILL) {
+              ...GatsbyContentfulSizes_withWebp
+            }
           }
-          frontmatter {
-            date(formatString: "DD MMMM, YYYY")
-            title
-            image {
-              childImageSharp {
-                fluid(maxWidth: 510, maxHeight: 340) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
+          description {
+            childMarkdownRemark {
+              excerpt
             }
           }
         }
       }
     }
+
     heroImage: file(relativePath: { eq: "hero.jpg" }) {
       childImageSharp {
         # Specify the image processing specifications right in the query.

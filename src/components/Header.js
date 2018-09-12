@@ -42,7 +42,7 @@ const Header = ({ location }) => {
     <nav>
       <NavContainer>
         <HeadingLink to="/">
-          <Logo height="48" width="48" src={logo} alt="Ilona Lasota logo" />
+          <Logo height="48" width="48" src={logo} alt="Ilona Lasota - Psycholog Warszawa Włochy, Ursus - logo" />
           <Heading isRoot={isRoot}>
             <HeadingAccentText>Twój terapeuta</HeadingAccentText> <br />
             <HeadingMainText>Ilona Lasota</HeadingMainText>

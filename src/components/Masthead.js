@@ -28,7 +28,7 @@ const MastheadText = styled.p`
   margin-bottom: ${between('16px', '24px')};
 `
 
-const MastheadWrapper = styled.section`
+const MastheadWrapper = styled.div`
   margin: 5.5rem auto;
   display: flex;
   flex-direction: column;

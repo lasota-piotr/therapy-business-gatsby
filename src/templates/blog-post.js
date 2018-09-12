@@ -1,44 +1,40 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
+import Img from 'gatsby-image'
 import Layout from '../components/layout'
+import Masthead from '../components/Masthead'
+import Container from '../components/Container'
+import BlogPostBody from '../components/BlogPostBody'
+import BlogPostContent from '../components/BlogPostContent'
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-    const siteDescription = post.excerpt
+    const { data, location } = this.props
+    const post = get(data, 'contentfulBlogPost')
+    const description = get(post, 'description.description')
+    const siteTitle = get(data, 'site.siteMetadata.title')
     const { previous, next } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={location}>
         <Helmet
           htmlAttributes={{ lang: 'pl' }}
-          meta={[{ name: 'description', content: siteDescription }]}
-          title={`${post.frontmatter.title} | ${siteTitle}`}
+          meta={[
+            {
+              name: 'description',
+              content: description || undefined,
+            },
+          ]}
+          title={`${post.title} | ${siteTitle}`}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr />
-        <ul>
-          {previous && (
-            <li>
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            </li>
-          )}
-
-          {next && (
-            <li>
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            </li>
-          )}
-        </ul>
+        <BlogPostContent
+          post={post}
+          next={next}
+          previous={previous}
+          avatar={data.aboutImage.childImageSharp.fixed}
+        />
       </Layout>
     )
   }
@@ -48,19 +44,35 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
+    contentfulBlogPost(slug: { eq: $slug }) {
+      title
+      slug
+      publishDate(formatString: "DD.MM.YYYY")
+      tags
+      mainImage {
+        sizes(maxWidth: 2000, resizingBehavior: FILL) {
+          ...GatsbyContentfulSizes_withWebp
+        }
+      }
+      body {
+        childMarkdownRemark {
+          html
+        }
+      }
+      description {
+        description
+        childMarkdownRemark {
+          html
+        }
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
+    aboutImage: file(relativePath: { eq: "ilona-lasota.jpg" }) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fixed(height: 60, width: 60, cropFocus: CENTER) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
       }
     }
   }

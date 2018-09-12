@@ -3,37 +3,45 @@ import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
+import Masthead from '../components/Masthead'
+import Cta from '../components/Cta'
+import Button from '../components/Button'
+import BlogPosts from '../components/BlogPosts'
 
 class BlogPage extends React.Component {
   render() {
+    const { location } = this.props
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const siteDescription = get(
       this,
       'props.data.site.siteMetadata.description'
     )
-    const posts = get(this, 'props.data.allMarkdownRemark.edges')
-
+    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     return (
-      <Layout location={this.props.location}>
+      <Layout location={location}>
         <Helmet
           htmlAttributes={{ lang: 'pl' }}
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        {posts.map(({ node }) => {
-          const title = get(node, 'frontmatter.title') || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3>
-                <Link to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })}
+        <Masthead>
+          <Masthead.Head>Blog</Masthead.Head>
+          <Masthead.Text>
+            Artykuły z zakresu psychologii i psychoterapii
+          </Masthead.Text>
+        </Masthead>
+
+        {!!posts && <BlogPosts posts={posts} />}
+
+        <Cta>
+          <Cta.Head>Zapisz się na wizytę</Cta.Head>
+          <Cta.Text>Zacznij od siebie</Cta.Text>
+          <Link to="/kontakt">
+            <Button px={4} py={3}>
+              Skontaktuj się
+            </Button>
+          </Link>
+        </Cta>
       </Layout>
     )
   }
@@ -49,16 +57,23 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
-          excerpt
-          fields {
-            slug
+          title
+          slug
+          publishDate(formatString: "DD.MM.YYYY")
+          tags
+          mainImage {
+            sizes(maxWidth: 510, maxHeight: 340, resizingBehavior: FILL) {
+              ...GatsbyContentfulSizes_withWebp
+            }
           }
-          frontmatter {
-            date(formatString: "DD MMMM, YYYY")
-            title
+          description {
+            childMarkdownRemark {
+              excerpt
+            }
           }
         }
       }
