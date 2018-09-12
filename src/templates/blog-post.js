@@ -11,7 +11,7 @@ import BlogPostContent from '../components/BlogPostContent'
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const { data } = this.props
+    const { data, location } = this.props
     const post = get(data, 'contentfulBlogPost')
     const description = get(post, 'description.description')
     const siteTitle = get(data, 'site.siteMetadata.title')

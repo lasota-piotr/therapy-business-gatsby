@@ -10,6 +10,7 @@ import BlogPosts from '../components/BlogPosts'
 
 class BlogPage extends React.Component {
   render() {
+    const { location } = this.props
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const siteDescription = get(
       this,
@@ -25,7 +26,9 @@ class BlogPage extends React.Component {
         />
         <Masthead>
           <Masthead.Head>Blog</Masthead.Head>
-          <Masthead.Text>Artykuły z zakresu psychologii i psychoterapii</Masthead.Text>
+          <Masthead.Text>
+            Artykuły z zakresu psychologii i psychoterapii
+          </Masthead.Text>
         </Masthead>
 
         {!!posts && <BlogPosts posts={posts} />}
