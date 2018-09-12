@@ -13,11 +13,17 @@ module.exports = {
     title: 'Psycholog Warszawa Włochy - Ilona Lasota - dobry psychoterapeuta',
     author: 'Ilona Lasota',
     description:
-      'Ilona Lasota - bardzo dobry psycholog z miasta Warszawa Włochy. Psychoterapeuta z dobrymi opiniami.',
+      'Ilona Lasota - bardzo dobry psycholog z miasta Warszawa Włochy. Psychoterapeuta z dobrymi opiniami. Umów się ☎ 737-449-022',
     siteUrl: 'https://twoj-terapeuta.pl/',
   },
   pathPrefix: '/twoj-terapeuta',
   plugins: [
+    {
+      resolve: `gatsby-plugin-polyfill-io`,
+      options: {
+        features: [`IntersectionObserver`, 'fetch'],
+      },
+    },
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
@@ -92,11 +98,5 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sass`,
-    {
-      resolve: `gatsby-plugin-polyfill-io`,
-      options: {
-        features: [`IntersectionObserver`, 'fetch']
-      },
-    },
   ],
 }
