@@ -1,10 +1,10 @@
 let activeEnv = process.env.ACTIVE_ENV
 
 if (!activeEnv) {
-  activeEnv = "development"
+  activeEnv = 'development'
 }
 
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${activeEnv}`,
 })
 
@@ -14,10 +14,13 @@ module.exports = {
     author: 'Ilona Lasota',
     description:
       'Ilona Lasota - bardzo dobry psycholog z miasta Warszawa Włochy. Psychoterapeuta z dobrymi opiniami. Umów się ☎ 737-449-022',
-    siteUrl: 'https://twoj-terapeuta.pl/',
+    siteUrl: 'https://www.twoj-terapeuta.pl',
   },
   pathPrefix: '/twoj-terapeuta',
   plugins: [
+    {
+      resolve: `gatsby-plugin-sitemap`,
+    },
     {
       resolve: `gatsby-plugin-polyfill-io`,
       options: {
@@ -28,9 +31,12 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Open Sans:300,400,600:latin-ext', 'Lora:300,400,700:latin-ext']
+          families: [
+            'Open Sans:300,400,600:latin-ext',
+            'Lora:300,400,700:latin-ext',
+          ],
         },
-      }
+      },
     },
     {
       resolve: `gatsby-source-contentful`,
