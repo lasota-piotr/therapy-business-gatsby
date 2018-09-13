@@ -12,21 +12,24 @@ import LinkFeature from '../components/LinkFeature'
 import Cta from '../components/Cta'
 import LazyLoad from '../components/LazyLoad'
 
+const TITLE = 'Kontakt'
+const DESCRIPTION =
+  'Psycholog i psychoterapeuta - Warszawa Włochy, Ursus. Umów się na wizytę 📞 737-449-022 - ul. Potrzebna 35/11 '
+
 const PricingPage = ({ data, location }) => {
   const siteTitle = get(data, 'site.siteMetadata.title')
-  const siteDescription = get(data, 'site.siteMetadata.description')
 
   return (
     <Layout location={location}>
       <Helmet
         htmlAttributes={{ lang: 'pl' }}
-        meta={[{ name: 'description', content: siteDescription }]}
-        title={siteTitle}
+        meta={[{ name: 'description', content: DESCRIPTION }]}
+        title={`${TITLE} | ${siteTitle}`}
       />
       <Masthead>
-        <Masthead.Head>Kontakt</Masthead.Head>
+        <Masthead.Head>{TITLE}</Masthead.Head>
         <Masthead.Text>
-          Psycholog i psychoterapeuta - Warszawa, Włochy
+          Psycholog i psychoterapeuta - Warszawa Włochy, Ursus
         </Masthead.Text>
       </Masthead>
       <ContactFeatureLarge>

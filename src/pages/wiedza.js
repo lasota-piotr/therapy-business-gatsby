@@ -9,21 +9,21 @@ import Cta from '../components/Cta'
 import Masthead from '../components/Masthead'
 import Accordion from '../components/Accordion'
 
+const TITLE = 'Informacje o pschoterapii'
 class KnowledgePage extends Component {
   render() {
     let { data, location } = this.props
     const siteTitle = get(data, 'site.siteMetadata.title')
-    const siteDescription = get(data, 'site.siteMetadata.description')
     const pathName = location && location.hash && location.hash.replace('#', '')
     return (
       <Layout location={location}>
         <Helmet
           htmlAttributes={{ lang: 'pl' }}
-          meta={[{ name: 'description', content: siteDescription }]}
-          title={siteTitle}
+          // meta={[{ name: 'description', content: siteDescription }]}
+          title={`${TITLE} | ${siteTitle}`}
         />
         <Masthead>
-          <Masthead.Head>Informacje o pschoterapii</Masthead.Head>
+          <Masthead.Head>{TITLE}</Masthead.Head>
           <Masthead.Text>Dowiedz się więcej o psychoterapii</Masthead.Text>
         </Masthead>
         <Accordion
