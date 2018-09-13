@@ -8,6 +8,8 @@ import Cta from '../components/Cta'
 import Button from '../components/Button'
 import BlogPosts from '../components/BlogPosts'
 
+const TITLE = 'Blog'
+const DESCRIPTION = 'Artykuły z zakresu psychologii i psychoterapii'
 class BlogPage extends React.Component {
   render() {
     const { location } = this.props
@@ -21,14 +23,17 @@ class BlogPage extends React.Component {
       <Layout location={location}>
         <Helmet
           htmlAttributes={{ lang: 'pl' }}
-          meta={[{ name: 'description', content: siteDescription }]}
-          title={siteTitle}
+          meta={[
+            {
+              name: 'description',
+              content: `${DESCRIPTION} | ${siteDescription}`,
+            },
+          ]}
+          title={`${TITLE} | ${siteTitle}`}
         />
         <Masthead>
-          <Masthead.Head>Blog</Masthead.Head>
-          <Masthead.Text>
-            Artykuły z zakresu psychologii i psychoterapii
-          </Masthead.Text>
+          <Masthead.Head>{TITLE}</Masthead.Head>
+          <Masthead.Text>{DESCRIPTION}</Masthead.Text>
         </Masthead>
 
         {!!posts && <BlogPosts posts={posts} />}

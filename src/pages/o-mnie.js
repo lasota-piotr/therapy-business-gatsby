@@ -14,6 +14,8 @@ import ether from '../assets/ether.svg'
 import highFive from '../assets/high-five.svg'
 import Hero from '../components/Hero'
 
+const TITLE = 'O mnie'
+
 class AboutPage extends Component {
   // TODO: move it to render props
   scrollElementRef = React.createRef()
@@ -32,7 +34,7 @@ class AboutPage extends Component {
         <Helmet
           htmlAttributes={{ lang: 'pl' }}
           meta={[{ name: 'description', content: siteDescription }]}
-          title={siteTitle}
+          title={`${TITLE} | ${siteTitle}`}
         />
         <AboutHero
           imageFluid={data.heroImage.childImageSharp.fluid}

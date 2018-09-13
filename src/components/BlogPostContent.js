@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import Img from 'gatsby-image'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import media from '../styleUtils/media'
 import Container from './Container'
 import BlogPostBody from './BlogPostBody'
 import BlogPostAuthor from './BlogPostAuthor'
+import BlogPostRelated from './BlogPostRelated'
 
 const BlogPostContent = ({ post, previous, next, avatar }) => {
   return (
@@ -20,9 +20,9 @@ const BlogPostContent = ({ post, previous, next, avatar }) => {
               __html: post.description.childMarkdownRemark.html,
             }}
           />
+          <BlogPostAuthor avatar={avatar} />
         </BlogPostContentContainerMasthead>
         <BlogPostContentContainer>
-          <BlogPostAuthor avatar={avatar} />
           <BlogPostBody
             dangerouslySetInnerHTML={{
               __html: post.body.childMarkdownRemark.html,
@@ -34,31 +34,13 @@ const BlogPostContent = ({ post, previous, next, avatar }) => {
             {post.tags.map((el, i) => (
               <span key={i}>
                 {el}
-                {i === post.tags.length - 1}
+                {i !== post.tags.length - 1 && ', '}
               </span>
             ))}
           </div>
         </BlogPostContentContainer>
       </Container>
-      <Container width="small">
-        <ul>
-          {previous && (
-            <li>
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.title}
-              </Link>
-            </li>
-          )}
-
-          {next && (
-            <li>
-              <Link to={next.fields.slug} rel="next">
-                {next.title} →
-              </Link>
-            </li>
-          )}
-        </ul>
-      </Container>
+      <BlogPostRelated previous={previous} next={next} />
     </Fragment>
   )
 }

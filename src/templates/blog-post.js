@@ -1,12 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import Img from 'gatsby-image'
 import Layout from '../components/layout'
-import Masthead from '../components/Masthead'
-import Container from '../components/Container'
-import BlogPostBody from '../components/BlogPostBody'
 import BlogPostContent from '../components/BlogPostContent'
 
 class BlogPostTemplate extends React.Component {
@@ -15,8 +11,7 @@ class BlogPostTemplate extends React.Component {
     const post = get(data, 'contentfulBlogPost')
     const description = get(post, 'description.description')
     const siteTitle = get(data, 'site.siteMetadata.title')
-    const { previous, next } = this.props.pageContext
-
+    const { previous, next } = this.props.pathContext || {}
     return (
       <Layout location={location}>
         <Helmet
@@ -44,6 +39,12 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       slug
