@@ -38,7 +38,7 @@ const PricingPage = ({ data, location }) => {
           <FeatureLarge.Body>
             <p>
               <strong>Nr telefonu: </strong>
-              <Link target="_self" rel="" href="tel:+48737449022">
+              <Link target="_self" rel="" to="tel:+48737449022">
                 737-449-022
               </Link>
             </p>

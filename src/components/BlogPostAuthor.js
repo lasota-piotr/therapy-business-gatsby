@@ -42,11 +42,13 @@ const BlogPostAuthorTitle = styled.h4`
   font-size: 18px;
   font-weight: 400;
   margin-bottom: 0.25rem;
+  color: #252525;
 `
 
 const BlogPostAuthorDescription = styled.p`
   font-size: 13px;
   margin-bottom: 0;
+  color: #252525;
 `
 
 export default BlogPostAuthor

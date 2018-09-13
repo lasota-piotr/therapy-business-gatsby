@@ -17,13 +17,22 @@ const BlogCard = ({ data }) => {
       )}
       <BlogCardBody>
         <small>{data.publishDate}</small>
-        <h3>{title}</h3>
+        <BlogCardTitleLink to={`/${data.slug}`}>
+          <h3>{title}</h3>
+        </BlogCardTitleLink>
         <p>{data.description.childMarkdownRemark.excerpt}</p>
         <Link to={`/${data.slug}`}>Czytaj dalej</Link>
       </BlogCardBody>
     </BlogCardWrapper>
   )
 }
+
+const BlogCardTitleLink = styled(Link)`
+  color: #252525;
+  &:hover {
+    color: #333;
+  }
+`
 
 const BlogCardImg = styled(Img)`
   border-radius: 6px 6px 0 0;

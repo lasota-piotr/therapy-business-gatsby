@@ -15,8 +15,7 @@ class BlogPostTemplate extends React.Component {
     const post = get(data, 'contentfulBlogPost')
     const description = get(post, 'description.description')
     const siteTitle = get(data, 'site.siteMetadata.title')
-    const { previous, next } = this.props.pageContext
-
+    const { previous, next } = this.props.pathContext || {}
     return (
       <Layout location={location}>
         <Helmet
