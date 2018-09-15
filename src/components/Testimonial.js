@@ -23,14 +23,15 @@ Testimonial.propTypes = {
 
 const TestimonialWrapper = styled.div`
   margin: 0 auto;
+  padding: 0 1rem;
   text-align: center;
-  // max-width: 66.66%;
-  // ${media.tablet`
-  //   max-width: 83.33%;
-  // `};
-  // ${media.phone`
-  //   max-width: 100%;
-  // `};
+   max-width: 66.66%;
+  ${media.tablet`
+    max-width: 83.33%;
+  `};
+  ${media.phone`
+    max-width: 100%;
+  `};
 `
 
 const TestimonialText = styled(Blockquote)`

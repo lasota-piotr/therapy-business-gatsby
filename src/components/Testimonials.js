@@ -166,8 +166,8 @@ const TestimonialsContainer = styled(Container)`
 
 const TestimonialsWrapper = styled.div`
   background-color: #fafafa;
-  height: 28rem;
-  padding: 6.5rem 1rem;
+  height: 26rem;
+  padding: 6.5rem 0;
   margin: 2rem 0;
 `
 export default Testimonials
