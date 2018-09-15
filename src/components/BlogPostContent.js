@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { between } from 'polished'
 import media from '../styleUtils/media'
 import Container from './Container'
 import BlogPostBody from './BlogPostBody'
@@ -73,6 +74,10 @@ const BlogPostDescription = styled.div`
     &:last-child {
       margin-bottom: 1.5rem;
     }
+
+    ${media.tablet`
+      font-size: ${between('17px', '20px', '280px', '1000px')};
+    `};
   }
 `
 
