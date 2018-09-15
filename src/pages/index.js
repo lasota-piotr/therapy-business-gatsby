@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
@@ -12,6 +12,7 @@ import Button from '../components/Button'
 import BlogPosts from '../components/BlogPosts'
 import FeatureLarge from '../components/FeatureLarge'
 import LinkFeature from '../components/LinkFeature'
+import Testimonial from '../components/Testimonial'
 
 class IndexPage extends Component {
   scrollElementRef = React.createRef()
@@ -66,9 +67,13 @@ class IndexPage extends Component {
               <LinkFeature to="/o-mnie">Dowiedz się więcej »</LinkFeature>
             </FeatureLarge.Body>
           </FeatureLarge.Content>
-          <FeatureLarge.Img alt="Ilona Lasota - Psycholog Warszawa Włochy, Ursus" fluid={data.aboutImage.childImageSharp.fluid} />
+          <FeatureLarge.Img
+            alt="Ilona Lasota - Psycholog Warszawa Włochy, Ursus"
+            fluid={data.aboutImage.childImageSharp.fluid}
+          />
         </FeatureLarge>
         <Testimonials />
+
         {!!posts && <BlogPosts posts={posts} />}
         <Cta>
           <Cta.Head>Skontaktuj się ze mną</Cta.Head>
