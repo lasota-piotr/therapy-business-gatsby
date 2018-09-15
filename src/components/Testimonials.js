@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import styled, { css } from 'styled-components'
 import Observer from 'react-intersection-observer'
+import media from '../styleUtils/media'
 import Testimonial from './Testimonial'
 import Container from './Container'
 import LinkFeature from './LinkFeature'
@@ -144,6 +145,11 @@ const TestimonialsNavigationIcon = styled.button`
   width: 0.5rem;
   height: 0.5rem;
   margin: 1rem 0.5rem;
+  ${media.phone`
+    width: 0.6rem;
+    height: 0.6rem;
+    margin: 1rem; 0.6rem;
+  `};
   border: 0;
   padding: 0;
 `
@@ -190,14 +196,6 @@ const TestimonialsElementContainer = styled.div`
     ) {
       return css`
         ${positionLeft};
-        ${(() => {
-          console.log({
-            maxIndex,
-            currentIndex,
-            prevIndex,
-            roznica: currentIndex - prevIndex,
-          })
-        })()};
         ${currentIndex - prevIndex === 1 ||
         currentIndex - prevIndex === -maxIndex
           ? 'opacity: 1'
