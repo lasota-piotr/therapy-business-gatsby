@@ -25,7 +25,7 @@ const TestimonialWrapper = styled.div`
   margin: 0 auto;
   padding: 0 1rem;
   text-align: center;
-   max-width: 66.66%;
+  max-width: 66.66%;
   ${media.tablet`
     max-width: 83.33%;
   `};
@@ -36,7 +36,7 @@ const TestimonialWrapper = styled.div`
 
 const TestimonialText = styled(Blockquote)`
   color: #666;
-  font-size: ${between('22px', '25px')};
+  font-size: ${between('19px', '25px')};
   text-align: center;
   margin-bottom: 2rem;
 `

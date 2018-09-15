@@ -7,12 +7,11 @@ import Layout from '../components/layout'
 import Hero from '../components/Hero'
 import Cta from '../components/Cta'
 import Features from '../components/Features'
-import Testimonials from '../components/Testimonials'
+import MainPageTestimonials from '../components/MainPageTestimonials'
 import Button from '../components/Button'
 import BlogPosts from '../components/BlogPosts'
 import FeatureLarge from '../components/FeatureLarge'
 import LinkFeature from '../components/LinkFeature'
-import Testimonial from '../components/Testimonial'
 
 class IndexPage extends Component {
   scrollElementRef = React.createRef()
@@ -72,7 +71,7 @@ class IndexPage extends Component {
             fluid={data.aboutImage.childImageSharp.fluid}
           />
         </FeatureLarge>
-        <Testimonials />
+        <MainPageTestimonials />
 
         {!!posts && <BlogPosts posts={posts} />}
         <Cta>

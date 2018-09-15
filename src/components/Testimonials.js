@@ -5,44 +5,10 @@ import Testimonial from './Testimonial'
 import Container from './Container'
 import LinkFeature from './LinkFeature'
 
-const testimonials = [
-  {
-    text:
-      '1Panią Ilonę cechuje profesjonalne podejście do pacjenta. Pomaga w' +
-      'rozwiązywaniu problemów i "wyjściu na prostą". W gabinecie panuje' +
-      'miła i sympatyczna atmosfera, co powoduje, że chętnie się tam' +
-      'wraca.',
-    author: 'Lidia1',
-  },
-  {
-    text:
-      '2Panią Ilonę cechuje profesjonalne podejście do pacjenta. Pomaga w' +
-      'rozwiązywaniu problemów i "wyjściu na prostą". W gabinecie panuje' +
-      'miła i sympatyczna atmosfera, co powoduje, że chętnie się tam' +
-      'wraca.',
-    author: 'Lidia2',
-  },
-  {
-    text:
-      '3Panią Ilonę cechuje profesjonalne podejście do pacjenta. Pomaga w' +
-      'rozwiązywaniu problemów i "wyjściu na prostą". W gabinecie panuje' +
-      'miła i sympatyczna atmosfera, co powoduje, że chętnie się tam' +
-      'wraca.',
-    author: 'Lidia3',
-  },
-  {
-    text:
-      '4Panią Ilonę cechuje profesjonalne podejście do pacjenta. Pomaga w' +
-      'rozwiązywaniu problemów i "wyjściu na prostą". W gabinecie panuje' +
-      'miła i sympatyczna atmosfera, co powoduje, że chętnie się tam' +
-      'wraca.',
-    author: 'Lidia4',
-  },
-]
-
 class Testimonials extends Component {
   state = {
     currentIndex: 0,
+    prevIndex: -1,
   }
 
   onViewHandle = inView => {
@@ -54,12 +20,14 @@ class Testimonials extends Component {
   }
 
   startScrolling = () => {
+    const { testimonials } = this.props
     this.counter = setInterval(() => {
       this.setState(({ currentIndex }) => ({
+        prevIndex: currentIndex,
         currentIndex:
           currentIndex < testimonials.length - 1 ? currentIndex + 1 : 0,
       }))
-    }, 2000)
+    }, 5000)
   }
 
   stopScrolling = () => {
@@ -74,14 +42,28 @@ class Testimonials extends Component {
     this.stopScrolling()
   }
 
+  onNavButtonClick = buttonIndex => {
+    this.setState({
+      currentIndex: buttonIndex,
+    })
+  }
+
   render() {
+    const { testimonials } = this.props
+    const { currentIndex, prevIndex } = this.state
     return (
       <Observer onChange={this.onViewHandle}>
         <TestimonialsWrapper>
           <TestimonialsContainer>
             <TestimonialsList
               testimonials={testimonials}
-              currentIndex={this.state.currentIndex}
+              currentIndex={currentIndex}
+              prevIndex={prevIndex}
+            />
+            <TestimonialsNavigation
+              currentIndex={currentIndex}
+              totalNumber={testimonials.length}
+              onNavButtonClick={this.onNavButtonClick}
             />
           </TestimonialsContainer>
         </TestimonialsWrapper>
@@ -90,21 +72,33 @@ class Testimonials extends Component {
   }
 }
 
-const TestimonialsList = ({ testimonials, currentIndex }) =>
-  testimonials.map(({ text, author }, i) => (
-    <TestimonialsElementContainer
-      key={i}
-      index={i}
-      currentIndex={currentIndex}
-      maxIndex={testimonials.length - 1}
-    >
-      <Testimonial
-        text={text}
-        footerText={author}
-        footerAside={<TestimonialsFooterAside />}
-      />
-    </TestimonialsElementContainer>
-  ))
+const TestimonialsList = ({ testimonials, currentIndex, prevIndex }) =>
+  testimonials.map(
+    (
+      {
+        node: {
+          id,
+          testimonial: { testimonial },
+          author,
+        },
+      },
+      i
+    ) => (
+      <TestimonialsElementContainer
+        key={id}
+        index={i}
+        currentIndex={currentIndex}
+        maxIndex={testimonials.length - 1}
+        prevIndex={prevIndex}
+      >
+        <Testimonial
+          text={testimonial}
+          footerText={author}
+          footerAside={<TestimonialsFooterAside />}
+        />
+      </TestimonialsElementContainer>
+    )
+  )
 
 const TestimonialsFooterAside = () => (
   <Fragment>
@@ -115,8 +109,48 @@ const TestimonialsFooterAside = () => (
   </Fragment>
 )
 
+const TestimonialsNavigation = ({
+  totalNumber,
+  currentIndex,
+  onNavButtonClick,
+}) => {
+  const icons = Array(totalNumber).fill('')
+  return (
+    <TestimonialsNavigationContainer>
+      {icons.map((icon, i) => (
+        <TestimonialsNavigationIcon
+          key={i}
+          isActive={i === currentIndex}
+          onClick={() => onNavButtonClick(i)}
+        />
+      ))}
+    </TestimonialsNavigationContainer>
+  )
+}
+
+const TestimonialsNavigationContainer = styled.div`
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+`
+
+const TestimonialsNavigationIcon = styled.button`
+  transition: background-color 1s;
+  background-color: ${({ isActive }) => (isActive ? '#252525' : '#aeaeae')};
+  border-radius: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 1rem 0.5rem;
+  border: 0;
+  padding: 0;
+`
+
 const positionRight = css`
   transform: translate3d(100%, 0, 0);
+  opacity: 0;
 `
 
 const positionLeft = css`
@@ -125,16 +159,20 @@ const positionLeft = css`
 
 const positionCenter = css`
   transform: translate3d(0, 0, 0);
+  opacity: 1;
 `
 
 const TestimonialsElementContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  transition: transform 1s;
-  ${({ currentIndex, index, maxIndex }) => {
+  transition: transform 0.5s;
+  ${({ currentIndex, prevIndex, index, maxIndex }) => {
     if (index === currentIndex) {
       return positionCenter
     }
@@ -142,17 +180,33 @@ const TestimonialsElementContainer = styled.div`
       index === currentIndex + 1 ||
       (currentIndex === maxIndex && index === 0)
     ) {
-      return positionRight
+      return css`
+        ${positionRight};
+      `
     }
     if (
       index === currentIndex - 1 ||
       (currentIndex === 0 && index === maxIndex)
     ) {
-      return positionLeft
+      return css`
+        ${positionLeft};
+        ${(() => {
+          console.log({
+            maxIndex,
+            currentIndex,
+            prevIndex,
+            roznica: currentIndex - prevIndex,
+          })
+        })()};
+        ${currentIndex - prevIndex === 1 ||
+        currentIndex - prevIndex === -maxIndex
+          ? 'opacity: 1'
+          : 'opacity: 0'};
+      `
     }
 
     return css`
-      transform: translateX(200%);
+      transform: translateX(${index < currentIndex ? '200%' : '200%'});
       opacity: 0;
     `
   }};
@@ -160,14 +214,13 @@ const TestimonialsElementContainer = styled.div`
 
 const TestimonialsContainer = styled(Container)`
   position: relative;
-  height: 100%;
+  height: 28rem;
 `
 
 const TestimonialsWrapper = styled.div`
   background-color: #fafafa;
-  height: 28rem;
-  padding: 6.5rem 0;
   margin: 2rem 0;
+  padding: 1rem 0;
   overflow: hidden;
 `
 export default Testimonials
