@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import styled, { css } from 'styled-components'
-import { hideVisually } from 'polished'
 import Observer from 'react-intersection-observer'
 import Testimonial from './Testimonial'
 import Container from './Container'
@@ -47,13 +46,15 @@ class Testimonials extends Component {
   }
 
   onViewHandle = inView => {
-    inView ? this.startScrolling() : this.stopScrolling()
+    if (inView) {
+      this.startScrolling()
+    } else {
+      this.stopScrolling()
+    }
   }
 
   startScrolling = () => {
-    console.log('started')
     this.counter = setInterval(() => {
-      console.log('intervalllll')
       this.setState(({ currentIndex }) => ({
         currentIndex:
           currentIndex < testimonials.length - 1 ? currentIndex + 1 : 0,
@@ -65,7 +66,6 @@ class Testimonials extends Component {
     if (!this.counter) {
       return
     }
-    console.log('stopped')
     clearInterval(this.counter)
     this.counter = null
   }
@@ -160,14 +160,14 @@ const TestimonialsElementContainer = styled.div`
 
 const TestimonialsContainer = styled(Container)`
   position: relative;
-  overflow: hidden;
   height: 100%;
 `
 
 const TestimonialsWrapper = styled.div`
   background-color: #fafafa;
-  height: 26rem;
+  height: 28rem;
   padding: 6.5rem 0;
   margin: 2rem 0;
+  overflow: hidden;
 `
 export default Testimonials
