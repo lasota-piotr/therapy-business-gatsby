@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components'
 import { between } from 'polished'
 import PropTypes from 'prop-types'
 import media from '../styleUtils/media'
-import Button from './Button'
 
 const Hero = ({
   headerText,

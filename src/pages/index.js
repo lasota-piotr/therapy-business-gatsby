@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 import Hero from '../components/Hero'
 import Cta from '../components/Cta'
 import Features from '../components/Features'
-import Testimonials from '../components/Testimonials'
+import MainPageTestimonials from '../components/MainPageTestimonials'
 import Button from '../components/Button'
 import BlogPosts from '../components/BlogPosts'
 import FeatureLarge from '../components/FeatureLarge'
@@ -66,9 +66,13 @@ class IndexPage extends Component {
               <LinkFeature to="/o-mnie">Dowiedz się więcej »</LinkFeature>
             </FeatureLarge.Body>
           </FeatureLarge.Content>
-          <FeatureLarge.Img alt="Ilona Lasota - Psycholog Warszawa Włochy, Ursus" fluid={data.aboutImage.childImageSharp.fluid} />
+          <FeatureLarge.Img
+            alt="Ilona Lasota - Psycholog Warszawa Włochy, Ursus"
+            fluid={data.aboutImage.childImageSharp.fluid}
+          />
         </FeatureLarge>
-        <Testimonials />
+        <MainPageTestimonials />
+
         {!!posts && <BlogPosts posts={posts} />}
         <Cta>
           <Cta.Head>Skontaktuj się ze mną</Cta.Head>
