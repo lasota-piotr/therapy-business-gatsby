@@ -22,7 +22,7 @@ const CooperationPageOne = ({ data, location }) => {
       <Helmet
         htmlAttributes={{ lang: 'pl' }}
         // meta={[{ name: 'description', content: siteDescription }]}
-        title={`${TITLE} | Psycholog psychoterapeuta poznawczo-behawioralny`}
+        title={`${TITLE} | Psycholog psychoterapeuta poznawczo-behawioralny | Warszawa Ursus, Włochy`}
       />
       <Masthead>
         <Masthead.Head>{TITLE}</Masthead.Head>
