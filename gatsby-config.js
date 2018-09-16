@@ -32,7 +32,7 @@ module.exports = {
       options: {
         google: {
           families: [
-            'Open Sans:300,400,600:latin-ext',
+            // 'Open Sans:300,400,600:latin-ext',
             'Lora:300,400,700:latin-ext',
           ],
         },

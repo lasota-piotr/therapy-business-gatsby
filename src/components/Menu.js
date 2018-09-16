@@ -31,6 +31,8 @@ const Menu = () => {
               </MenuLink>
               <MenuLink activeStyle={activeStyle} to="/wiedza">
                 Wiedza
+              </MenuLink><MenuLink activeStyle={activeStyle} to="/wspolpraca">
+                Współpraca
               </MenuLink>
               <MenuLink activeStyle={activeStyle} to="/cennik">
                 Cennik

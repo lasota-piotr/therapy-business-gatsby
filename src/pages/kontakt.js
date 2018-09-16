@@ -11,6 +11,7 @@ import Link from '../components/Link'
 import LinkFeature from '../components/LinkFeature'
 import Cta from '../components/Cta'
 import LazyLoad from '../components/LazyLoad'
+import ContactMapFull from '../components/ContactMapFull'
 
 const TITLE = 'Kontakt'
 const DESCRIPTION =
@@ -107,10 +108,7 @@ const PricingPage = ({ data, location }) => {
   )
 }
 
-const ContactMapFull = styled.iframe`
-  width: 100%;
-  border: 0;
-`
+
 
 const ContactMapFullWithMargin = styled(ContactMapFull)`
   margin-bottom: 6.5rem;
