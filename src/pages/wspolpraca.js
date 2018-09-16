@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
@@ -7,6 +7,7 @@ import Masthead from '../components/Masthead'
 import FeatureLarge from '../components/FeatureLarge'
 import LinkFeature from '../components/LinkFeature'
 import CooperationPageOneImg from '../components/CooperationPageOneImage'
+import Link from '../components/Link'
 
 const TITLE = 'Współpraca ze specjalistami'
 
