@@ -30,7 +30,7 @@ const CooperationPage = ({ data, location }) => {
       </Masthead>
 
       <FeatureLarge>
-        <FeatureLarge.Content>
+        <FeatureLarge.Content order="normal">
           <FeatureLarge.Header>Agnieszka Wojnar-Jadczyszyn</FeatureLarge.Header>
           <FeatureLarge.Body>
             <p>Psycholog, psychoterapeuta poznawczo-behawioralny.</p>
