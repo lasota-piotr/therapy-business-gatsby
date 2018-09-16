@@ -27,7 +27,7 @@ const CooperationPageOne = ({ data, location }) => {
       <Masthead>
         <Masthead.Head>{TITLE}</Masthead.Head>
         <Masthead.Text>
-          Psycholog psychoterapeuta poznawczo-behawioralny
+          Psycholog, psychoterapeuta poznawczo-behawioralny
         </Masthead.Text>
       </Masthead>
 

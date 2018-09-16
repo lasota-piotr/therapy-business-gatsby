@@ -32,7 +32,7 @@ const CooperationPage = ({ data, location }) => {
         <FeatureLarge.Content>
           <FeatureLarge.Header>Agnieszka Wojnar-Jadczyszyn</FeatureLarge.Header>
           <FeatureLarge.Body>
-            <p>Psycholog psychoterapeuta poznawczo-behawioralny.</p>
+            <p>Psycholog, psychoterapeuta poznawczo-behawioralny.</p>
             <p>
               <strong>Nr telefonu: </strong>
               <Link target="_self" rel="" to="tel:+48665400815">
