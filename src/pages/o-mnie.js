@@ -13,6 +13,7 @@ import graduation from '../assets/graduation.svg'
 import ether from '../assets/ether.svg'
 import highFive from '../assets/high-five.svg'
 import Hero from '../components/Hero'
+import { TITLE_SUFFIX } from '../constants/constants'
 
 const TITLE = 'O mnie'
 
@@ -27,14 +28,13 @@ class AboutPage extends Component {
   }
   render() {
     const { data, location } = this.props
-    const siteTitle = get(data, 'site.siteMetadata.title')
     const siteDescription = get(data, 'site.siteMetadata.description')
     return (
       <Layout location={location}>
         <Helmet
           htmlAttributes={{ lang: 'pl' }}
           meta={[{ name: 'description', content: siteDescription }]}
-          title={`${TITLE} | ${siteTitle}`}
+          title={`${TITLE} | ${TITLE_SUFFIX}`}
         />
         <AboutHero
           imageFluid={data.heroImage.childImageSharp.fluid}

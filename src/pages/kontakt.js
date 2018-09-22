@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import get from 'lodash/get'
+
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Layout from '../components/layout'
@@ -12,20 +12,19 @@ import LinkFeature from '../components/LinkFeature'
 import Cta from '../components/Cta'
 import LazyLoad from '../components/LazyLoad'
 import ContactMapFull from '../components/ContactMapFull'
+import { TITLE_SUFFIX } from '../constants/constants'
 
 const TITLE = 'Kontakt'
 const DESCRIPTION =
   'Psycholog i psychoterapeuta - Warszawa Włochy, Ursus. Umów się na wizytę 📞 737-449-022 - ul. Potrzebna 35/11 '
 
 const PricingPage = ({ data, location }) => {
-  const siteTitle = get(data, 'site.siteMetadata.title')
-
   return (
     <Layout location={location}>
       <Helmet
         htmlAttributes={{ lang: 'pl' }}
         meta={[{ name: 'description', content: DESCRIPTION }]}
-        title={`${TITLE} | ${siteTitle}`}
+        title={`${TITLE} | ${TITLE_SUFFIX}`}
       />
       <Masthead>
         <Masthead.Head>{TITLE}</Masthead.Head>

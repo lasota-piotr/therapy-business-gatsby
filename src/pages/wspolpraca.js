@@ -8,11 +8,11 @@ import FeatureLarge from '../components/FeatureLarge'
 import LinkFeature from '../components/LinkFeature'
 import CooperationPageOneImg from '../components/CooperationPageOneImage'
 import Link from '../components/Link'
+import { TITLE_SUFFIX } from '../constants/constants'
 
 const TITLE = 'Współpraca ze specjalistami'
 
 const CooperationPage = ({ data, location }) => {
-  const siteTitle = get(data, 'site.siteMetadata.title')
   const siteDescription = get(data, 'site.siteMetadata.description')
 
   return (
@@ -20,7 +20,7 @@ const CooperationPage = ({ data, location }) => {
       <Helmet
         htmlAttributes={{ lang: 'pl' }}
         meta={[{ name: 'description', content: siteDescription }]}
-        title={`${TITLE} | ${siteTitle}`}
+        title={`${TITLE} | ${TITLE_SUFFIX}`}
       />
       <Masthead>
         <Masthead.Head>{TITLE}</Masthead.Head>

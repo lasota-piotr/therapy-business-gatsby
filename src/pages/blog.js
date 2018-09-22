@@ -7,13 +7,13 @@ import Masthead from '../components/Masthead'
 import Cta from '../components/Cta'
 import Button from '../components/Button'
 import BlogPosts from '../components/BlogPosts'
+import { TITLE_SUFFIX } from '../constants/constants'
 
 const TITLE = 'Blog'
 const DESCRIPTION = 'Artykuły z zakresu psychologii i psychoterapii'
 class BlogPage extends React.Component {
   render() {
     const { location } = this.props
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const siteDescription = get(
       this,
       'props.data.site.siteMetadata.description'
@@ -29,7 +29,7 @@ class BlogPage extends React.Component {
               content: `${DESCRIPTION} | ${siteDescription}`,
             },
           ]}
-          title={`${TITLE} | ${siteTitle}`}
+          title={`${TITLE} | ${TITLE_SUFFIX}`}
         />
         <Masthead>
           <Masthead.Head>{TITLE}</Masthead.Head>

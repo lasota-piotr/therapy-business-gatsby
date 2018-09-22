@@ -1,15 +1,15 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import Masthead from '../components/Masthead'
 import Pricing from '../components/Pricing'
+import { TITLE_SUFFIX } from '../constants/constants'
 
 const TITLE = 'Cennik'
 
 const PricingPage = ({ data, location }) => {
-  const siteTitle = get(data, 'site.siteMetadata.title')
   const siteDescription = get(data, 'site.siteMetadata.description')
 
   return (
@@ -17,7 +17,7 @@ const PricingPage = ({ data, location }) => {
       <Helmet
         htmlAttributes={{ lang: 'pl' }}
         meta={[{ name: 'description', content: siteDescription }]}
-        title={`${TITLE} | ${siteTitle}`}
+        title={`${TITLE} | ${TITLE_SUFFIX}`}
       />
       <Masthead>
         <Masthead.Head>
