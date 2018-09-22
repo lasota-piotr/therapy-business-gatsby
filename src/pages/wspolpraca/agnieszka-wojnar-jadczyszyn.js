@@ -21,7 +21,14 @@ const CooperationPageOne = ({ data, location }) => {
     <Layout location={location}>
       <Helmet
         htmlAttributes={{ lang: 'pl' }}
-        // meta={[{ name: 'description', content: siteDescription }]}
+        meta={[
+          {
+            name: 'description',
+            content:
+              'Psycholog psychoterapeuta poznawczo-behawioralny.' +
+              ' Psycholog Warszawa Ursus, Włochy. Pomoc w drepesji i zaburzeniach lękowych',
+          },
+        ]}
         title={`${TITLE} | Psycholog psychoterapeuta poznawczo-behawioralny`}
       />
       <Masthead>
