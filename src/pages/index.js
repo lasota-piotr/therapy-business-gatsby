@@ -43,7 +43,7 @@ class IndexPage extends Component {
               Dowiedz się więcej
             </Button>
           }
-          alt="Łąka"
+          role="presentation"
         />
         <Cta innerRef={this.scrollElementRef}>
           <Cta.Head>
