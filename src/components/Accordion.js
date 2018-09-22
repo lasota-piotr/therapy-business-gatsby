@@ -20,7 +20,9 @@ class Accordion extends Component {
       <section>
         <Container>
           <AccordionContainer>
-            <Img fluid={imageFluid} alt="Kobieta z plecakiem"/>
+            <div role="presentation">
+              <Img fluid={imageFluid} />
+            </div>
             <AccordionContent>
               <AccordionComponent>
                 <AccordionItem
@@ -89,7 +91,9 @@ class Accordion extends Component {
                   </AccordionItemBody>
                 </AccordionItem>
                 <AccordionItem
-                  expanded={elementToDisplay === 'terapia-poznawczo-behawioralna'}
+                  expanded={
+                    elementToDisplay === 'terapia-poznawczo-behawioralna'
+                  }
                   uuid="terapia-poznawczo-behawioralna"
                 >
                   <AccordionItemTitle>

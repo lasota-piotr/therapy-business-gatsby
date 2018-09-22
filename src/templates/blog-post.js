@@ -10,7 +10,6 @@ class BlogPostTemplate extends React.Component {
     const { data, location } = this.props
     const post = get(data, 'contentfulBlogPost')
     const description = get(post, 'description.description')
-    const siteTitle = get(data, 'site.siteMetadata.title')
     const { previous, next } = this.props.pathContext || {}
     return (
       <Layout location={location}>
@@ -22,7 +21,7 @@ class BlogPostTemplate extends React.Component {
               content: description || undefined,
             },
           ]}
-          title={`${post.title} | ${siteTitle}`}
+          title={`${post.title} | Psycholog Psychoterapeuta`}
         />
         <BlogPostContent
           post={post}

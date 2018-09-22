@@ -10,10 +10,10 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Psycholog Warszawa Włochy - Ilona Lasota - dobry psychoterapeuta',
+    title: 'Psycholog Psychoterapeuta Warszawa Włochy Ursus | Ilona Lasota',
     author: 'Ilona Lasota',
     description:
-      'Ilona Lasota - bardzo dobry psycholog z miasta Warszawa Włochy. Psychoterapeuta z dobrymi opiniami. Umów się ☎ 737-449-022',
+      'Ilona Lasota - bardzo dobry psycholog z Warszawa Włochy, Urus. Psychoterapeuta z dobrymi opiniami. Umów się ☎ 737-449-022',
     siteUrl: 'https://www.twoj-terapeuta.pl',
   },
   pathPrefix: '/twoj-terapeuta',
