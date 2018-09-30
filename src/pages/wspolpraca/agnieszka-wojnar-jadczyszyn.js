@@ -108,9 +108,9 @@ const CooperationPageOne = ({ data, location }) => {
                 <Link
                   target="_self"
                   rel=""
-                  to="mailto:a.wojnar.jadczyszyn@gamil.com"
+                  to="mailto:a.wojnar.jadczyszyn@gmail.com"
                 >
-                  a.wojnar.jadczyszyn@gamil.com
+                  a.wojnar.jadczyszyn@gmail.com
                 </Link>
               </p>
               <p>
