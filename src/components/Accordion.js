@@ -98,13 +98,13 @@ class Accordion extends Component {
                 >
                   <AccordionItemTitle>
                     <AccordionHeader>
-                      Terapia poznawczo-behawioralna
+                      Terapia poznawczo&#8209;behawioralna
                       <div className="accordion__arrow" role="presentation" />
                     </AccordionHeader>
                   </AccordionItemTitle>
                   <AccordionItemBody>
                     <p>
-                      Terapia poznawczo-behawioralna opiera się na założeniu, że
+                      Terapia poznawczo&#8209;behawioralna opiera się na założeniu, że
                       emocje i zachowanie powstają pod wpływem sposobu w jaki
                       interpretujemy zdarzenia. Nasze uczucia zależą zatem nie
                       tyle od sytuacji co od sposobu jej postrzegania i

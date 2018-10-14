@@ -42,7 +42,7 @@ const CooperationPageOne = ({ data, location }) => {
               Jestem psychologiem i psychoterapeutą poznawczo-behawioralnym w
               trakcie certyfikacji. Ukończyłam Wydział Psychologii Uniwersytetu
               Marii Curie-Skłodowskiej w Lublinie, specjalność: psychologia
-              kliniczna i neuropsychologia. Obecnie jestem w trakcie 4-letniego
+              kliniczna i neuropsychologia. Obecnie jestem w trakcie 4&#8209;letniego
               szkolenia w zakresie psychoterapii poznawczo – behawioralnej w
               Centrum CBT w Warszawie akredytowanego przez Polskie Towarzystwo
               Terapii Poznawczej i Behawioralnej, pogłębiając swoją wiedzę
