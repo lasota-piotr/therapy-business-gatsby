@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
@@ -35,7 +35,7 @@ class IndexPage extends Component {
           <Cta.Text>Pomoc psychologiczna i psychoterapeutyczna</Cta.Text>
         </Cta>
 
-        <Features />
+        <Features type="plain" />
         <FeatureLarge>
           <FeatureLarge.Content>
             <FeatureLarge.Header>O mnie</FeatureLarge.Header>
@@ -44,7 +44,7 @@ class IndexPage extends Component {
                 Jestem psychologiem i psychoterapeutą
                 poznawczo&#8209;behawioralnym w trakcie procesu certyfikacji. W
                 swojej pracy terapeutycznej posługuję się głównie podejściem
-                poznawczo-behawioralnym oraz terapią schematu.
+                poznawczo&#8209;behawioralnym oraz terapią schematu.
               </p>
               <LinkFeature to="/o-mnie">Dowiedz się więcej »</LinkFeature>
             </FeatureLarge.Body>

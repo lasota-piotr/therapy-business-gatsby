@@ -53,23 +53,23 @@ class AboutPage extends Component {
           <FeatureLarge.Content>
             <AboutFeatureLargeHeader>Edukacja</AboutFeatureLargeHeader>
             <AboutFeatureLargeBody>
-              Jestem psychologiem i psychoterapeutą poznawczo-behawioralnym w
+              Jestem psychologiem i psychoterapeutą poznawczo&#8209;behawioralnym w
               trakcie procesu certyfikacji. Ukończyłam pięcioletnie studia
               magisterskie na kierunku psychologia na Uniwersytecie Warszawskim
               ze specjalizacją terapia rodzin i małżeństw. Obecnie jestem na
-              ostatnim roku 4-letniego szkolenia w zakresie terapii
-              poznawczo-behawioralnej w Szkole Psychoterapii Centrum CBT,
+              ostatnim roku 4&#8209;letniego szkolenia w zakresie terapii
+              poznawczo&#8209;behawioralnej w Szkole Psychoterapii Centrum CBT,
               rekomendowanej przez Polskie Towarzystwo Terapii Poznawczej i
               Behawioralnej (PTTPB). Stale poszerzam zakres swojej wiedzy
               uczestnicząc w szkoleniach i warsztatach. Swoją pracę poddaje
               regularnej superwizji.
             </AboutFeatureLargeBody>
           </FeatureLarge.Content>
-          <AboutFeatureLargeImage src={graduation} alt="Edukacja - ikona" />
+          <AboutFeatureLargeImage src={graduation} alt="Edukacja" />
         </FeatureLarge>
 
         <FeatureLarge>
-          <AboutFeatureLargeImage src={ether} alt="Doświadczenie - ikona" />
+          <AboutFeatureLargeImage src={ether} alt="Doświadczenie" />
           <FeatureLarge.Content>
             <AboutFeatureLargeHeader>Doświadczenie</AboutFeatureLargeHeader>
             <AboutFeatureLargeBody>
@@ -98,7 +98,7 @@ class AboutPage extends Component {
               zdolność do satysfakcjonującego życia.
             </AboutFeatureLargeBody>
           </FeatureLarge.Content>
-          <AboutFeatureLargeImage src={highFive} alt="Pomoc - ikona" />
+          <AboutFeatureLargeImage src={highFive} alt="Pomoc" />
         </FeatureLarge>
 
         <Cta>
