@@ -59,6 +59,7 @@ class IndexPage extends Component {
         {!!posts && <BlogPosts posts={posts} />}
         <Cta>
           <Cta.Head>Umów się na wizytę</Cta.Head>
+          <Cta.Text>Zdecyduj o własnej przyszłości</Cta.Text>
           <Link to="/kontakt">
             <Button px={4} py={3}>
               Skontaktuj się
