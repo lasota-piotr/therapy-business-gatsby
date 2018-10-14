@@ -17,7 +17,8 @@ const Cta = ({ children, ...restProps }) => {
 const CtaHead = styled.h3`
   text-align: center;
   font-size: ${between('23px', '33px')};
-  margin-bottom: ${between('16px', '24px')};
+  margin-bottom: ${between('24px', '32px')};
+  font-weight: 700;
   color: #252525;
 `
 
