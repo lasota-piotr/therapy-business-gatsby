@@ -1,49 +1,53 @@
 import React from 'react'
-import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import styled, { css } from 'styled-components'
 import { between } from 'polished'
-import LinkFeature from './LinkFeature'
+import togetherSvg from '../assets/together.svg'
+import youngSvg from '../assets/young.svg'
+import brainstormingSvg from '../assets/brainstoriming.svg'
 import Container from './Container'
 
-const Features = () => {
+const Features = ({ type }) => {
   return (
     <FeaturesWrapper>
       <Container>
         <FeaturesContainer>
-          <Feature>
-            <FeatureHeader>Psychoterapia</FeatureHeader>
+          <Feature type={type}>
+            <FeatureImg src={brainstormingSvg} alt="Terapia indywidualna" />
+            <FeatureHeader>Terapia indywidualna</FeatureHeader>
             <FeatureBody>
-              Psychoterapia jest jedną z najbardziej powszechnych i
-              najskuteczniejszych metod pomocy psychologicznej.
+              Dzięki terapii indywidualnej można lepiej poznać i zrozumieć
+              samego siebie.
             </FeatureBody>
-            <LinkFeature to="/wiedza#psychoterapia">
-              Dowiedz się więcej
-            </LinkFeature>
           </Feature>
-          <Feature>
-            <FeatureHeader>Terapia par</FeatureHeader>
+          <Feature type={type}>
+            <FeatureImg src={togetherSvg} alt="Terapia par i małżeństw" />
+            <FeatureHeader>Terapia par&#8239;i&#8239;małżeństw</FeatureHeader>
             <FeatureBody>
               Celem terapii par jest obopólna poprawa zadowolenia z jakości
               związku.
             </FeatureBody>
-            <LinkFeature to="/wiedza#terapia-par">
-              Dowiedz się więcej
-            </LinkFeature>
           </Feature>
-          <Feature>
-            <FeatureHeader>Terapia poznawczo&#8209;behawioralna</FeatureHeader>
+          <Feature type={type}>
+            <FeatureImg src={youngSvg} alt="Terapia młodzieży" />
+            <FeatureHeader>Terapia młodzieży</FeatureHeader>
             <FeatureBody>
-              Terapia poznawczo-behawioralna opiera się na założeniu, że emocje
-              i zachowanie powstają pod wpływem sposobu w jaki interpretujemy
-              zdarzenia.
+              Psychoterapia nastolatka pomaga wprowadzić konstruktywne zmiany w
+              coraz bardziej dorosłym życiu.
             </FeatureBody>
-            <LinkFeature to="/wiedza#terapia-poznawczo-behawioralna">
-              Dowiedz się więcej
-            </LinkFeature>
           </Feature>
         </FeaturesContainer>
       </Container>
     </FeaturesWrapper>
   )
+}
+
+Features.defaultProps = {
+  type: 'normal',
+}
+
+Features.propTypes = {
+  type: PropTypes.oneOf(['normal', 'plain']),
 }
 
 const FeaturesContainer = styled.div`
@@ -53,23 +57,48 @@ const FeaturesContainer = styled.div`
   justify-items: center;
 `
 
+const FeatureImgContainer = styled.div`
+  height: 7.25rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const FeatureImgContent = styled.img`
+  max-height: 100%;
+  max-width: 65%;
+`
+
+const FeatureImg = props => (
+  <FeatureImgContainer>
+    <FeatureImgContent {...props} />
+  </FeatureImgContainer>
+)
+
 const Feature = styled.div`
-  border-radius: 3px;
-  border: 1px solid #ececec;
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 510px;
+  ${({ type }) =>
+    type !== 'plain' &&
+    css`
+      border-radius: 3px;
+      border: 1px solid #ececec;
+    `};
 `
 
 const FeatureHeader = styled.h4`
-  font-size: ${between('17px', '19px')};
+  font-size: ${between('18px', '20px')};
+  font-weight: 400;
   text-align: center;
 `
 
 const FeatureBody = styled.p`
-  font-size: ${between('13px', '14px')};
+  font-size: ${between('15px', '16px')};
   color: #666;
   max-width: 22em;
   text-align: center;

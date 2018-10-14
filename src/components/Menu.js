@@ -55,7 +55,7 @@ const MenuOpenCloseButtonContainer = styled.button`
   padding: 0;
   font-size: 1.3rem;
   display: none;
-  ${media.tablet`
+  ${media.desktop`
     display: inline-block;
   `};
 `
@@ -79,7 +79,7 @@ const MenuCloseButton = props => (
 
 const MenuButton = Button.extend`
   margin-left: 1rem;
-  ${media.tablet`
+  ${media.desktop`
     margin-left: 0;
     font-size: ${({ theme }) => theme.fontSizes[2]}px;
   `};
@@ -97,14 +97,14 @@ const MenuLink = styled(LinkPlain)`
     opacity: 1;
   }
   font-size: ${({ theme }) => theme.fontSizes[1]}px;
-  ${media.tablet`
+  ${media.desktop`
     padding-bottom: 1rem;
     font-size: ${({ theme }) => theme.fontSizes[2]}px;
   `};
 `
 
 const MenuContent = styled.div`
-  ${media.tablet`
+  ${media.desktop`
     z-index: 2;
     position: fixed;
     top: 0;
