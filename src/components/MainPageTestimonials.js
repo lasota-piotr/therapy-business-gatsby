@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Testimonials from './Testimonials'
 import get from 'lodash/get'
+import MainTestimonials from './MainTestimonials'
 const MainPageTestimonials = () => (
   <StaticQuery
     query={graphql`
@@ -25,7 +26,8 @@ const MainPageTestimonials = () => (
         return null
       }
 
-      return <Testimonials testimonials={testimonials} />
+      // return <Testimonials testimonials={testimonials} />
+      return <MainTestimonials />
     }}
   />
 )
