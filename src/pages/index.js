@@ -4,7 +4,6 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import Layout from '../components/layout'
-import Hero from '../components/Hero'
 import Cta from '../components/Cta'
 import Features from '../components/Features'
 import MainPageTestimonials from '../components/MainPageTestimonials'
@@ -12,21 +11,15 @@ import Button from '../components/Button'
 import BlogPosts from '../components/BlogPosts'
 import FeatureLarge from '../components/FeatureLarge'
 import LinkFeature from '../components/LinkFeature'
+import MainHero from '../components/MainHero'
 
 class IndexPage extends Component {
   scrollElementRef = React.createRef()
-  handleScrollToElement = () => {
-    window.scrollTo({
-      top: this.scrollElementRef.current.offsetTop,
-      behavior: 'smooth',
-    })
-  }
   render() {
     let { data, location } = this.props
     const siteTitle = get(data, 'site.siteMetadata.title')
     const siteDescription = get(data, 'site.siteMetadata.description')
     const posts = get(data, 'allContentfulBlogPost.edges')
-    const imageFluid = get(data, 'heroImage.childImageSharp.fluid')
     return (
       <Layout location={location}>
         <Helmet
@@ -34,17 +27,7 @@ class IndexPage extends Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        <Hero
-          imageFluid={imageFluid}
-          headerText="Otwórz się na zmianę"
-          subHeaderText="Psychoterapia: osób dorosłych, młodzieży i par"
-          contentChildren={
-            <Button px={4} py={3} onClick={this.handleScrollToElement}>
-              Dowiedz się więcej
-            </Button>
-          }
-          role="presentation"
-        />
+        <MainHero/>
         <Cta innerRef={this.scrollElementRef}>
           <Cta.Head>
             Nawet najdłuższa droga zaczyna się od pierwszego kroku
@@ -75,8 +58,7 @@ class IndexPage extends Component {
 
         {!!posts && <BlogPosts posts={posts} />}
         <Cta>
-          <Cta.Head>Skontaktuj się ze mną</Cta.Head>
-          <Cta.Text>Zdecyduj o własnej przyszłości</Cta.Text>
+          <Cta.Head>Umów się na wizytę</Cta.Head>
           <Link to="/kontakt">
             <Button px={4} py={3}>
               Skontaktuj się
@@ -120,16 +102,6 @@ export const pageQuery = graphql`
               excerpt
             }
           }
-        }
-      }
-    }
-
-    heroImage: file(relativePath: { eq: "hero.jpg" }) {
-      childImageSharp {
-        # Specify the image processing specifications right in the query.
-        # Makes it trivial to update as your page's design changes.
-        fluid(maxHeight: 1400) {
-          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }

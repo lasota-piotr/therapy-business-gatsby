@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { Provider } from 'rebass'
 import '../styles/main.scss'
 import Header from './Header'
@@ -15,6 +14,7 @@ const theme = {
   fontWeights: {
     normal: 300,
     bold: 500,
+    bolder: 700,
   },
   colors: {
     blue: '#4a90e2',
