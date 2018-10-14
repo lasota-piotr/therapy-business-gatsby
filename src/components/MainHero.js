@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { between } from 'polished'
 import heroImage from '../assets/a-day-at-the-park.svg'
 import media from '../styleUtils/media'
@@ -12,10 +12,12 @@ const MainHero = () => {
       <MainHeroContent>
         <MainHeroTitle>Otwórz się na zmianę</MainHeroTitle>
         <MainHeroSubTitle>
-          Ilona Lasota - Psycholog Psychoterapeuta poznawczo-behawioralny
-          <br />
-          Psychoterapia osób dorosłych, młodzieży i par
+          Psycholog, psychoterapeuta poznawczo&#8209;behawioralny. <br />
         </MainHeroSubTitle>
+        <MainHeroSubTitleAdditionalText>
+          <strong>Ilona Lasota</strong>: psychoterapia osób dorosłych, młodzieży
+          i par
+        </MainHeroSubTitleAdditionalText>
         <div>
           <LinkPlain to="/kontakt">
             <Button px={4} py={3} fontWeight="bolder">
@@ -55,15 +57,24 @@ const MainHeroTitle = styled.p`
   `};
 `
 
-const MainHeroSubTitle = styled.h2`
+const mainHeroSubTitleStyles = css`
   font-size: 20px;
   color: #777;
   margin-right: 2rem;
-  padding-bottom: 2rem;
   ${media.desktop`
     font-size: ${between('17px', '20px')};
     margin-right: 0;
   `};
+`
+
+const MainHeroSubTitle = styled.h2`
+  ${mainHeroSubTitleStyles};
+  margin-bottom: 0;
+`
+
+const MainHeroSubTitleAdditionalText = styled.p`
+  ${mainHeroSubTitleStyles};
+  margin-bottom: 3rem;
 `
 
 const MainHeroImg = styled.div`
