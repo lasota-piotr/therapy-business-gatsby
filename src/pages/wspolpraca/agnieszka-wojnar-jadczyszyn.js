@@ -1,15 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Layout from '../../components/layout'
 import Masthead from '../../components/Masthead'
 import FeatureLarge from '../../components/FeatureLarge'
-import LinkFeature from '../../components/LinkFeature'
-import media from '../../styleUtils/media'
 import Cta from '../../components/Cta'
-import LazyLoad from '../../components/LazyLoad'
 import ContactMapFull from '../../components/ContactMapFull'
 import Link from '../../components/Link'
 import CooperationPageOneImg from '../../components/CooperationPageOneImage'
@@ -123,7 +119,7 @@ const CooperationPageOne = ({ data, location }) => {
             </FeatureLarge.Body>
           </FeatureLarge.Content>
 
-          <LazyLoad>
+
             <ContactMapFull
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.829366788377!2d20.917154215631697!3d52.21014826689819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471934caccc7e34d%3A0x8dac5ce052091a6d!2sPotrzebna+35%2C+00-001+Warszawa!5e0!3m2!1sen!2spl!4v1537125654013"
               width="100%"
@@ -132,7 +128,7 @@ const CooperationPageOne = ({ data, location }) => {
               style={{ border: 0 }}
               allowFullScreen
             />
-          </LazyLoad>
+
         </FeatureLarge>
       </section>
     </Layout>

@@ -1,11 +1,14 @@
 import styled from 'styled-components'
-import { FiMap } from 'react-icons/fi'
+import { FaMap } from 'react-icons/fa'
 import React from 'react'
+import LazyLoad from './LazyLoad'
 
 const ContactMapFull = ({ className, height, ...restProps }) => (
   <ContactMapFullWrapper className={className} height={height}>
-    <ContactMapFullIcon height={height}/>
-    <ContactMapFullIframe {...restProps} height={height} />
+    <ContactMapFullIcon height={height} />
+    <LazyLoad>
+      <ContactMapFullIframe {...restProps} height={height} />
+    </LazyLoad>
   </ContactMapFullWrapper>
 )
 
@@ -15,7 +18,7 @@ const ContactMapFullWrapper = styled.div`
   position: relative;
 `
 
-const ContactMapFullIcon = styled(FiMap)`
+const ContactMapFullIcon = styled(FaMap)`
   position: absolute;
   top: 0;
   bottom: 0;

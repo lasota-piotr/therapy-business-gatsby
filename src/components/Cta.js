@@ -18,6 +18,7 @@ const CtaHead = styled.h3`
   text-align: center;
   font-size: ${between('23px', '33px')};
   margin-bottom: ${between('16px', '24px')};
+  font-weight: 700;
   color: #252525;
 `
 
