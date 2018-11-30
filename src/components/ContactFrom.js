@@ -12,7 +12,12 @@ const ContactForm = () => {
     >
       <ContactFormLabel>
         Imię:
-        <Input placeholder="Wpisz swoje imię" name="name" />
+        <Input
+          placeholder="Wpisz swoje imię"
+          name="name"
+          autoComplete="name"
+          required
+        />
       </ContactFormLabel>
       <ContactFormLabel>
         Adres email:
@@ -20,14 +25,26 @@ const ContactForm = () => {
           type="email"
           placeholder="Wpisz swój adres email"
           name="_replyto"
+          autoComplete="email"
+          required
         />
       </ContactFormLabel>
+      <input type="hidden" name="_language" value="pl" />
+      <input
+        type="hidden"
+        name="_subject"
+        value="Nowa wiadomość - twoj-terapeuta.pl"
+      />
+      <input type="text" name="_gotcha" style={{ display: 'none' }} />
       <ContactFormLabelTextArea>
         Wiadomość:
-        <Textarea rows={9} />
+        <Textarea
+          rows={9}
+          placeholder="Treść widomości"
+          name="message"
+          required
+        />
       </ContactFormLabelTextArea>
-      <input type="hidden" name="_language" value="pl" />
-      <input type="text" name="_gotcha" style={{ display: 'none' }} />
       <ContactFormSubmit type="submit" value="Wyślij wiadomość">
         Wyślij wiadomość
       </ContactFormSubmit>
