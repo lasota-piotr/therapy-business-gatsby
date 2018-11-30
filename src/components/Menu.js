@@ -60,7 +60,7 @@ const MenuOpenCloseButtonContainer = styled.button`
   `};
 `
 
-const MenuCloseButtonContainer = MenuOpenCloseButtonContainer.extend`
+const MenuCloseButtonContainer = styled(MenuOpenCloseButtonContainer)`
   margin-bottom: 1rem;
   margin-left: auto;
 `
@@ -77,7 +77,7 @@ const MenuCloseButton = props => (
   </MenuCloseButtonContainer>
 )
 
-const MenuButton = Button.extend`
+const MenuButton = styled(Button)`
   margin-left: 1rem;
   ${media.desktop`
     margin-left: 0;

@@ -19,7 +19,7 @@ const HeadingTextH3 = styled.h3`
   ${headingStyles};
 `
 
-const HeadingLink = LinkPlain.extend`
+const HeadingLink = styled(LinkPlain)`
   display: flex;
   align-items: center;
   &:hover {
@@ -54,7 +54,7 @@ const Header = ({ location }) => {
   )
 }
 
-const NavContainer = Container.extend`
+const NavContainer = styled(Container)`
   display: flex;
   align-items: center;
   padding-top: ${({ theme }) => theme.space[2]}px;
