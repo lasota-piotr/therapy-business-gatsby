@@ -35,9 +35,16 @@ const CtaWrapper = styled.div`
           background-color: #fafafa;
           padding: 6.5rem 1rem;
           margin: 2rem 0;
+          ${media.tablet`
+            padding: 3.5rem 1rem;
+            margin: 1rem 0;
+          `};
         `
       : css`
           padding: 5.5rem 1rem;
+          ${media.tablet`
+            padding: 2.5rem 1rem;
+          `};
         `};
 `
 

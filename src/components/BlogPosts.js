@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import media from '../styleUtils/media'
 import BlogCard from './BlogCard'
 import Container from './Container'
 
@@ -26,6 +27,9 @@ const BlogPostsContainer = styled.div`
 
 const BlogPostsWrapper = styled.section`
   margin: 6.5rem 0;
+  ${media.tablet`
+    margin: 2.5rem 0;
+  `};
 `
 
 export default BlogPosts
