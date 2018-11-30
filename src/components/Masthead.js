@@ -38,8 +38,8 @@ const MastheadWrapper = styled.div`
     max-width: 66.66%;
   `};
   ${media.tablet`
-
     max-width: 83.33%;
+    margin: 2.5rem auto;
   `};
   ${media.phone`
     max-width: 100%;

@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Layout from '../components/layout'
@@ -12,6 +11,7 @@ import LinkFeature from '../components/LinkFeature'
 import Cta from '../components/Cta'
 import ContactMapFull from '../components/ContactMapFull'
 import { TITLE_SUFFIX } from '../constants/constants'
+import media from '../styleUtils/media'
 
 const TITLE = 'Kontakt'
 const DESCRIPTION =
@@ -106,6 +106,9 @@ const PricingPage = ({ data, location }) => {
 
 const ContactMapFullWithMargin = styled(ContactMapFull)`
   margin-bottom: 6.5rem;
+  ${media.tablet`
+    margin-bottom: 2.5rem;
+  `};
 `
 
 const ContactCta = styled(Cta)`
