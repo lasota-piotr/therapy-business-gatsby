@@ -1,7 +1,6 @@
-import { Button as ButtonBase } from 'rebass'
 import styled from 'styled-components'
 
-const Button = styled(ButtonBase)`
+const Button = styled.button`
   text-transform: uppercase;
 `
 

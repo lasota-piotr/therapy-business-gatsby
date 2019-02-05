@@ -1,58 +1,91 @@
-import React from 'react'
-import { Input, Label, Textarea } from 'rebass'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import media from '../styleUtils/media'
 import Button from './Button'
+import Modal from './Modal'
+
+const encode = data =>
+  Object.entries(data)
+    .map(
+      ([key, value]) =>
+        encodeURIComponent(key) + '=' + encodeURIComponent(value)
+    )
+    .join('&')
 
 const ContactForm = () => {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [showModal, setShowModal] = useState(true)
+
+  const handleSuccess = () => {
+    setName('')
+    setEmail('')
+    setMessage('')
+    setShowModal(true)
+  }
+
+  const handleSubmit = event => {
+    fetch('/?no-cache=1', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', name, email, message }),
+    })
+      .then(handleSuccess)
+      // eslint-disable-next-line no-console
+      .catch(error => console.error(error.message))
+    event.preventDefault()
+  }
+
   return (
-    <ContactFormContainer
-      action="https://formspree.io/ilona.lasota@twoj-terapeuta.pl"
-      method="POST"
-    >
+    <ContactFormContainer onSubmit={handleSubmit}>
       <ContactFormLabel>
         Imię:
-        <Input
+        <input
           placeholder="Wpisz swoje imię"
           name="name"
           autoComplete="name"
           required
+          value={name}
+          onChange={event => setName(event.target.value)}
         />
       </ContactFormLabel>
       <ContactFormLabel>
         Adres email:
-        <Input
+        <input
           type="email"
           placeholder="Wpisz swój adres email"
           name="_replyto"
           autoComplete="email"
           required
+          value={email}
+          onChange={event => setEmail(event.target.value)}
         />
       </ContactFormLabel>
       <input type="hidden" name="_language" value="pl" />
-      <input
-        type="hidden"
-        name="_subject"
-        value="Nowa wiadomość - twoj-terapeuta.pl"
-      />
-      <input type="text" name="_gotcha" style={{ display: 'none' }} />
+
       <ContactFormLabelTextArea>
         Wiadomość:
-        <Textarea
+        <textarea
           rows={9}
           placeholder="Treść widomości"
           name="message"
           required
+          value={message}
+          onChange={event => setMessage(event.target.value)}
         />
       </ContactFormLabelTextArea>
       <ContactFormSubmit type="submit" value="Wyślij wiadomość">
         Wyślij wiadomość
       </ContactFormSubmit>
+      <Modal showModal={showModal} closeHandle={() => setShowModal(false)}>
+        Twoja wiadomość została wysłana poprawnie
+      </Modal>
     </ContactFormContainer>
   )
 }
 
-const ContactFormLabel = styled(Label)`
+const ContactFormLabel = styled.label`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

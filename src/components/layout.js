@@ -1,9 +1,15 @@
 import React from 'react'
-import { Provider } from 'rebass'
+import { ThemeProvider } from 'styled-components'
 import '../styles/main.scss'
 import Header from './Header'
 
 const theme = {
+  fontSizes: [
+    12, 14, 16, 20, 24, 32, 48, 64
+  ],
+  space: [
+    0, 4, 8, 16, 32, 64, 128, 256
+  ],
   fonts: {
     sans: `'Open Sans', 'Helvetica', -apple-system, BlinkMacSystemFont,
   'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
@@ -26,10 +32,12 @@ class Layout extends React.Component {
     const { location, children } = this.props
 
     return (
-      <Provider theme={theme}>
-        <Header location={location} />
-        {children}
-      </Provider>
+      <ThemeProvider theme={theme}>
+        <>
+          <Header location={location} />
+          {children}
+        </>
+      </ThemeProvider>
     )
   }
 }
