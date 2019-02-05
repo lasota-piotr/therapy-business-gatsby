@@ -16,7 +16,7 @@ const ContactForm = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
-  const [showModal, setShowModal] = useState(true)
+  const [showModal, setShowModal] = useState(false)
 
   const handleSuccess = () => {
     setName('')
@@ -38,50 +38,53 @@ const ContactForm = () => {
   }
 
   return (
-    <ContactFormContainer onSubmit={handleSubmit}>
-      <ContactFormLabel>
-        Imię:
-        <input
-          placeholder="Wpisz swoje imię"
-          name="name"
-          autoComplete="name"
-          required
-          value={name}
-          onChange={event => setName(event.target.value)}
-        />
-      </ContactFormLabel>
-      <ContactFormLabel>
-        Adres email:
-        <input
-          type="email"
-          placeholder="Wpisz swój adres email"
-          name="_replyto"
-          autoComplete="email"
-          required
-          value={email}
-          onChange={event => setEmail(event.target.value)}
-        />
-      </ContactFormLabel>
-      <input type="hidden" name="_language" value="pl" />
+    <>
+      <button onClick={() => setShowModal(true)}>open</button>
+      <ContactFormContainer onSubmit={handleSubmit}>
+        <ContactFormLabel>
+          Imię:
+          <input
+            placeholder="Wpisz swoje imię"
+            name="name"
+            autoComplete="name"
+            required
+            value={name}
+            onChange={event => setName(event.target.value)}
+          />
+        </ContactFormLabel>
+        <ContactFormLabel>
+          Adres email:
+          <input
+            type="email"
+            placeholder="Wpisz swój adres email"
+            name="_replyto"
+            autoComplete="email"
+            required
+            value={email}
+            onChange={event => setEmail(event.target.value)}
+          />
+        </ContactFormLabel>
+        <input type="hidden" name="_language" value="pl" />
 
-      <ContactFormLabelTextArea>
-        Wiadomość:
-        <textarea
-          rows={9}
-          placeholder="Treść widomości"
-          name="message"
-          required
-          value={message}
-          onChange={event => setMessage(event.target.value)}
-        />
-      </ContactFormLabelTextArea>
-      <ContactFormSubmit type="submit" value="Wyślij wiadomość">
-        Wyślij wiadomość
-      </ContactFormSubmit>
-      <Modal showModal={showModal} closeHandle={() => setShowModal(false)}>
-        Twoja wiadomość została wysłana poprawnie
-      </Modal>
-    </ContactFormContainer>
+        <ContactFormLabelTextArea>
+          Wiadomość:
+          <textarea
+            rows={9}
+            placeholder="Treść widomości"
+            name="message"
+            required
+            value={message}
+            onChange={event => setMessage(event.target.value)}
+          />
+        </ContactFormLabelTextArea>
+        <ContactFormSubmit type="submit" value="Wyślij wiadomość">
+          Wyślij wiadomość
+        </ContactFormSubmit>
+        <Modal showModal={showModal} closeHandle={() => setShowModal(false)}>
+          Twoja wiadomość została wysłana poprawnie
+        </Modal>
+      </ContactFormContainer>
+    </>
   )
 }
 
