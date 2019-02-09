@@ -70,7 +70,7 @@ const ContactForm = () => {
           <Input
             type="email"
             placeholder="Wpisz swój adres email"
-            name="_replyto"
+            name="email"
             autoComplete="email"
             required
             value={email}
