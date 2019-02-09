@@ -9,6 +9,7 @@ module.exports = {
   rules: {
     /* custom rules */
     "import/no-unresolved" : "off",
+    "react/jsx-curly-brace-presence": "off"
   },
   "globals": {
     "graphql": false,

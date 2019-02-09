@@ -16,7 +16,8 @@ const ContactForm = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
-  const [showModal, setShowModal] = useState(false)
+  const [bot, setBot] = useState('')
+  const [showModal, setShowModal] = useState(true)
 
   const handleSuccess = () => {
     setName('')
@@ -39,11 +40,23 @@ const ContactForm = () => {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>open</button>
-      <ContactFormContainer onSubmit={handleSubmit}>
+      <ContactFormContainer
+        name="contact"
+        data-netlify="true"
+        data-netlify-honeypot="bot"
+        onSubmit={handleSubmit}
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p hidden>
+          <input
+            name="bot"
+            value={bot}
+            onChange={event => setBot(event.target.value)}
+          />
+        </p>
         <ContactFormLabel>
           Imię:
-          <input
+          <Input
             placeholder="Wpisz swoje imię"
             name="name"
             autoComplete="name"
@@ -54,7 +67,7 @@ const ContactForm = () => {
         </ContactFormLabel>
         <ContactFormLabel>
           Adres email:
-          <input
+          <Input
             type="email"
             placeholder="Wpisz swój adres email"
             name="_replyto"
@@ -64,11 +77,12 @@ const ContactForm = () => {
             onChange={event => setEmail(event.target.value)}
           />
         </ContactFormLabel>
-        <input type="hidden" name="_language" value="pl" />
+        <Input type="hidden" name="_language" value="pl" />
 
         <ContactFormLabelTextArea>
           Wiadomość:
-          <textarea
+          <Input
+            as="textarea"
             rows={9}
             placeholder="Treść widomości"
             name="message"
@@ -77,12 +91,20 @@ const ContactForm = () => {
             onChange={event => setMessage(event.target.value)}
           />
         </ContactFormLabelTextArea>
+        <div
+          data-netlify-recaptcha="true"
+          css={`
+            grid-column: 1/-1;
+          `}
+        />
         <ContactFormSubmit type="submit" value="Wyślij wiadomość">
           Wyślij wiadomość
         </ContactFormSubmit>
-        <Modal showModal={showModal} closeHandle={() => setShowModal(false)}>
-          Twoja wiadomość została wysłana poprawnie
-        </Modal>
+        {showModal && (
+          <Modal showModal={showModal} closeHandle={() => setShowModal(false)}>
+            Twoja wiadomość została wysłana poprawnie
+          </Modal>
+        )}
       </ContactFormContainer>
     </>
   )
@@ -112,6 +134,18 @@ const ContactFormLabelTextArea = styled(ContactFormLabel)`
 
 const ContactFormSubmit = styled(Button)`
   justify-self: start;
+`
+
+const Input = styled.input`
+  padding: 0.5rem;
+  border-radius: 3px;
+  border: solid 1px ${({ theme }) => theme.colors.gray};
+  width: 100%;
+  font-size: 0.8rem;
+  &:focus {
+    outline: none;
+    border-color: ${({ theme }) => theme.colors.blue};
+  }
 `
 
 export default ContactForm
