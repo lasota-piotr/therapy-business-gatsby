@@ -102,7 +102,7 @@ const ContactForm = () => {
         </ContactFormSubmit>
         {showModal && (
           <Modal showModal={showModal} closeHandle={() => setShowModal(false)}>
-            Twoja wiadomość została wysłana poprawnie
+            Dziękuję za wiadomość. Postaram się odpowiedzieć najszybciej jak to możliwe.
           </Modal>
         )}
       </ContactFormContainer>
