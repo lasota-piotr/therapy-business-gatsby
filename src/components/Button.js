@@ -1,8 +1,14 @@
+import React from 'react'
 import { Button as ButtonBase } from 'rebass'
-import styled from 'styled-components'
+import { withTheme } from 'styled-components'
 
-const Button = styled(ButtonBase)`
-  text-transform: uppercase;
-`
+const Button = props => (
+  <ButtonBase
+    {...props}
+    fontWeight="bold"
+    fontSize={props.theme.fontSizes[1]}
+    css={{ textTransform: 'uppercase' }}
+  />
+)
 
-export default Button
+export default withTheme(Button)
