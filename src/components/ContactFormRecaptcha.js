@@ -29,6 +29,7 @@ const ContactFormRecaptcha = ({ className, isChecked, ...restProps }) => {
       <input
         type="checkbox"
         required
+        aria-hidden="true"
         checked={!!isChecked}
         onChange={() => {}}
         css={`
