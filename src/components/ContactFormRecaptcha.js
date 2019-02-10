@@ -1,5 +1,6 @@
 import React from 'react'
 import Recaptcha from 'react-google-recaptcha'
+import media from '../styleUtils/media'
 
 const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY
 
@@ -11,10 +12,18 @@ const ContactFormRecaptcha = ({ className, isChecked, ...restProps }) => {
         position: relative;
       `}
     >
-      <div css={`
-        background-color: white;
-        min-height: 78px;
-      `}>
+      <div
+        css={`
+          background-color: white;
+          min-height: 78px;
+          ${media.phone`
+            margin-left: -${({ theme }) => theme.containerPaddingHorizontal};
+            margin-right: -${({ theme }) => theme.containerPaddingHorizontal};
+            display: flex;
+            justify-content: center;
+          `};
+        `}
+      >
         <Recaptcha sitekey={RECAPTCHA_KEY} {...restProps} />
       </div>
       <input

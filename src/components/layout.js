@@ -31,7 +31,8 @@ const theme = {
   shadows: {
     small: '0 0 4px rgba(0, 0, 0, .125)',
     large: '0 0 24px rgba(0, 0, 0, .125)'
-  }
+  },
+  containerPaddingHorizontal: '1rem'
 }
 
 class Layout extends React.Component {

@@ -4,8 +4,8 @@ import media from '../styleUtils/media'
 
 const Container = styled.div`
   width: 100%;
-  padding-right: ${({ theme }) => theme.space[3]}px;
-  padding-left: ${({ theme }) => theme.space[3]}px;
+  padding-right: ${({ theme }) => theme.containerPaddingHorizontal};
+  padding-left: ${({ theme }) => theme.containerPaddingHorizontal};
   margin-right: auto;
   margin-left: auto;
 
