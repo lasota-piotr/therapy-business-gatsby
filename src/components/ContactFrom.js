@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import media from '../styleUtils/media'
 import Button from './Button'
 import Modal from './Modal'
+import ContactFormRecaptcha from './ContactFormRecaptcha'
 
 const encode = data =>
   Object.entries(data)
@@ -17,6 +18,7 @@ const ContactForm = () => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [bot, setBot] = useState('')
+  const [recaptchaResponse, setRecaptchaResponse] = useState(null)
   const [showModal, setShowModal] = useState(false)
 
   const handleSuccess = () => {
@@ -27,14 +29,23 @@ const ContactForm = () => {
   }
 
   const handleSubmit = event => {
-    fetch('/?no-cache=1', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', name, email, bot, message }),
-    })
-      .then(handleSuccess)
-      // eslint-disable-next-line no-console
-      .catch(error => console.error(error.message))
+    if (recaptchaResponse) {
+      fetch('/?no-cache=1', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'contact',
+          name,
+          email,
+          bot,
+          message,
+          'g-recaptcha-response': recaptchaResponse,
+        }),
+      })
+        .then(handleSuccess)
+        // eslint-disable-next-line no-console
+        .catch(error => console.error(error.message))
+    }
     event.preventDefault()
   }
 
@@ -44,6 +55,7 @@ const ContactForm = () => {
         name="contact"
         data-netlify="true"
         data-netlify-honeypot="bot"
+        data-netlify-recaptcha="true"
         onSubmit={handleSubmit}
       >
         <input type="hidden" name="form-name" value="contact" />
@@ -54,7 +66,7 @@ const ContactForm = () => {
             onChange={event => setBot(event.target.value)}
           />
         </p>
-        <ContactFormLabel>
+        <ContactFormLabel css={{ gridArea: 'name' }}>
           Imię:
           <Input
             placeholder="Wpisz swoje imię"
@@ -65,7 +77,7 @@ const ContactForm = () => {
             onChange={event => setName(event.target.value)}
           />
         </ContactFormLabel>
-        <ContactFormLabel>
+        <ContactFormLabel css={{ gridArea: 'email' }}>
           Adres email:
           <Input
             type="email"
@@ -77,9 +89,8 @@ const ContactForm = () => {
             onChange={event => setEmail(event.target.value)}
           />
         </ContactFormLabel>
-        <Input type="hidden" name="_language" value="pl" />
 
-        <ContactFormLabelTextArea>
+        <ContactFormLabelTextArea css={{ gridArea: 'textarea' }}>
           Wiadomość:
           <Input
             as="textarea"
@@ -91,18 +102,22 @@ const ContactForm = () => {
             onChange={event => setMessage(event.target.value)}
           />
         </ContactFormLabelTextArea>
-        <div
-          data-netlify-recaptcha="true"
-          css={`
-            grid-column: 1/-1;
-          `}
+        <ContactFormRecaptcha
+          css={{ gridArea: 'recaptcha' }}
+          isChecked={!!recaptchaResponse}
+          onChange={value => setRecaptchaResponse(value)}
         />
-        <ContactFormSubmit type="submit" value="Wyślij wiadomość">
+        <ContactFormSubmit
+          type="submit"
+          value="Wyślij wiadomość"
+          css={{ gridArea: 'submit' }}
+        >
           Wyślij wiadomość
         </ContactFormSubmit>
         {showModal && (
           <Modal showModal={showModal} closeHandle={() => setShowModal(false)}>
-            Dziękuję za wiadomość. Postaram się odpowiedzieć najszybciej jak to możliwe.
+            Dziękuję za wiadomość. Postaram się odpowiedzieć najszybciej jak to
+            możliwe.
           </Modal>
         )}
       </ContactFormContainer>
@@ -117,19 +132,29 @@ const ContactFormLabel = styled.label`
   line-height: 1.7;
 `
 
+const ContactFormLabelTextArea = styled(ContactFormLabel)`
+  height: 100%;
+`
 const ContactFormContainer = styled.form`
   width: 100%;
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    'name email'
+    'textarea textarea'
+    'recaptcha recaptcha'
+    'submit .';
   grid-auto-rows: max-content;
   ${media.tablet`
     grid-template-columns: 1fr;
+    grid-template-areas: 
+    'name'
+    'email'
+    'textarea'
+    'recaptcha'
+    'submit';
   `};
-`
-const ContactFormLabelTextArea = styled(ContactFormLabel)`
-  grid-column: 1 / -1;
-  height: 100%;
 `
 
 const ContactFormSubmit = styled(Button)`

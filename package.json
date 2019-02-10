@@ -36,6 +36,7 @@
     "react": "next",
     "react-accessible-accordion": "^2.4.4",
     "react-dom": "next",
+    "react-google-recaptcha": "^1.0.5",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.3.0",
     "react-intersection-observer": "^7.0.0",
