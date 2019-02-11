@@ -11,7 +11,7 @@ import FeatureLarge from '../components/FeatureLarge'
 
 const TITLE = '404'
 
-function NotFoundPage() {
+function NotFoundPage({location}) {
   return (
     <Layout location={location}>
       <Helmet
