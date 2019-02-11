@@ -36,12 +36,14 @@ function NotFoundPage() {
 
 const NotFoundPageImg = styled.img`
   max-width: 400px;
+  min-width: 280px;
 `
 
 const NotFoundPageWrapper = styled.main`
   height: 90vh;
   display: grid;
   align-items: center;
+  justify-items: center;
 `
 
 export default NotFoundPage
