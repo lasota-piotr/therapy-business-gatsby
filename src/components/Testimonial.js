@@ -2,17 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import between from 'polished/lib/mixins/between'
 import PropTypes from 'prop-types'
-import media from '../styleUtils/media'
 import Blockquote from './Blockquote'
+import PageWrapper from './PageWrapper'
 
 const Testimonial = ({ text, footerText, footerAside, children }) => {
   return (
-    <TestimonialWrapper>
+    <PageWrapper>
       <TestimonialText>{text}</TestimonialText>
       {!!footerText && <TestimonialFooter>{footerText}</TestimonialFooter>}
       <TestimonialFooterAside>{footerAside}</TestimonialFooterAside>
       {children}
-    </TestimonialWrapper>
+    </PageWrapper>
   )
 }
 
@@ -20,19 +20,6 @@ Testimonial.propTypes = {
   text: PropTypes.string.isRequired,
   footerText: PropTypes.string,
 }
-
-const TestimonialWrapper = styled.div`
-  margin: 0 auto;
-  padding: 0 1rem;
-  text-align: center;
-  max-width: 66.66%;
-  ${media.tablet`
-    max-width: 83.33%;
-  `};
-  ${media.phone`
-    max-width: 100%;
-  `};
-`
 
 const TestimonialText = styled(Blockquote)`
   color: #666;
