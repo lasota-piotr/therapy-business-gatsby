@@ -4,6 +4,7 @@ import media from '../styleUtils/media'
 import Button from './Button'
 import Modal from './Modal'
 import ContactFormRecaptcha from './ContactFormRecaptcha'
+import useForm from '../hooks/useForm'
 
 const encode = data =>
   Object.entries(data)
@@ -13,41 +14,44 @@ const encode = data =>
     )
     .join('&')
 
+const initialValues = {
+  name: '',
+  email: '',
+  bot: '',
+  message: '',
+}
+
 const ContactForm = () => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-  const [bot, setBot] = useState('')
   const [recaptchaResponse, setRecaptchaResponse] = useState(null)
   const [showModal, setShowModal] = useState(false)
 
-  const handleSuccess = () => {
-    setName('')
-    setEmail('')
-    setMessage('')
+  const handleSuccess = ({ setValues }) => {
+    setValues(initialValues)
     setShowModal(true)
   }
 
-  const handleSubmit = event => {
-    if (recaptchaResponse) {
-      fetch('/?no-cache=1', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
-          'form-name': 'contact',
-          name,
-          email,
-          bot,
-          message,
-          'g-recaptcha-response': recaptchaResponse,
-        }),
-      })
-        .then(handleSuccess)
-        // eslint-disable-next-line no-console
-        .catch(error => console.error(error.message))
+  const onSubmitHandle = ({ values, setValues }) => {
+    if (!recaptchaResponse) {
+      return
     }
-    event.preventDefault()
+
+    fetch('/?no-cache=1', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': 'contact',
+        'g-recaptcha-response': recaptchaResponse,
+        ...values,
+      }),
+    })
+      .then(() => handleSuccess({ values, setValues }))
+      // eslint-disable-next-line no-console
+      .catch(error => console.error(error.message))
   }
+  const { onChange, onSubmit, values } = useForm({
+    onSubmitHandle,
+    initialValues,
+  })
 
   return (
     <>
@@ -56,15 +60,11 @@ const ContactForm = () => {
         data-netlify="true"
         data-netlify-honeypot="bot"
         data-netlify-recaptcha="true"
-        onSubmit={handleSubmit}
+        onSubmit={onSubmit}
       >
         <input type="hidden" name="form-name" value="contact" />
         <p hidden>
-          <input
-            name="bot"
-            value={bot}
-            onChange={event => setBot(event.target.value)}
-          />
+          <input name="bot" value={values.bot} onChange={onChange} />
         </p>
         <ContactFormLabel css={{ gridArea: 'name' }}>
           Imię:
@@ -73,8 +73,8 @@ const ContactForm = () => {
             name="name"
             autoComplete="name"
             required
-            value={name}
-            onChange={event => setName(event.target.value)}
+            value={values.name}
+            onChange={onChange}
           />
         </ContactFormLabel>
         <ContactFormLabel css={{ gridArea: 'email' }}>
@@ -85,8 +85,8 @@ const ContactForm = () => {
             name="email"
             autoComplete="email"
             required
-            value={email}
-            onChange={event => setEmail(event.target.value)}
+            value={values.email}
+            onChange={onChange}
           />
         </ContactFormLabel>
 
@@ -98,8 +98,8 @@ const ContactForm = () => {
             placeholder="Treść widomości"
             name="message"
             required
-            value={message}
-            onChange={event => setMessage(event.target.value)}
+            value={values.message}
+            onChange={onChange}
           />
         </ContactFormLabelTextArea>
         <ContactFormRecaptcha
