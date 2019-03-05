@@ -1,5 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { Box } from 'rebass'
+import { themeGet } from 'styled-system'
 import { ROOT_PATH } from '../constants/constants'
 import logo from '../assets/twoj-terapeuta.svg'
 import Menu from './Menu'
@@ -39,10 +41,24 @@ const Header = ({ location }) => {
   const isRoot = location.pathname === ROOT_PATH
 
   return (
-    <nav>
+    <Box
+      as="nav"
+      bg="white"
+      css={css`
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        box-shadow: ${themeGet('shadows.small')};
+      `}
+    >
       <NavContainer>
         <HeadingLink to="/">
-          <Logo height="48" width="48" src={logo} alt="Ilona Lasota - Psycholog Warszawa Włochy, Ursus - logo" />
+          <Logo
+            height="48"
+            width="48"
+            src={logo}
+            alt="Ilona Lasota - Psycholog Warszawa Włochy, Ursus - logo"
+          />
           <Heading isRoot={isRoot}>
             <HeadingAccentText>Twój terapeuta</HeadingAccentText> <br />
             <HeadingMainText>Ilona Lasota</HeadingMainText>
@@ -50,7 +66,7 @@ const Header = ({ location }) => {
         </HeadingLink>
         <Menu />
       </NavContainer>
-    </nav>
+    </Box>
   )
 }
 
@@ -73,6 +89,5 @@ const HeadingMainText = styled.span`
 const Logo = styled.img`
   margin-right: 0.75rem;
 `
-
 
 export default Header

@@ -11,7 +11,8 @@ const theme = {
   colors: {
     blue: '#4a90e2',
     gray: '#e4e4ed',
-    lightgray: '#f6f6ff'
+    lightgray: '#f6f6ff',
+    white: '#fff'
   },
   space: [
     0, 4, 8, 16, 32, 64, 128, 256
