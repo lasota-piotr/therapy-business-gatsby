@@ -5,27 +5,38 @@ import heroImage from '../assets/a-day-at-the-park.svg'
 import media from '../styleUtils/media'
 import Button from './Button'
 import LinkPlain from './LinkPlain'
+import { useTransition, animated } from 'react-spring'
 
 const MainHero = () => {
+  const transitions = useTransition(false, null, {
+    from: { transform: 'translate3d(0,25px,0)', opacity: 0 },
+    enter: { transform: 'translate3d(0,0px,0)', opacity: 1 },
+    leave: { transform: 'translate3d(0,25px,0)', opacity: 0 },
+  })
   return (
     <MainHeroContainer>
-      <MainHeroContent>
-        <MainHeroTitle>Otwórz się na zmianę</MainHeroTitle>
-        <MainHeroSubTitle>
-          Psycholog, psychoterapeuta poznawczo&#8209;behawioralny. <br />
-        </MainHeroSubTitle>
-        <MainHeroSubTitleAdditionalText>
-          <strong>Ilona Lasota</strong>: psychoterapia osób dorosłych, młodzieży
-          i par
-        </MainHeroSubTitleAdditionalText>
-        <div>
-          <LinkPlain to="/kontakt">
-            <Button px={4} py={3} fontWeight="bolder">
-              Umów się na wizytę
-            </Button>
-          </LinkPlain>
-        </div>
-      </MainHeroContent>
+      {transitions.map(
+        (item, key, props) =>
+          item && (
+            <MainHeroContent style={props[key].props} key={key}>
+              <MainHeroTitle>Otwórz się na zmianę</MainHeroTitle>
+              <MainHeroSubTitle>
+                Psycholog, psychoterapeuta poznawczo&#8209;behawioralny. <br />
+              </MainHeroSubTitle>
+              <MainHeroSubTitleAdditionalText>
+                <strong>Ilona Lasota</strong>: psychoterapia osób dorosłych,
+                młodzieży i par
+              </MainHeroSubTitleAdditionalText>
+              <div>
+                <LinkPlain to="/kontakt">
+                  <Button px={4} py={3} fontWeight="bolder">
+                    Umów się na wizytę
+                  </Button>
+                </LinkPlain>
+              </div>
+            </MainHeroContent>
+          )
+      )}
 
       <MainHeroImg>
         <img
@@ -37,7 +48,7 @@ const MainHero = () => {
   )
 }
 
-const MainHeroContent = styled.div`
+const MainHeroContent = styled(animated.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
