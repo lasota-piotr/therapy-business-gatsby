@@ -17,7 +17,7 @@ const TITLE = 'Kontakt'
 const DESCRIPTION =
   'Psycholog i psychoterapeuta - Warszawa Ursus. Umów się na wizytę 📞 737-449-022 - ul. Drzymały 18/24'
 
-const PricingPage = ({ data, location }) => {
+const PricingPage = ({ location }) => {
   return (
     <Layout location={location}>
       <Helmet

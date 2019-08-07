@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
-import { navigate } from 'gatsby'
 import {
   Accordion as AccordionComponent,
   AccordionItem,
   AccordionItemTitle,
   AccordionItemBody,
 } from 'react-accessible-accordion'
+import PropTypes from 'prop-types'
 import './Accordion.css'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import PropTypes from 'prop-types'
 import media from '../styleUtils/media'
 import Container from './Container'
 

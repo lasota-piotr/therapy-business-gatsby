@@ -49,7 +49,7 @@ class AboutPage extends Component {
           }
           alt="Ilona Lasota - Psycholog Warszawa Ursus"
         />
-        <FeatureLarge innerRef={this.scrollElementRef}>
+        <FeatureLarge ref={this.scrollElementRef}>
           <FeatureLarge.Content>
             <AboutFeatureLargeHeader>Edukacja</AboutFeatureLargeHeader>
             <AboutFeatureLargeBody>

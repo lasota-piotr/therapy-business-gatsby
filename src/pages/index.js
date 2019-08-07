@@ -14,7 +14,6 @@ import LinkFeature from '../components/LinkFeature'
 import MainHero from '../components/MainHero'
 
 class IndexPage extends Component {
-  scrollElementRef = React.createRef()
   render() {
     let { data, location } = this.props
     const siteTitle = get(data, 'site.siteMetadata.title')
@@ -28,7 +27,7 @@ class IndexPage extends Component {
           title={siteTitle}
         />
         <MainHero/>
-        <Cta innerRef={this.scrollElementRef}>
+        <Cta>
           <Cta.Head>
             Nawet najdłuższa droga zaczyna się od pierwszego kroku
           </Cta.Head>
