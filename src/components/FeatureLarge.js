@@ -6,15 +6,17 @@ import PropTypes from 'prop-types'
 import media from '../styleUtils/media'
 import Container from './Container'
 
-const FeatureLarge = ({ children, ...restProps }) => {
+const FeatureLarge = React.forwardRef(({ children, ...restProps }, ref) => {
   return (
-    <FeatureLargeWrapper {...restProps}>
+    <FeatureLargeWrapper {...restProps} ref={ref}>
       <Container>
         <FeatureLargeContainer {...restProps}>{children}</FeatureLargeContainer>
       </Container>
     </FeatureLargeWrapper>
   )
-}
+})
+
+FeatureLarge.displayName = 'FeatureLarge'
 
 FeatureLarge.propTypes = {
   stretchChildren: PropTypes.bool,

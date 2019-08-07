@@ -116,7 +116,7 @@ const MenuContent = styled.div`
     background-color: #fff;
     padding: 0.5rem 1rem;
     box-shadow: 0 0 5px 1px rgba(0,0,0,.1);
-    transform: translateX(100%);
+    transform: translateX(105%);
     transition: all .3s ease-in-out;
     ${({ isOn }) =>
       isOn &&

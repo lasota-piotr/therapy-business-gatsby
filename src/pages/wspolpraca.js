@@ -56,7 +56,7 @@ const CooperationPage = ({ data, location }) => {
           </FeatureLarge.Body>
         </FeatureLarge.Content>
         <CooperationPageOneImg
-          alt="Agnieszka Wojnar-Jadczyszyn - Psycholog Warszawa Włochy, Ursus"
+          alt="Agnieszka Wojnar-Jadczyszyn - Psycholog Warszawa Ursus"
           fluid={data.cooperation1.childImageSharp.fluid}
         />
       </FeatureLarge>

@@ -9,7 +9,7 @@ const BlogPostAuthor = ({ avatar }) => {
       <LinkPlain to="/o-mnie">
         <BlogPostAuthorImage
           fixed={avatar}
-          alt="Psycholog, Psychoterapeuta Ilona Lasota - Warszawa, Włochy"
+          alt="Psycholog, Psychoterapeuta Ilona Lasota - Warszawa, Ursus"
         />
       </LinkPlain>
       <BlogPostAuthorBody>

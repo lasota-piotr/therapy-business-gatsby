@@ -22,7 +22,7 @@ const CooperationPageOne = ({ data, location }) => {
             name: 'description',
             content:
               'Psycholog psychoterapeuta poznawczo-behawioralny.' +
-              ' Psycholog Warszawa Ursus, Włochy. Pomoc w drepesji i zaburzeniach lękowych',
+              ' Psycholog Warszawa Ursus. Pomoc w drepesji i zaburzeniach lękowych',
           },
         ]}
         title={`${TITLE} | Psycholog psychoterapeuta poznawczo-behawioralny`}
@@ -80,7 +80,7 @@ const CooperationPageOne = ({ data, location }) => {
           </FeatureLarge.Body>
         </FeatureLarge.Content>
         <CooperationPageOneImg
-          alt="Agnieszka Wojnar‑Jadczyszyn - Psycholog Warszawa Włochy, Ursus"
+          alt="Agnieszka Wojnar‑Jadczyszyn - Psycholog Warszawa Ursus"
           fluid={data.aboutImage.childImageSharp.fluid}
         />
       </FeatureLarge>
@@ -110,9 +110,9 @@ const CooperationPageOne = ({ data, location }) => {
                 </Link>
               </p>
               <p>
-                ul. Potrzebna 35/11
+                ul. Drzymały 18/24
                 <br />
-                Warszawa, Włochy
+                Warszawa, Ursus
                 <br />
                 02-448
               </p>
@@ -121,7 +121,7 @@ const CooperationPageOne = ({ data, location }) => {
 
 
             <ContactMapFull
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.829366788377!2d20.917154215631697!3d52.21014826689819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471934caccc7e34d%3A0x8dac5ce052091a6d!2sPotrzebna+35%2C+00-001+Warszawa!5e0!3m2!1sen!2spl!4v1537125654013"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d21535.395632521202!2d20.88825869233406!3d52.20062165334507!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471935530fc963c5%3A0xfbdd07908a12c7ea!2sDobra+Przestrze%C5%84+%E2%80%94+psychoterapia%2C+ruch+i+rozw%C3%B3j!5e0!3m2!1sen!2spl!4v1562419625675!5m2!1sen!2spl"
               width="100%"
               height="450"
               frameBorder="0"

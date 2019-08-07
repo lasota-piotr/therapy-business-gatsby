@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { Box } from 'rebass'
-import { themeGet } from 'styled-system'
+import { themeGet } from '@styled-system/theme-get'
 import { ROOT_PATH } from '../constants/constants'
 import logo from '../assets/twoj-terapeuta.svg'
 import Menu from './Menu'
@@ -43,12 +43,12 @@ const Header = ({ location }) => {
   return (
     <Box
       as="nav"
-      bg="white"
       css={css`
         position: sticky;
         top: 0;
         z-index: 2;
         box-shadow: ${themeGet('shadows.small')};
+        background-color: ${themeGet('colors.white')};
       `}
     >
       <NavContainer>
@@ -57,7 +57,7 @@ const Header = ({ location }) => {
             height="48"
             width="48"
             src={logo}
-            alt="Ilona Lasota - Psycholog Warszawa Włochy, Ursus - logo"
+            alt="Ilona Lasota - Psycholog Warszawa Ursus - logo"
           />
           <Heading isRoot={isRoot}>
             <HeadingAccentText>Twój terapeuta</HeadingAccentText> <br />
