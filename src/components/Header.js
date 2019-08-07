@@ -57,7 +57,7 @@ const Header = ({ location }) => {
             height="48"
             width="48"
             src={logo}
-            alt="Ilona Lasota - Psycholog Warszawa Włochy, Ursus - logo"
+            alt="Ilona Lasota - Psycholog Warszawa Ursus - logo"
           />
           <Heading isRoot={isRoot}>
             <HeadingAccentText>Twój terapeuta</HeadingAccentText> <br />

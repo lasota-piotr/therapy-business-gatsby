@@ -50,7 +50,7 @@ class IndexPage extends Component {
             </FeatureLarge.Body>
           </FeatureLarge.Content>
           <FeatureLarge.Img
-            alt="Ilona Lasota - Psycholog Warszawa Włochy, Ursus"
+            alt="Ilona Lasota - Psycholog Warszawa Ursus"
             fluid={data.aboutImage.childImageSharp.fluid}
           />
         </FeatureLarge>

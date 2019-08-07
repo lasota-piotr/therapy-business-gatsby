@@ -41,7 +41,7 @@ const MainHero = () => {
       <MainHeroImg>
         <img
           src={heroImage}
-          alt="psycholog psychoterapeuta Warszawa Włochy Urus"
+          alt="psycholog psychoterapeuta Warszawa Urus"
         />
       </MainHeroImg>
     </MainHeroContainer>

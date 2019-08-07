@@ -15,7 +15,7 @@ import media from '../styleUtils/media'
 
 const TITLE = 'Kontakt'
 const DESCRIPTION =
-  'Psycholog i psychoterapeuta - Warszawa Włochy, Ursus. Umów się na wizytę 📞 737-449-022 - ul. Potrzebna 35/11 '
+  'Psycholog i psychoterapeuta - Warszawa Ursus. Umów się na wizytę 📞 737-449-022 - ul. Drzymały 18/24'
 
 const PricingPage = ({ data, location }) => {
   return (
@@ -28,7 +28,7 @@ const PricingPage = ({ data, location }) => {
       <Masthead>
         <Masthead.Head>{TITLE}</Masthead.Head>
         <Masthead.Text>
-          Psycholog i psychoterapeuta - Warszawa Włochy, Ursus
+          Psycholog i psychoterapeuta - Warszawa Ursus
         </Masthead.Text>
       </Masthead>
       <ContactFeatureLarge>
@@ -45,9 +45,9 @@ const PricingPage = ({ data, location }) => {
               </Link>
             </p>
             <p>
-              ul. Potrzebna 35/11
+              ul. Drzymały 18/24
               <br />
-              Warszawa, Włochy
+              Warszawa, Ursus
               <br />
               02-448
             </p>
@@ -57,7 +57,7 @@ const PricingPage = ({ data, location }) => {
       </ContactFeatureLarge>
 
       <ContactMapFullWithMargin
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.8295476809885!2d20.917154215795918!3d52.21014497975672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471935a5f74da771%3A0x97e6d82a5a62080!2sPsychoterapeuta+Ilona+Lasota+-+Prywatny+Gabinet+Psychoterapii!5e0!3m2!1sen!2spl!4v1536359049467"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d21535.395632521202!2d20.88825869233406!3d52.20062165334507!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471935530fc963c5%3A0xfbdd07908a12c7ea!2sDobra+Przestrze%C5%84+%E2%80%94+psychoterapia%2C+ruch+i+rozw%C3%B3j!5e0!3m2!1sen!2spl!4v1562419625675!5m2!1sen!2spl"
         width="100%"
         height="450"
         frameBorder="0"
