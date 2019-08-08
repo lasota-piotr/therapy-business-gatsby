@@ -49,7 +49,7 @@ const PricingPage = ({ location }) => {
               <br />
               Warszawa, Ursus
               <br />
-              02-448
+              02-495
             </p>
           </FeatureLarge.Body>
         </FeatureLarge.Content>
