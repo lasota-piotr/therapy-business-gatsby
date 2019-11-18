@@ -39,11 +39,11 @@ const CooperationPageOne = ({ data, location }) => {
           <FeatureLarge.Header>O mnie</FeatureLarge.Header>
           <FeatureLarge.Body>
             <p>
-              Jestem psychologiem i psychoterapeutą poznawczo-behawioralnym w
-              trakcie certyfikacji. Ukończyłam Wydział Psychologii Uniwersytetu
-              Marii Curie-Skłodowskiej w Lublinie, specjalność: psychologia
-              kliniczna i neuropsychologia. Obecnie jestem w trakcie 4&#8209;letniego
-              szkolenia w zakresie psychoterapii poznawczo – behawioralnej w
+              Jestem psychologiem i certyfikowanym psychoterapeutą
+              poznawczo-behawioralnym. Ukończyłam Wydział Psychologii
+              Uniwersytetu Marii Curie-Skłodowskiej w Lublinie, specjalność:
+              psychologia kliniczna i neuropsychologia. Ukończyłam 4 letnie
+              szkolenie w zakresie psychoterapii poznawczo – behawioralnej w
               Centrum CBT w Warszawie akredytowanego przez Polskie Towarzystwo
               Terapii Poznawczej i Behawioralnej, pogłębiając swoją wiedzę
               uczestniczę również w szkoleniach z Terapii Schematu, która
@@ -119,16 +119,14 @@ const CooperationPageOne = ({ data, location }) => {
             </FeatureLarge.Body>
           </FeatureLarge.Content>
 
-
-            <ContactMapFull
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d21535.395632521202!2d20.88825869233406!3d52.20062165334507!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471935530fc963c5%3A0xfbdd07908a12c7ea!2sDobra+Przestrze%C5%84+%E2%80%94+psychoterapia%2C+ruch+i+rozw%C3%B3j!5e0!3m2!1sen!2spl!4v1562419625675!5m2!1sen!2spl"
-              width="100%"
-              height="450"
-              frameBorder="0"
-              style={{ border: 0 }}
-              allowFullScreen
-            />
-
+          <ContactMapFull
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d21535.395632521202!2d20.88825869233406!3d52.20062165334507!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471935530fc963c5%3A0xfbdd07908a12c7ea!2sDobra+Przestrze%C5%84+%E2%80%94+psychoterapia%2C+ruch+i+rozw%C3%B3j!5e0!3m2!1sen!2spl!4v1562419625675!5m2!1sen!2spl"
+            width="100%"
+            height="450"
+            frameBorder="0"
+            style={{ border: 0 }}
+            allowFullScreen
+          />
         </FeatureLarge>
       </section>
     </Layout>

@@ -53,16 +53,15 @@ class AboutPage extends Component {
           <FeatureLarge.Content>
             <AboutFeatureLargeHeader>Edukacja</AboutFeatureLargeHeader>
             <AboutFeatureLargeBody>
-              Jestem psychologiem i psychoterapeutą poznawczo&#8209;behawioralnym w
-              trakcie procesu certyfikacji. Ukończyłam pięcioletnie studia
+              Jestem psychologiem i certyfikowanym psychoterapeutą
+              poznawczo&#8209;behawioralnym. Ukończyłam pięcioletnie studia
               magisterskie na kierunku psychologia na Uniwersytecie Warszawskim
-              ze specjalizacją terapia rodzin i małżeństw. Obecnie jestem na
-              ostatnim roku 4&#8209;letniego szkolenia w zakresie terapii
-              poznawczo&#8209;behawioralnej w Szkole Psychoterapii Centrum CBT,
-              rekomendowanej przez Polskie Towarzystwo Terapii Poznawczej i
-              Behawioralnej (PTTPB). Stale poszerzam zakres swojej wiedzy
-              uczestnicząc w szkoleniach i warsztatach. Swoją pracę poddaje
-              regularnej superwizji.
+              ze specjalizacją terapia rodzin i małżeństw. Ukończyłam 4 letnie
+              szkolenie w zakresie terapii poznawczo&#8209;behawioralnej w
+              Szkole Psychoterapii Centrum CBT, rekomendowanej przez Polskie
+              Towarzystwo Terapii Poznawczej i Behawioralnej (PTTPB). Stale
+              poszerzam zakres swojej wiedzy uczestnicząc w szkoleniach i
+              warsztatach. Swoją pracę poddaje regularnej superwizji.
             </AboutFeatureLargeBody>
           </FeatureLarge.Content>
           <AboutFeatureLargeImage src={graduation} alt="Edukacja" />
@@ -73,7 +72,7 @@ class AboutPage extends Component {
           <FeatureLarge.Content>
             <AboutFeatureLargeHeader>Doświadczenie</AboutFeatureLargeHeader>
             <AboutFeatureLargeBody>
-              Od 4 lat współpracuję z Świętokrzyskim Ośrodkiem Terapii, gdzie
+              Od 5 lat współpracuję z Świętokrzyskim Ośrodkiem Terapii, gdzie
               zajmuję się prowadzeniem terapii oraz poradnictwem w Poradni
               Psychologicznej, Poradni Zdrowia Psychicznego oraz Zespole
               Leczenia Środowiskowego. Doświadczenie zawodowe zdobywałam również

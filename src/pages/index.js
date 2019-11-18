@@ -40,8 +40,8 @@ class IndexPage extends Component {
             <FeatureLarge.Header>O mnie</FeatureLarge.Header>
             <FeatureLarge.Body>
               <p>
-                Jestem psychologiem i psychoterapeutą
-                poznawczo&#8209;behawioralnym w trakcie procesu certyfikacji. W
+                Jestem psychologiem i certyfikowanym psychoterapeutą
+                poznawczo&#8209;behawioralnym. W
                 swojej pracy terapeutycznej posługuję się głównie podejściem
                 poznawczo&#8209;behawioralnym oraz terapią schematu.
               </p>
