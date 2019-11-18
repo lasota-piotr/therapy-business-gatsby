@@ -9,7 +9,7 @@ import LinkPlain from './LinkPlain'
 const MainHero = () => {
   return (
     <MainHeroContainer>
-      <MainHeroContent style={props[key].props} key={key}>
+      <MainHeroContent>
         <MainHeroTitle>Otwórz się na zmianę</MainHeroTitle>
         <MainHeroSubTitle>
           Psycholog, psychoterapeuta poznawczo&#8209;behawioralny. <br />
@@ -33,7 +33,7 @@ const MainHero = () => {
   )
 }
 
-const MainHeroContent = styled(animated.div)`
+const MainHeroContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
