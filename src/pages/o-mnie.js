@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
@@ -14,6 +14,8 @@ import ether from '../assets/ether.svg'
 import highFive from '../assets/high-five.svg'
 import Hero from '../components/Hero'
 import { TITLE_SUFFIX } from '../constants/constants'
+import Link from '../components/Link'
+import Masthead from '../components/Masthead'
 
 const TITLE = 'O mnie'
 
@@ -49,6 +51,9 @@ class AboutPage extends Component {
           }
           alt="Ilona Lasota - Psycholog Warszawa Ursus"
         />
+        <Masthead>
+          <Masthead.Head>{TITLE}</Masthead.Head>
+        </Masthead>
         <FeatureLarge ref={this.scrollElementRef}>
           <FeatureLarge.Content>
             <AboutFeatureLargeHeader>Edukacja</AboutFeatureLargeHeader>
@@ -72,9 +77,16 @@ class AboutPage extends Component {
           <FeatureLarge.Content>
             <AboutFeatureLargeHeader>Doświadczenie</AboutFeatureLargeHeader>
             <AboutFeatureLargeBody>
-              Od 5 lat współpracuję z Świętokrzyskim Ośrodkiem Terapii, gdzie
-              zajmuję się prowadzeniem terapii oraz poradnictwem w Poradni
-              Psychologicznej, Poradni Zdrowia Psychicznego oraz Zespole
+              Jestem współzałożycielem{' '}
+              <Link to="https://www.dobra-przestrzen.pl">
+                centrum psychologicznego Dobra Przestrzeń
+              </Link>
+              .<br /> Od 5 lat współpracuję z{' '}
+              <Link to="http://sot.ostrowiec.pl">
+                Świętokrzyskim Ośrodkiem Terapii
+              </Link>
+              , gdzie zajmuję się prowadzeniem terapii oraz poradnictwem w
+              Poradni Psychologicznej, Poradni Zdrowia Psychicznego oraz Zespole
               Leczenia Środowiskowego. Doświadczenie zawodowe zdobywałam również
               współpracując z Poradnią Zdrowia Psychicznego z oddziałami w
               Warszawie i Legionowie.

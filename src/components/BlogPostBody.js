@@ -5,8 +5,7 @@ import media from '../styleUtils/media'
 const BlogPostBody = styled.div`
   p {
     color: #333;
-    margin-top: 1.75rem;
-    margin-bottom: 0;
+    margin-bottom: 1.75rem;
     font-family: ${({ theme }) => theme.fonts.serif};
     font-size: 20px;
     line-height: 1.58;
@@ -14,6 +13,10 @@ const BlogPostBody = styled.div`
       font-size: ${between('16.8px', '18px', '280px', '1000px')};
       margin-top: 1.25rem;
     `};
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
   }
 
   strong {

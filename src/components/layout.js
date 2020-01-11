@@ -2,6 +2,7 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import '../styles/main.scss'
 import Header from './Header'
+import Seo from './Seo'
 
 const theme = {
   breakpoints: ['40em', '52em', '64em'],
@@ -32,19 +33,18 @@ const theme = {
   containerPaddingHorizontal: '1rem',
 }
 
-class Layout extends React.Component {
-  render() {
-    const { location, children } = this.props
+const Layout = props => {
+  const { location, children } = props
 
-    return (
-      <ThemeProvider theme={theme}>
-        <>
-          <Header location={location} />
-          {children}
-        </>
-      </ThemeProvider>
-    )
-  }
+  return (
+    <ThemeProvider theme={theme}>
+      <>
+        <Seo location={location} />
+        <Header location={location} />
+        {children}
+      </>
+    </ThemeProvider>
+  )
 }
 
 export default Layout

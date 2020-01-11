@@ -26,7 +26,7 @@ class IndexPage extends Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        <MainHero/>
+        <MainHero />
         <Cta>
           <Cta.Head>
             Nawet najdłuższa droga zaczyna się od pierwszego kroku
@@ -41,9 +41,9 @@ class IndexPage extends Component {
             <FeatureLarge.Body>
               <p>
                 Jestem psychologiem i certyfikowanym psychoterapeutą
-                poznawczo&#8209;behawioralnym. W
-                swojej pracy terapeutycznej posługuję się głównie podejściem
-                poznawczo&#8209;behawioralnym oraz terapią schematu.
+                poznawczo&#8209;behawioralnym. W swojej pracy terapeutycznej
+                posługuję się głównie podejściem poznawczo&#8209;behawioralnym
+                oraz terapią schematu.
               </p>
               <LinkFeature to="/o-mnie">Dowiedz się więcej »</LinkFeature>
             </FeatureLarge.Body>
@@ -85,7 +85,10 @@ export const pageQuery = graphql`
         description
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulBlogPost(
+      sort: { fields: [publishDate], order: DESC }
+      limit: 3
+    ) {
       edges {
         node {
           title
