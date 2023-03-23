@@ -19,7 +19,7 @@ const Pricing = () => {
               <PricingElementHeader>
                 Psychoterapia indywidualna / konsultacja
               </PricingElementHeader>
-              <PricingElementSubHeader>170 zł</PricingElementSubHeader>
+              <PricingElementSubHeader>220 zł</PricingElementSubHeader>
               <PricingElementSmall>sesja 50 min</PricingElementSmall>
             </PricingContent>
             <PricingButton>Zarezewuj wizytę</PricingButton>
@@ -30,17 +30,8 @@ const Pricing = () => {
               <PricingElementHeader>
                 Pschoterapia pary / konsultacja
               </PricingElementHeader>
-              <PricingElementSubHeader>250 zł</PricingElementSubHeader>
+              <PricingElementSubHeader>320 zł</PricingElementSubHeader>
               <PricingElementSmall>sesja 80 min</PricingElementSmall>
-            </PricingContent>
-            <PricingButton>Zarezewuj wizytę</PricingButton>
-          </PricingElement>
-          <PricingElement>
-            <PricingContent>
-              <PricingImage src={house} alt="Psychoterapia w domu" />
-              <PricingElementHeader>Wizyta domowa</PricingElementHeader>
-              <PricingElementSubHeader>300 zł</PricingElementSubHeader>
-              <PricingElementSmall>sesja 50 min</PricingElementSmall>
             </PricingContent>
             <PricingButton>Zarezewuj wizytę</PricingButton>
           </PricingElement>
