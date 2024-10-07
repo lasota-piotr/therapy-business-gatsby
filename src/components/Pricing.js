@@ -19,7 +19,7 @@ const Pricing = () => {
               <PricingElementHeader>
                 Psychoterapia indywidualna / konsultacja
               </PricingElementHeader>
-              <PricingElementSubHeader>220 zł</PricingElementSubHeader>
+              <PricingElementSubHeader>250 zł</PricingElementSubHeader>
               <PricingElementSmall>sesja 50 min</PricingElementSmall>
             </PricingContent>
             <PricingButton>Zarezewuj wizytę</PricingButton>
@@ -30,7 +30,7 @@ const Pricing = () => {
               <PricingElementHeader>
                 Pschoterapia pary / konsultacja
               </PricingElementHeader>
-              <PricingElementSubHeader>320 zł</PricingElementSubHeader>
+              <PricingElementSubHeader>350 zł</PricingElementSubHeader>
               <PricingElementSmall>sesja 80 min</PricingElementSmall>
             </PricingContent>
             <PricingButton>Zarezewuj wizytę</PricingButton>
